@@ -63,7 +63,7 @@
                   <div class="text-center">
                     <button type="submit" class="btn btn-warning  btn-block enter-btn">Verify</button>
                   </div>
-                  <p class="text-left mb-3">Wait for about 5mins, If code is not in INBOX, Kindly check your spam folder for OTP code. <br><a href="verify-code?email={{ $email }}">Request another code</a></p>
+                  <p class="text-left mb-3">Wait for about 5mins, If code is not in INBOX, Kindly check your spam folder for OTP code. <br><a href="resend-code?email={{ $email }}">Request another code</a></p>
 
                   <p class="sign-up text-center">Already had an account?<a href="login">Login</a></p>
                 </form>
