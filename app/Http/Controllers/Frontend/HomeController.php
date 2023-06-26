@@ -220,7 +220,7 @@ class HomeController extends Controller
 
 
 
-        return view('verify', compact('email'))->with('message', "OTP code is has been resent to $email");
+        return view('auth.verify', compact('email'))->with('message', "OTP code is has been resent to $email");
 
 
 
