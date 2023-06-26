@@ -201,7 +201,7 @@ class HomeController extends Controller
              
         $data = array(
 
-            'fromsender' => 'admin@twbnumbers.com', 'Toolz Bank',
+            'fromsender' => 'notify@toolzbank.tools', 'Toolz Bank',
             'subject' => "OTP Verification Code",
             'toreceiver' => $request->email,
             'code' => $code,
@@ -258,7 +258,7 @@ class HomeController extends Controller
             
             $data = array(
 
-                'fromsender' => 'admin@twbnumbers.com', 'Toolz Bank',
+                'fromsender' => 'notify@toolzbank.tools', 'Toolz Bank',
                 'subject' => "OTP Verification Code",
                 'toreceiver' => $request->email,
                 'code' => $code,
