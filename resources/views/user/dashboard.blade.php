@@ -89,12 +89,12 @@
                 </div>
               </div>
               <div class="col-4">
-                <a href="#" class="badge badge-outline-success my-2">BuyLog</a><br>
+                <a href="device" class="badge badge-outline-success my-2">BuyLog</a><br>
 
 
               </div>
             </div>
-            <h6 class="text-muted font-weight-normal">Total Spent</h6>
+            <h6 class="text-muted font-weight-normal">Total Purchased Logs</h6>
           </div>
         </div>
       </div>
