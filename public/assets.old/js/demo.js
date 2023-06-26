@@ -94,7 +94,7 @@
                     swal({
                         title: 'Sweet',
                         text: "Modal with a custom image ...",
-                        imageUrl: '../../assets/img/ill/ill-1.svg',
+                        imageUrl: '{{url('')}}/assets/img/ill/ill-1.svg',
                         buttonsStyling: false,
                         confirmButtonClass: 'btn btn-primary',
                         confirmButtonText: 'Super!'
