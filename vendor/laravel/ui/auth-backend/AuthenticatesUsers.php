@@ -74,7 +74,14 @@ trait AuthenticatesUsers
     
             $whatapplink = Link::where('name', 'whatsapp')->first()->data ?? null; 
 
-            return view('user.dashboard', compact('transactions', 'amount', 'whatapplink', 'wallet', 'c_logs', 'tc_log', 'request'))->with('success', "Welcome Back");
+            if(Auth::user()->role == 'user'){
+
+                return redirect('user/dashboard');
+
+            }elseif(Auth::user()->role == 'admin'){
+                return redirect('admin/dashboard');
+            }
+
 
         }
   

@@ -88,6 +88,9 @@ class ProductController extends Controller
                 }
 
 
+                $message = "NGN $amount | has been funded by | " . Auth::user()->name;
+                send_notification($message);
+
 
                 return redirect('user/dashboard')->with('message', "Wallet has been funded with $amount");
             }
@@ -161,6 +164,8 @@ class ProductController extends Controller
 
             $pr = ItemLog::where('id', $request->area_code)->first();
 
+
+
             $trx_ref = "TRX - " . random_int(1000000, 9999999);
             $trx = new Transaction();
             $trx->trx_ref = $trx_ref;
@@ -188,55 +193,32 @@ class ProductController extends Controller
 
 
 
+            $message = "Log purchase | NGN $$amount | $trx_ref ";
+            send_notification($message);
+
+
+
 
             ItemLog::where('id', $request->area_code)->delete();
             return redirect('user/dashboard')->with('message', "Log purchase successful");
 
+
+            //send mail
+            $data = array(
+                'fromsender' => 'notify@toolzbank.tools', 'Toolz Bank',
+                'subject' => "LOG Purchase",
+                'toreceiver' => Auth::user()->email,
+                'logdata' => $pr->data,
+                'area_code' => $pr->area_code,
+                'name' => Auth::user()->name,
+            );
+
+            \Illuminate\Support\Facades\Mail::send('mails.log', ["data1" => $data], function ($message) use ($data) {
+                $message->from($data['fromsender']);
+                $message->to($data['toreceiver']);
+                $message->subject($data['subject']);
+            });
         }
-
-        //send mail
-        // $data = array(
-        //     'fromsender' => 'admin@oprime.com.ng', 'Oprime',
-        //     'subject' => "LOG Purchase",
-        //     'toreceiver' => Auth::user()->email,
-        //     'logdata' => $pr->data,
-        //     'area_code' => $pr->area_code,
-        //     'name' => Auth::user()->name,
-
-
-
-        // );
-
-
-
-        // Mail::send('mails.log', ["data1" => $data], function ($message) use ($data) {
-        //     $message->from($data['fromsender']);
-        //     $message->to($data['toreceiver']);
-        //     $message->subject($data['subject']);
-        // });
-
-
-
-        //     $details = [
-        //         'subject' => 'Something bought',
-        //         'name' => $data['toreceiver'],
-        //         'data'=> $data['logdata']
-        //         ];
-
-
-
-
-        // FacadesMail::to('yekeenoluwaseun0001@gmail.com')->send(
-        //     new AdminMail($details)
-
-
-        // );
-        // }
-
-
-
-
-
 
         return back()->with('error', "Insufficient Balance, Fund your wallet");
     }
