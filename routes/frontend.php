@@ -13,7 +13,7 @@ Route::get('/',  			        [FRONTEND\HomeController::class,'index']);
 
 
 
-Route::post('/verify-code', 		    [FRONTEND\HomeController::class,'verify_code']);
+Route::get('/verify-code', 		    [FRONTEND\HomeController::class,'verify_code']);
 
 
 
