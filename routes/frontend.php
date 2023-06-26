@@ -13,11 +13,14 @@ Route::get('/',  			        [FRONTEND\HomeController::class,'index']);
 
 
 
+Route::post('/verify-code', 		    [FRONTEND\HomeController::class,'verify_code']);
+
+
+
 Route::post('/register-user', 		    [FRONTEND\HomeController::class,'create']);
 
 Route::get('/verify', 		    [FRONTEND\HomeController::class,'verify']);
 
-Route::post('/verify-code', 		    [FRONTEND\HomeController::class,'verify_code']);
 
 
 
