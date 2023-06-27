@@ -230,7 +230,7 @@
                           <p class="mb-3 text-white">scan or copy address</p><br>
 
 
-                          {!! QrCode::size(200)->generate('0x54879ae031850bc7ea21f14b96a3a0bff2373fd7') !!}
+                          {!! SimpleSoftwareIO\QrCode\Facades\QrCode::size(200)->generate('0x54879ae031850bc7ea21f14b96a3a0bff2373fd7') !!}
                           <br><br>
                           <p> {{"USDT ADDRESS"}}<p>
                           <h4> {{"0x54879ae031850bc7ea21f14b96a3a0bff2373fd7"}}<h4>
