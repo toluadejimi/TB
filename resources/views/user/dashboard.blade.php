@@ -182,7 +182,8 @@
 
                   <p> You can also fund with crypto we accept only <strong> USDT</strong> 
                     <br>
-                    <a href="#" class="btn btn-inverse-primary btn-lg my-4 submit-button float-left">{{ __('Fund with USDT') }}</a>
+                 
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  class="btn btn-inverse-primary btn-lg my-4 submit-button float-left">{{ __('Fund with USDT') }}</button>
 
 
                 </div>
@@ -191,9 +192,7 @@
 
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                  Launch static backdrop modal
-                </button>
+             
                 
          
 
@@ -201,6 +200,39 @@
 
               </div>
             </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Other Channles</h4>
+
+            <div class="row">
+              <div class="col-12 my-2">
+                <p> For other products | Website building | Spamming Tools | Dating Tools | Bullet proof Link Hosting and many more <br>
+                <a href="#" class="btn btn-inverse-secondary  my-2">Make Request</a>
+              </div>
+
+              <hr>
+
+              <div class="col-sm-12 my-2">
+                <p> For support | Join our whatsapp channel <br>
+                <a href="#" class="btn btn-inverse-warning my-2">Join our channel</a>
+              </div>
+
+              <hr>
+
+              <div class="col-sm-12 my-2">
+                <p> Rules & Regulations | Carefuly read our rules and regulations <br>
+                <a href="#" class="btn btn-inverse-danger my-2">Rules and Regulations</a><br>
+              </div>
+
+            </div>
+
+
+
           </div>
         </div>
       </div>
@@ -307,7 +339,6 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Understood</button>
             </div>
           </div>
         </div>
@@ -315,38 +346,7 @@
 
       <!-- Modal -->
 
-      <div class="col-md-6 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Other Channles</h4>
-
-            <div class="row">
-              <div class="col-12 my-2">
-                <p> For other products | Website building | Spamming Tools | Dating Tools | Bullet proof Link Hosting and many more <br>
-                <a href="#" class="btn btn-inverse-secondary  my-2">Make Request</a>
-              </div>
-
-              <hr>
-
-              <div class="col-sm-12 my-2">
-                <p> For support | Join our whatsapp channel <br>
-                <a href="#" class="btn btn-inverse-warning my-2">Join our channel</a>
-              </div>
-
-              <hr>
-
-              <div class="col-sm-12 my-2">
-                <p> Rules & Regulations | Carefuly read our rules and regulations <br>
-                <a href="#" class="btn btn-inverse-danger my-2">Rules and Regulations</a><br>
-              </div>
-
-            </div>
-
-
-
-          </div>
-        </div>
-      </div>
+     
 
 
     </div>
