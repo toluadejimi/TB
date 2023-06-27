@@ -57,7 +57,6 @@
                     <label>Enter Code</label>
                     <input type="number" placeholder="Enter OTP code here" name="code" required class="form-control text-white p_input">
                     <input type="email" name="email" hidden value="{{ $email }}" class="form-control p_input">
-
                   </div>
                
                   <div class="text-center">
