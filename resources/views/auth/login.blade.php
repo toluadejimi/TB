@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="{{url('')}}/assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{url('')}}/assets/images/favicon.png" />
+
+    <meta name="anymoney-site-verification" content="6Z6LHi2MDYAn_5K9zujm_PkVPijaeV9II9uIjQxjbaoE9kWUjMWsa1ae7ahqxs617R8H">
+
   </head>
   <body>
     <div class="container-scroller">
