@@ -146,7 +146,7 @@
 
                 <div class="row">
                   <div class="col-10 my-2">
-                    <input type="number" name="amount" class="form-control" required autofocus>
+                    <input type="number" name="amount" class="form-control text-white" required autofocus>
                   </div>
 
 

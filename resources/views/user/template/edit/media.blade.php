@@ -5,13 +5,13 @@
       <div class="col-sm-12">
          <div class="form-group">
             <label>{{ __('Template Name') }}</label>
-            <input type="text" name="template_name" required="" class="form-control" value="{{ $template->title }}">
+            <input type="text" name="template_name" required="" class="form-control text-white" value="{{ $template->title }}">
          </div>
       </div>
       <div class="col-sm-12">
          <div class="form-group">
             <label>{{ __('Select File') }}</label>
-            <input id="phone" type="file" class="form-control" name="file"  />
+            <input id="phone" type="file" class="form-control text-white" name="file"  />
             <small>{{__(' Supported file type:')}}</small> <small class="text-danger">{{ __('jpg,jpeg,png,webp,pdf,docx,xlsx,csv,txt') }}</small>
             <br>
             @if(isset($template->body['image']))
@@ -30,7 +30,7 @@
             <label class="col-12 text-left">{{ __('Media Caption:') }}</label>
          </div>
          <div class="form-group">
-            <input class="form-control" name="message" required="" maxlength="1000" value="{{ $template->body['caption'] ?? '' }}" />
+            <input class="form-control text-white" name="message" required="" maxlength="1000" value="{{ $template->body['caption'] ?? '' }}" />
          </div>
       </div>
       <div class="col-sm-12">

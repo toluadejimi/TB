@@ -22,7 +22,7 @@
 				<div class="form-group row mb-4">
 					<label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">{{ __('Subject') }}</label>
 					<div class="col-sm-12 col-md-7">
-						<input type="text" name="subject" maxlength="100" required="" class="form-control">
+						<input type="text" name="subject" maxlength="100" required="" class="form-control text-white">
 					</div>
 				</div>
 				<div class="form-group row mb-4">

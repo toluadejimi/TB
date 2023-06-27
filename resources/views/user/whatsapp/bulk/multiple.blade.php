@@ -36,7 +36,7 @@
 			<div class="modal-body">
 				<div class="form-group">
 					<label>{{ __('Select Number (From)') }}</label>
-					<select class="form-control" id="device_import"  name="device" required="">
+					<select class="form-control text-white" id="device_import"  name="device" required="">
 						<option value="" disabled="" selected="">{{ __('Select Number') }}</option>
 						@foreach($devices as $device)
 						<option value="{{ $device->id }}">{{ $device->name }} (+{{ $device->phone }})</option>
@@ -63,7 +63,7 @@
 			<div class="modal-body">
 				<div class="form-group">
 					<label>{{ __('Select Number (From)') }}</label>
-					<select class="form-control" id="wa-device"  name="device" required="">
+					<select class="form-control text-white" id="wa-device"  name="device" required="">
 						<option value="" disabled="" selected="">{{ __('Select Number') }}</option>
 						@foreach($devices as $device)
 						<option value="{{ $device->id }}" >{{ $device->name }} (+{{ $device->phone }})</option>
@@ -110,7 +110,7 @@
 			<div class="modal-body">
 				<div class="form-group">
 					<label>{{ __('Select Number (From)') }}</label>
-					<select class="form-control" id="device_custom"  name="device" required="">
+					<select class="form-control text-white" id="device_custom"  name="device" required="">
 						@foreach($devices as $device)
 						<option value="{{ $device->id }}">+{{ $device->phone }}</option>
 						@endforeach
@@ -118,12 +118,12 @@
 				</div>
 				<div class="form-group">
 					<label>{{ __('Receiver (To)') }}</label>
-					<input type="number" class="form-control" required="" id="to" placeholder="{{ __('Enter mobile number with country code') }}">
+					<input type="number" class="form-control text-white" required="" id="to" placeholder="{{ __('Enter mobile number with country code') }}">
 					<span class="text-danger to_alert none">{{ __('Add The Whatsapp Number') }}</span>
 				</div>
 				<div class="form-group">
 					<label>{{ __('Message') }}</label>
-					<textarea class="form-control" required="" id="wa_message" maxlength="1000"></textarea>
+					<textarea class="form-control text-white" required="" id="wa_message" maxlength="1000"></textarea>
 					<span class="text-danger message_alert none">{{ __('Add The Message') }}</span>
 				</div>
 			</div>

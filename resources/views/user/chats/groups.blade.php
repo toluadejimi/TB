@@ -61,7 +61,7 @@
 						<input type="text" readonly="" name="group_name" class="form-control bg-white reciver-group">
 					</div>
 					<div class="input-group none sendble-row wa-content-area" >
-						<select class="form-control" name="selecttype" id="select-type">
+						<select class="form-control text-white" name="selecttype" id="select-type">
 							<option value="plain-text">{{ __('Plan Text') }}</option>
 							@if(count($templates) > 0)
 							<option value="template">{{ __('Template') }}</option>
@@ -74,7 +74,7 @@
 							@endforeach
 						</select>
 						@endif
-						<input type="text" name="message" class="form-control" id="plain-text" placeholder="Message" aria-label="Recipient's username" aria-describedby="basic-addon2">
+						<input type="text" name="message" class="form-control text-white" id="plain-text" placeholder="Message" aria-label="Recipient's username" aria-describedby="basic-addon2">
 						<div class="input-group-append">
 							<button class="btn btn-outline-success mr-3 submit-button" type="submit"><i class="fi fi-rs-paper-plane"></i>&nbsp&nbsp {{ __('Sent') }}</button>
 						</div>

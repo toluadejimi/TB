@@ -173,18 +173,18 @@
             <div class="modal-body">
                <div class="form-group">
                   <label>{{ __('Title') }}</label>
-                  <input type="text" name="title" class="form-control" required="">
+                  <input type="text" name="title" class="form-control text-white" required="">
                </div>
                <div class="form-group">
                   <label>{{ __('Status') }}</label>
-                  <select class="form-control" name="status">
+                  <select class="form-control text-white" name="status">
                   	<option value="1">{{ __('Active') }}</option>
                   	<option value="0">{{ __('InActive') }}</option>
                   </select>
                </div>
                <div class="form-group">
                   <label>{{ __('Status') }}</label>
-                  <select class="form-control" name="language">
+                  <select class="form-control text-white" name="language">
                   	@foreach($languages as $languageKey => $language)
                   	<option value="{{ $languageKey }}">{{ $language }}</option>
                   	@endforeach
@@ -212,19 +212,19 @@
             <div class="modal-body">
                <div class="form-group">
                   <label>{{ __('Title') }}</label>
-                  <input type="text" name="title" id="title" class="form-control" required="">
+                  <input type="text" name="title" id="title" class="form-control text-white" required="">
                </div>
               
                <div class="form-group">
                   <label>{{ __('Status') }}</label>
-                  <select class="form-control" name="status" id="status">
+                  <select class="form-control text-white" name="status" id="status">
                   	<option value="1">{{ __('Active') }}</option>
                   	<option value="0">{{ __('InActive') }}</option>
                   </select>
                </div>
                <div class="form-group">
                   <label>{{ __('Status') }}</label>
-                  <select class="form-control" name="language" id="language">
+                  <select class="form-control text-white" name="language" id="language">
                   	@foreach($languages as $languageKey => $language)
                   	<option value="{{ $languageKey }}">{{ $language }}</option>
                   	@endforeach

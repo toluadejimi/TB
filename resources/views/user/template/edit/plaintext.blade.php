@@ -5,7 +5,7 @@
       <div class="col-sm-12">
          <div class="form-group">
             <label>{{ __('Template Name') }}</label>
-            <input type="text" name="template_name" class="form-control" value="{{ $template->title }}">
+            <input type="text" name="template_name" class="form-control text-white" value="{{ $template->title }}">
          </div>
       </div>
       <div class="col-sm-12">

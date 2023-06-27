@@ -26,37 +26,37 @@
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Name') }}</label>
                     <div class="col-lg-12">
-                        <input type="text" name="name" required="" class="form-control" value="{{ $customer->name }}">
+                        <input type="text" name="name" required="" class="form-control text-white" value="{{ $customer->name }}">
                     </div>
                 </div>
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Email') }}</label>
                     <div class="col-lg-12">
-                        <input type="email" name="email" required="" class="form-control" value="{{ $customer->email }}">
+                        <input type="email" name="email" required="" class="form-control text-white" value="{{ $customer->email }}">
                     </div>
                 </div>
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Wallet') }}</label>
                     <div class="col-lg-12">
-                        <input type="text" name="wallet"  class="form-control" value="{{ $customer->wallet }}">
+                        <input type="text" name="wallet"  class="form-control text-white" value="{{ $customer->wallet }}">
                     </div>
                 </div>
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Address') }}</label>
                     <div class="col-lg-12">
-                        <input type="text" name="address"  class="form-control" value="{{ $customer->address }}">
+                        <input type="text" name="address"  class="form-control text-white" value="{{ $customer->address }}">
                     </div>
                 </div>
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('New Password') }}</label>
                     <div class="col-lg-12">
-                        <input type="text" name="password"  class="form-control" value="">
+                        <input type="text" name="password"  class="form-control text-white" value="">
                     </div>
                 </div>
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Status') }}</label>
                     <div class="col-lg-12">
-                       <select class="form-control" name="status">
+                       <select class="form-control text-white" name="status">
                        	 <option value="1" {{ $customer->status == 1 ? 'selected' : '' }}>{{ __('Active') }}</option>
                        	 <option value="0" {{ $customer->status == 0 ? 'selected' : '' }}>{{ __('Deactive') }}</option>
                        </select>

@@ -76,7 +76,7 @@
                      <div class="col-xl-6 col-md-6">
                         <div class="form-group mb-3">
                            <label>Choose Item</label>
-                           <select id="country-dropdown"  required name="product" class="form-control">
+                           <select id="country-dropdown"  required name="product" class="form-control text-white">
                               <option value="">-- Select Item --</option>
                               @foreach ($products as $data)
                               <option value="{{$data->item_id}}">
@@ -92,7 +92,7 @@
 
                         <div class="form-group mb-3">
                            <label>Choose Area Code</label>
-                           <select id="state-dropdown" rwquired name="area_code" class="form-control">
+                           <select id="state-dropdown" rwquired name="area_code" class="form-control text-white">
                            </select>
 
 
@@ -106,7 +106,7 @@
                      
                         <div class="form-group">
                            <label>Amount (NGN)</label>
-                           <select id="city-dropdown" required name="amount" class="form-control">
+                           <select id="city-dropdown" required name="amount" class="form-control text-white">
                            </select>
                         </div>
                         
@@ -118,7 +118,7 @@
 
                         <div class="form-group mb-3">
                            <label>Quantity</label>
-                           <input type="number" name="qty[]" id="qty" value="1" required class="form-control">
+                           <input type="number" name="qty[]" id="qty" value="1" required class="form-control text-white">
                            </select>
                         </div>
 
@@ -246,7 +246,7 @@
                            <div class="form-group mb-3">
 
                               <label>Choose Item</label>
-                              <select id="netp" class="form-control">
+                              <select id="netp" class="form-control text-white">
                                  <option value="">-- Select Item --</option>
                                  @foreach ($netflix_p as $data)
                                  <option value="{{$data->item_id}}">
@@ -258,13 +258,13 @@
 
                            <div class="form-group mb-3">
                               <label>Amount (NGN)</label>
-                              <select id="net-amount" class="form-control">
+                              <select id="net-amount" class="form-control text-white">
                               </select>
                            </div>
 
                            <div class="form-group mb-3">
                               <label>Quantity</label>
-                              <input type="number" name="qty" id="qty" value="1" required class="form-control">
+                              <input type="number" name="qty" id="qty" value="1" required class="form-control text-white">
                               </select>
                            </div>
 

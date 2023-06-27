@@ -5,19 +5,19 @@
       <div class="col-sm-12">
          <div class="form-group">
             <label>{{ __('Template Name') }}</label>
-            <input type="text" name="template_name" class="form-control" value="{{ $template->title }}">
+            <input type="text" name="template_name" class="form-control text-white" value="{{ $template->title }}">
          </div>
       </div>
       <div class="col-sm-6">
          <div class="form-group">
             <label>{{ __('Latitude') }}</label>
-            <input type="number" step="any" name="degreesLatitude" required="" class="form-control" placeholder="Example: 24.121231" value="{{ $template->body['location']['degreesLatitude'] ?? '' }}">
+            <input type="number" step="any" name="degreesLatitude" required="" class="form-control text-white" placeholder="Example: 24.121231" value="{{ $template->body['location']['degreesLatitude'] ?? '' }}">
          </div>
       </div>
       <div class="col-sm-6">
          <div class="form-group">
             <label>{{ __('Longitude') }}</label>
-            <input type="number" step="any" name="degreesLongitude" required="" class="form-control" placeholder="Example: 55.1121221" value="{{ $template->body['location']['degreesLongitude'] ?? '' }}">
+            <input type="number" step="any" name="degreesLongitude" required="" class="form-control text-white" placeholder="Example: 55.1121221" value="{{ $template->body['location']['degreesLongitude'] ?? '' }}">
          </div>
       </div>
       <div class="col-sm-12">

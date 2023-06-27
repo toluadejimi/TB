@@ -89,7 +89,7 @@
 				<h3 class="mb-0">{{ __('Blogs') }}</h3>
 				<form action="" class="card-header-form">
 					<div class="input-group">
-						<input type="text" name="search" value="{{ $request->search ?? '' }}" class="form-control" placeholder="title......">
+						<input type="text" name="search" value="{{ $request->search ?? '' }}" class="form-control text-white" placeholder="title......">
 						
 						<div class="input-group-btn">
 							<button class="btn btn-neutral btn-icon"><i class="fas fa-search"></i></button>

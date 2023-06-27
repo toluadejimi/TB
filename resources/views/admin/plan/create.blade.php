@@ -32,7 +32,7 @@
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Upload Log') }}</label>
                     <div class="col-lg-12">
-                        <input type="file" name="file_upload" required="" class="form-control">
+                        <input type="file" name="file_upload" required="" class="form-control text-white">
                     </div>
                 </div>
             
@@ -55,7 +55,7 @@
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Text Now Log') }}</label>
                     <div class="col-lg-12">
-                        <input type="file" name="file_upload" required="" class="form-control">
+                        <input type="file" name="file_upload" required="" class="form-control text-white">
                     </div>
                 </div>
             
@@ -78,7 +78,7 @@
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Netflix Log') }}</label>
                     <div class="col-lg-12">
-                        <input type="file" name="file" required="" class="form-control">
+                        <input type="file" name="file" required="" class="form-control text-white">
                     </div>
                 </div>
             

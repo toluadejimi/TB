@@ -26,13 +26,13 @@
 						<div class="col-sm-12">
 							<div class="form-group">
 								<label>{{ __('Scheduled Name') }}</label>
-								<input type="text" name="title" class="form-control" required="">
+								<input type="text" name="title" class="form-control text-white" required="">
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label>{{ __('Select Number') }}</label>
-								<select class="form-control"  name="device" required="">
+								<select class="form-control text-white"  name="device" required="">
 									@foreach($devices as $device)
 									<option value="{{ $device->id }}">{{ $device->phone }}</option>
 									@endforeach
@@ -66,7 +66,7 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label>{{ __('Delivery date') }}</label>
-								<input type="date" name="date" class="form-control" required="" min="{{ now()->format('Y-m-d') }}">
+								<input type="date" name="date" class="form-control text-white" required="" min="{{ now()->format('Y-m-d') }}">
 							</div>
 						</div>
 						<div class="col-sm-6">
@@ -91,7 +91,7 @@
 					<div class="templates-list none">
 						<div class="form-group">
 							<label>{{ __('Select Template') }}</label>
-							<select  class="form-control" name="template">
+							<select  class="form-control text-white" name="template">
 								@foreach($templates as $template)
 								<option value="{{ $template->id }}">{{ $template->title }}</option>
 								@endforeach

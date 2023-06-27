@@ -55,7 +55,7 @@
 					</div>
 					<div class="form-group">
 						<label>{{ __('Support Status') }}</label>
-						<select class="form-control" name="status">
+						<select class="form-control text-white" name="status">
 							<option value="1" @if($support->status == 1) selected @endif>{{ __('Open') }}</option>
 							<option value="2" @if($support->status == 2) selected @endif>{{ __('Pending') }}</option>
 							<option value="0" @if($support->status == 0) selected @endif>{{ __('Closed') }}</option>

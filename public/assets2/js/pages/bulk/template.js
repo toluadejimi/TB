@@ -18,7 +18,7 @@ $('#add-more').on('click', function() {
 														<a href="javascript:void(0)" data-target=".exist_button${exist_buttons}" class="btn btn-sm btn-danger float-right mb-1 remove-button"><i class="fa fa-trash"></i></a>
 													</div>
 												</div>
-												<input type="text" class="form-control" name="buttons[]"  required="" autofocus="" maxlength="50">
+												<input type="text" class="form-control text-white" name="buttons[]"  required="" autofocus="" maxlength="50">
 											</div>
 										</div>`;
 
@@ -74,7 +74,7 @@ $('#add-more-action').on('click', function() {
                                                 					<label>
                                                 						Button Display Text
                                                 					</label>
-                                                					<input type="text" class="form-control" name="buttons[${exist_buttons}][displaytext]" required="" autofocus="" maxlength="50" placeholder="Button Display Text" />
+                                                					<input type="text" class="form-control text-white" name="buttons[${exist_buttons}][displaytext]" required="" autofocus="" maxlength="50" placeholder="Button Display Text" />
                                                 				</div>
                                                 				<div class="form-group col-sm-4 action-area${exist_buttons}">
                                                 					<label>
@@ -139,7 +139,7 @@ $(document).on('click','#add-more-option',function(){
          <div class="col-sm-12">
             <div class="form-group">
                <label>List Section Title</label>
-               <input  type="text" class="form-control" name="section[${total_exisit_card}][title]" placeholder="Example: Select a fruit" value="" required=""  maxlength="50" />
+               <input  type="text" class="form-control text-white" name="section[${total_exisit_card}][title]" placeholder="Example: Select a fruit" value="" required=""  maxlength="50" />
             </div>
          </div>
       </div>
@@ -153,7 +153,7 @@ $(document).on('click','#add-more-option',function(){
          <div class="col-6">
             <div class="form-group">
                <label>Enter List Value Description</label>
-               <input  type="text" class="form-control" name="section[${total_exisit_card}][value][1][description]" placeholder="Example: Banana is a healthly food" value=""   maxlength="50" />
+               <input  type="text" class="form-control text-white" name="section[${total_exisit_card}][value][1][description]" placeholder="Example: Banana is a healthly food" value=""   maxlength="50" />
             </div>
          </div>
       </div>
@@ -190,7 +190,7 @@ $(document).on('click','.add-more-option-item',function(){
         <div class="form-group">
             <label>Enter List Value Description</label>
             <a href="javascript:void(0)" class="float-right btn btn-sm btn-danger remove-option-item" data-addbutton=".option-item-btn${key}" data-target=".item-${key}-${check_option_item+1}">X</a>
-            <input  type="text" class="form-control" name="section[${key}][value][${check_option_item+1}][description]" placeholder="Example: Banana is a healthly food" value=""   maxlength="50" />
+            <input  type="text" class="form-control text-white" name="section[${key}][value][${check_option_item+1}][description]" placeholder="Example: Banana is a healthly food" value=""   maxlength="50" />
         </div>
     </div>`;
 

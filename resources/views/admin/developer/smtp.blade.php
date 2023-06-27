@@ -24,7 +24,7 @@
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Use Queue Job For Mail Transaction?') }}</label>
                     <div class="col-lg-12">
-                     <select name="QUEUE_MAIL" class="form-control">
+                     <select name="QUEUE_MAIL" class="form-control text-white">
                         <option value="true" @selected(env('QUEUE_MAIL') == true)>{{ __('Enable') }}</option>
                         <option value="false" @selected(env('QUEUE_MAIL') == false)>{{ __('Disable') }}</option>
                       </select>
@@ -33,7 +33,7 @@
                 <div class="from-group row">
                     <label class="col-lg-12">{{ __('Mail driver type') }}</label>
                     <div class="col-lg-12">
-                        <select name="MAIL_DRIVER_TYPE" class="form-control">
+                        <select name="MAIL_DRIVER_TYPE" class="form-control text-white">
                             <option value="MAIL_MAILER" @if(env('MAIL_DRIVER_TYPE') == 'MAIL_MAILER') selected="" @endif>{{ __('MAIL MAILER') }}</option>
                             <option value="MAIL_DRIVER" @if(env('MAIL_DRIVER_TYPE') == 'MAIL_DRIVER') selected="" @endif>{{ __('MAIL DRIVER') }}</option>
                         </select>
@@ -42,7 +42,7 @@
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Mail Driver') }}</label>
                     <div class="col-lg-12">
-                     <select name="MAIL_DRIVER" class="form-control">
+                     <select name="MAIL_DRIVER" class="form-control text-white">
                         <option value="sendmail" @selected($mailDriver == 'sendmail')>{{ __('sendmail') }}</option>
                         <option value="smtp" @selected($mailDriver == 'smtp')>{{ __('smtp') }}</option>
                       </select>
@@ -51,31 +51,31 @@
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Mail Host') }}</label>
                     <div class="col-lg-12">
-                     <input type="text"   name="MAIL_HOST" class="form-control" required="" value="{{ env('MAIL_HOST') }}">
+                     <input type="text"   name="MAIL_HOST" class="form-control text-white" required="" value="{{ env('MAIL_HOST') }}">
                     </div>
                 </div> 
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Mail Port') }}</label>
                     <div class="col-lg-12">
-                     <input type="text"   name="MAIL_PORT" class="form-control" required="" value="{{ env('MAIL_PORT') }}">
+                     <input type="text"   name="MAIL_PORT" class="form-control text-white" required="" value="{{ env('MAIL_PORT') }}">
                     </div>
                 </div> 
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Mail Username') }}</label>
                     <div class="col-lg-12">
-                     <input type="text"   name="MAIL_USERNAME" class="form-control" required="" value="{{ env('MAIL_USERNAME') }}">
+                     <input type="text"   name="MAIL_USERNAME" class="form-control text-white" required="" value="{{ env('MAIL_USERNAME') }}">
                     </div>
                 </div> 
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Mail Password') }}</label>
                     <div class="col-lg-12">
-                     <input type="text"   name="MAIL_PASSWORD" class="form-control" required="" value="{{ env('MAIL_PASSWORD') }}">
+                     <input type="text"   name="MAIL_PASSWORD" class="form-control text-white" required="" value="{{ env('MAIL_PASSWORD') }}">
                     </div>
                 </div> 
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Mail Encryption') }}</label>
                     <div class="col-lg-12">
-                     <select name="MAIL_ENCRYPTION" class="form-control">
+                     <select name="MAIL_ENCRYPTION" class="form-control text-white">
                         <option value="ssl" @selected(env('MAIL_ENCRYPTION') == 'ssl')>{{ __('SSL') }}</option>
                         <option value="tls" @selected(env('MAIL_ENCRYPTION') == 'tls')>{{ __('TLS') }}</option>
                       </select>
@@ -84,19 +84,19 @@
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Mail From Address') }}</label>
                     <div class="col-lg-12">
-                     <input type="email"   name="MAIL_FROM_ADDRESS" class="form-control" placeholder="email" required="" value="{{ env('MAIL_FROM_ADDRESS') }}">
+                     <input type="email"   name="MAIL_FROM_ADDRESS" class="form-control text-white" placeholder="email" required="" value="{{ env('MAIL_FROM_ADDRESS') }}">
                     </div>
                 </div> 
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Mail From Name') }}</label>
                     <div class="col-lg-12">
-                     <input type="text"   name="MAIL_FROM_NAME" class="form-control" placeholder="Website Name" required="" value="{{ env('MAIL_FROM_NAME') }}">
+                     <input type="text"   name="MAIL_FROM_NAME" class="form-control text-white" placeholder="Website Name" required="" value="{{ env('MAIL_FROM_NAME') }}">
                     </div>
                 </div> 
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Incoming Mail') }}</label>
                     <div class="col-lg-12">
-                     <input type="email"   name="MAIL_TO" class="form-control" placeholder="email" required="" value="{{ env('MAIL_TO') }}">
+                     <input type="email"   name="MAIL_TO" class="form-control text-white" placeholder="email" required="" value="{{ env('MAIL_TO') }}">
                     </div>
                 </div>                                  
                 <div class="from-group row mt-3">

@@ -163,7 +163,7 @@
       <div class="modal-body">
         <div class="form-group">
         	<label>{{ __('Template ID') }}</label>
-        	<input type="text" class="form-control" value="" id="templateid" disabled="">
+        	<input type="text" class="form-control text-white" value="" id="templateid" disabled="">
         </div>
       </div>
       <div class="modal-footer">

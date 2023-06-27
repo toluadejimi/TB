@@ -15,6 +15,8 @@ Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => ['auth','user
    Route::get('chatbot-transaction/{days}',      [USER\DashboardController::class, 'getChatbotTransaction'])->name('chatbot.static');
    Route::get('messages-types-transaction/{days}', [USER\DashboardController::class, 'messagesStatics'])->name('types.static');
    
+   Route::post('/fund-wallet-usdt',                      [ProductController::class,'fund_wallet_usdt']);
+
 
    Route::post('/buy-now',                      [ProductController::class,'buyNow']);
    Route::get('/fund-wallet',                  [ProductController::class,'fund_now']);

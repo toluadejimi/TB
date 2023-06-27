@@ -28,14 +28,14 @@
 					<div class="from-group row">
 						<label  class="col-lg-12">{{ __('Blog Title') }}</label>
 						<div class="col-lg-12">
-							<input type="text" name="title" required="" value="{{ $info->title }}" class="form-control">
+							<input type="text" name="title" required="" value="{{ $info->title }}" class="form-control text-white">
 						</div>
 					</div>
 					
 					<div class="from-group row  mt-2">
 						<label  class="col-lg-12">{{ __('Blog Image (Preview)') }}</label>
 						<div class="col-lg-12">
-							<input type="file" class="form-control" name="preview" accept="image/*">
+							<input type="file" class="form-control text-white" name="preview" accept="image/*">
 						</div>
 					</div>
 					<div class="from-group row mt-3">
@@ -53,7 +53,7 @@
 					<div class="from-group row  mt-2">
 						<label  class="col-lg-12">{{ __('Select Langauge') }}</label>
 						<div class="col-lg-12">
-							<select name="language" class="form-control" >
+							<select name="language" class="form-control text-white" >
 								@foreach ($languages ?? [] as $languagesKey => $language)
 								<option value="{{ $languagesKey }}" {{ $languagesKey == $info->lang ? 'selected' : '' }}> {{ $language }} </option>
 								@endforeach
@@ -84,13 +84,13 @@
 					<div class="from-group row mt-3">
 						<label  class="col-lg-12">{{ __('SEO Meta Title') }}</label>
 						<div class="col-lg-12">
-							<input type="text" name="meta_title" required="" value="{{ $seo->title ?? '' }}" class="form-control">
+							<input type="text" name="meta_title" required="" value="{{ $seo->title ?? '' }}" class="form-control text-white">
 						</div>
 					</div>     
 					<div class="from-group row  mt-2">
 						<label  class="col-lg-12">{{ __('SEO Meta Image') }}</label>
 						<div class="col-lg-12">
-							<input type="file" class="form-control" name="meta_image" accept="image/*">
+							<input type="file" class="form-control text-white" name="meta_image" accept="image/*">
 						</div>
 					</div>
 					<div class="from-group row mt-2">
@@ -102,7 +102,7 @@
 					<div class="from-group row mt-2">
 						<label  class="col-lg-12">{{ __('SEO Meta Tags') }}</label>
 						<div class="col-lg-12">
-							<input type="text" name="meta_tags" required="" class="form-control" value="{{ $seo->tags ?? '' }}">
+							<input type="text" name="meta_tags" required="" class="form-control text-white" value="{{ $seo->tags ?? '' }}">
 						</div>
 					</div>
 					<div class="from-group row  mt-3">

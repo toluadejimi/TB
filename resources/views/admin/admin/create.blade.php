@@ -24,19 +24,19 @@
 					<div class="pt-20">
 						<div class="form-group">
 							<label for="name">Name</label>
-							<input type="text" placeholder="Enter Name" name="name" class="form-control" id="name" required="" value="" autocomplete="off">
+							<input type="text" placeholder="Enter Name" name="name" class="form-control text-white" id="name" required="" value="" autocomplete="off">
 						</div>
 						<div class="form-group">
 							<label for="email">Email</label>
-							<input type="email" placeholder="Enter Email" name="email" class="form-control" id="email" required="" value="" autocomplete="off">
+							<input type="email" placeholder="Enter Email" name="email" class="form-control text-white" id="email" required="" value="" autocomplete="off">
 						</div>
 						<div class="form-group">
 							<label for="password">Password</label>
-							<input type="password" placeholder="Enter password" name="password" class="form-control" id="password" required="" value="" autocomplete="off">
+							<input type="password" placeholder="Enter password" name="password" class="form-control text-white" id="password" required="" value="" autocomplete="off">
 						</div>
 						<div class="form-group">
 							<label for="password_confirmation">Password</label>
-							<input type="password" placeholder="Confirm Password" name="password_confirmation" class="form-control" id="password_confirmation" required="" value="" autocomplete="off">
+							<input type="password" placeholder="Confirm Password" name="password_confirmation" class="form-control text-white" id="password_confirmation" required="" value="" autocomplete="off">
 						</div>
 
 						<div class="form-group">

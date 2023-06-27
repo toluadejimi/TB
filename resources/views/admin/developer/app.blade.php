@@ -24,14 +24,14 @@
                 <div class="from-group row">
                     <label class="col-lg-12">{{ __('Application Name') }}</label>
                     <div class="col-lg-12">
-                        <input type="text" name="name"  value="{{ env('APP_NAME') }}" required="" class="form-control">
+                        <input type="text" name="name"  value="{{ env('APP_NAME') }}" required="" class="form-control text-white">
                     </div>
                 </div> 
                 
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Visibility Of Site Error') }}</label>
                     <div class="col-lg-12">
-                        <select class="form-control" name="app_debug">
+                        <select class="form-control text-white" name="app_debug">
                             <option value="true" {{ env('APP_DEBUG') == true ? 'selected' : '' }}>{{ __('Enable') }}</option>
                             <option value="false" {{ env('APP_DEBUG') == false ? 'selected' : '' }}>{{ __('Disable') }}</option>
                         </select>
@@ -40,7 +40,7 @@
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Application Time Zone') }}</label>
                     <div class="col-lg-12">
-                        <select class="form-control" name="timezone">
+                        <select class="form-control text-white" name="timezone">
                             @foreach($tzlist as $timezone)
                             <option value="{{ $timezone }}" {{ env('TIME_ZONE') == $timezone ? 'selected' : '' }}>{{ $timezone }}</option>
                             @endforeach                            
@@ -50,7 +50,7 @@
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Application Default Language') }}</label>
                     <div class="col-lg-12">
-                        <select class="form-control" name="default_lang">
+                        <select class="form-control text-white" name="default_lang">
                             @foreach($languages ?? [] as $langKey => $langauge)
                             <option value="{{ $langKey }}" {{ env('DEFAULT_LANG') == $langKey ? 'selected' : '' }}>{{ $langauge }}</option>
                             @endforeach                            

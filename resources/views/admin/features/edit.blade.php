@@ -26,20 +26,20 @@
 					<div class="from-group row">
 						<label  class="col-lg-12">{{ __('Features Title') }}</label>
 						<div class="col-lg-12">
-							<input type="text" name="title" required="" class="form-control" value="{{ $info->title }}">
+							<input type="text" name="title" required="" class="form-control text-white" value="{{ $info->title }}">
 						</div>
 					</div>
 				
 					<div class="from-group row  mt-2">
 						<label  class="col-lg-12">{{ __('Preview Image') }}</label>
 						<div class="col-lg-12">
-							<input type="file" class="form-control"  name="preview_image" accept="image/*">
+							<input type="file" class="form-control text-white"  name="preview_image" accept="image/*">
 						</div>
 					</div>
 					<div class="from-group row  mt-2">
 						<label  class="col-lg-12">{{ __('Banner Image') }}</label>
 						<div class="col-lg-12">
-							<input type="file" class="form-control"  name="banner_image" accept="image/*">
+							<input type="file" class="form-control text-white"  name="banner_image" accept="image/*">
 						</div>
 					</div>
 					<div class="from-group row mt-2">
@@ -57,7 +57,7 @@
 					<div class="from-group row  mt-2">
 						<label  class="col-lg-12">{{ __('Select Langauge') }}</label>
 						<div class="col-lg-12">
-							<select name="language" class="form-control" >
+							<select name="language" class="form-control text-white" >
 								@foreach ($languages ?? [] as $languagesKey => $language)
 								<option value="{{ $languagesKey }}" {{ $info->lang == $languagesKey ? 'selected' : '' }}> {{ $language }} </option>
 								@endforeach

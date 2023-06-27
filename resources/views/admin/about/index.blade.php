@@ -33,47 +33,47 @@
 									<input type="hidden" name="lang" value="en">
 									<div class="form-group">
 										<label>{{ __('Breadcrumb Title:') }}</label>
-										<input type="text" name="breadcrumb_title" required="" class="form-control" value="{{ $about->breadcrumb_title ?? '' }}" placeholder="About Us">
+										<input type="text" name="breadcrumb_title" required="" class="form-control text-white" value="{{ $about->breadcrumb_title ?? '' }}" placeholder="About Us">
 									</div>
 									<div class="form-group">
 										<label>{{ __('Section Title:') }}</label>
-										<input type="text" name="section_title" required="" class="form-control" value="{{ $about->section_title ?? '' }}" placeholder="Over 12 years of experience in the IT Industry & Tech service">
+										<input type="text" name="section_title" required="" class="form-control text-white" value="{{ $about->section_title ?? '' }}" placeholder="Over 12 years of experience in the IT Industry & Tech service">
 									</div>
 									<div class="form-group">
 										<label>{{ __('About Image 1:') }}</label>
-										<input type="file" name="about_image_1" accept="image/*"  class="form-control" >
+										<input type="file" name="about_image_1" accept="image/*"  class="form-control text-white" >
 									</div>
 									<div class="form-group">
 										<label>{{ __('About Image 2:') }}</label>
-										<input type="file" name="about_image_2" accept="image/*"  class="form-control" >
+										<input type="file" name="about_image_2" accept="image/*"  class="form-control text-white" >
 									</div>
 									<div class="form-group">
 										<label>{{ __('Experience:') }}</label>
-										<input type="number" name="experience"  class="form-control" value="{{ $about->experience ?? '' }}" placeholder="12">
+										<input type="number" name="experience"  class="form-control text-white" value="{{ $about->experience ?? '' }}" placeholder="12">
 									</div>
 									<div class="form-group">
 										<label>{{ __('Experience Title:') }}</label>
-										<input type="text" name="experience_title" required="" class="form-control" value="{{ $about->experience_title ?? '' }}" placeholder="Years of Experience">
+										<input type="text" name="experience_title" required="" class="form-control text-white" value="{{ $about->experience_title ?? '' }}" placeholder="Years of Experience">
 									</div>
 									<div class="form-group">
 										<label>{{ __('About Description:') }}</label>
-										<textarea class="form-control" required="" name="description">{{ $about->description ?? '' }}</textarea>
+										<textarea class="form-control text-white" required="" name="description">{{ $about->description ?? '' }}</textarea>
 									</div>
 									<div class="form-group">
 										<label>{{ __('Section Button Name:') }}</label>
-										<input type="text" name="button_title"  class="form-control" value="{{ $about->button_title ?? ''  }}" placeholder="Check our work">
+										<input type="text" name="button_title"  class="form-control text-white" value="{{ $about->button_title ?? ''  }}" placeholder="Check our work">
 									</div>
 									<div class="form-group">
 										<label>{{ __('Section Button Link:') }}</label>
-										<input type="text" name="button_link"  class="form-control" value="{{ $about->button_link ?? '' }}" placeholder="">
+										<input type="text" name="button_link"  class="form-control text-white" value="{{ $about->button_link ?? '' }}" placeholder="">
 									</div>
 									<div class="form-group">
 										<label>{{ __('Introducing video link (youtube)') }}</label>
-										<input type="text" name="introducing_video"  class="form-control" value="{{ $about->introducing_video ?? '' }}" placeholder="https://www.youtube.com/watch?v=Fu3MIwF-LJw">
+										<input type="text" name="introducing_video"  class="form-control text-white" value="{{ $about->introducing_video ?? '' }}" placeholder="https://www.youtube.com/watch?v=Fu3MIwF-LJw">
 									</div>
 									<div class="form-group">
 										<label>{{ __('Facilities:') }}</label>
-										<textarea class="form-control" name="facilities" placeholder="example1, example2">{{ $about->facilities ?? '' }}</textarea>
+										<textarea class="form-control text-white" name="facilities" placeholder="example1, example2">{{ $about->facilities ?? '' }}</textarea>
 										<small>{{ __('use comma (,) for line break') }}</small>
 									</div>
 									<div class="form-group">
@@ -89,19 +89,19 @@
 
 									<div class="form-group">
 										<label>{{ __('Years of Experience') }}</label>
-										<input type="text" name="counter[experience]"  class="form-control" value="{{ $counter_section->experience ?? '' }}" placeholder="12+" required="">
+										<input type="text" name="counter[experience]"  class="form-control text-white" value="{{ $counter_section->experience ?? '' }}" placeholder="12+" required="">
 									</div>
 									<div class="form-group">
 										<label>{{ __('Active Customers') }}</label>
-										<input type="text" name="counter[active_customers]"  class="form-control" value="{{ $counter_section->active_customers ?? '' }}" placeholder="900+" required="">
+										<input type="text" name="counter[active_customers]"  class="form-control text-white" value="{{ $counter_section->active_customers ?? '' }}" placeholder="900+" required="">
 									</div>
 									<div class="form-group">
 										<label>{{ __('Positive Reviews') }}</label>
-										<input type="text" name="counter[positive_reviews]"  class="form-control" value="{{ $counter_section->positive_reviews ?? '' }}" placeholder="200+" required="">
+										<input type="text" name="counter[positive_reviews]"  class="form-control text-white" value="{{ $counter_section->positive_reviews ?? '' }}" placeholder="200+" required="">
 									</div>
 									<div class="form-group">
 										<label>{{ __('Satisfied clients') }}</label>
-										<input type="text" name="counter[satisfied_customers]"  class="form-control" value="{{ $counter_section->satisfied_customers ?? '' }}" placeholder="600+" required="">
+										<input type="text" name="counter[satisfied_customers]"  class="form-control text-white" value="{{ $counter_section->satisfied_customers ?? '' }}" placeholder="600+" required="">
 									</div>
 									<div class="form-group">
 										<button class="btn btn-neutral submit-button" type="submit">{{ __('Update') }}</button>

@@ -92,8 +92,8 @@
 				<h3 class="mb-0">{{ __('Templates') }}</h3>
 				<form action="" class="card-header-form">
 					<div class="input-group">
-						<input type="text" name="search" value="{{ $request->search ?? '' }}" class="form-control" placeholder="Search......">
-						<select class="form-control" name="type">
+						<input type="text" name="search" value="{{ $request->search ?? '' }}" class="form-control text-white" placeholder="Search......">
+						<select class="form-control text-white" name="type">
 							<option value="email" @if($type == 'email') selected="" @endif>{{ __('User Email') }}</option>
 							<option value="title" @if($type == 'title') selected="" @endif>{{ __('title') }}</option>
 														
@@ -186,19 +186,19 @@
             <div class="modal-body">
                <div class="form-group">
                   <label>{{ __('Receive Email') }}</label>
-                  <input type="email" name="email" class="form-control" required>
+                  <input type="email" name="email" class="form-control text-white" required>
                </div>
                <div class="form-group">
                   <label>{{ __('Title') }}</label>
-                  <input type="text" name="title" class="form-control" required maxlength="100">
+                  <input type="text" name="title" class="form-control text-white" required maxlength="100">
                </div>
                <div class="form-group">
                   <label>{{ __('Description') }}</label>
-                  <textarea class="form-control" required="" name="description" maxlength="200"></textarea>
+                  <textarea class="form-control text-white" required="" name="description" maxlength="200"></textarea>
                </div>
                <div class="form-group">
                   <label>{{ __('Action Link') }}</label>
-                  <input type="url" name="url" class="form-control" required maxlength="100">
+                  <input type="url" name="url" class="form-control text-white" required maxlength="100">
                </div>
                
             </div>

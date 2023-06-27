@@ -42,7 +42,7 @@
                         {{ $key }}
                      </td>
                      <td>
-                        <input type="text" name="values[{{ $key }}]" class="form-control" value="{{ $value }}">
+                        <input type="text" name="values[{{ $key }}]" class="form-control text-white" value="{{ $value }}">
                      </td>
                   </tr>
                   @endforeach
@@ -68,11 +68,11 @@
             <div class="modal-body">
                <div class="form-group">
                   <label>{{ __('Key') }}</label>
-                  <input type="text" name="key" class="form-control" required>
+                  <input type="text" name="key" class="form-control text-white" required>
                </div>
                <div class="form-group">
                   <label>{{ __('Value') }}</label>
-                  <input type="text" name="value" class="form-control" required>
+                  <input type="text" name="value" class="form-control text-white" required>
                </div>
             </div>
             <div class="modal-footer">

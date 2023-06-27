@@ -128,7 +128,7 @@
 								
 								<div class="form-group col-sm-3">
 									<label class="float-left">{{ __('Order Status') }}</label>
-									<select class="form-control" name="status">
+									<select class="form-control text-white" name="status">
 										<option value="1" {{ $order->status == 1 ? 'selected' : '' }}>{{ __('Approved') }}</option>
 										<option value="2" {{ $order->status == 2 ? 'selected' : '' }}>{{ __('Pending') }}</option>
 										<option value="0" {{ $order->status == 0 ? 'selected' : '' }}>{{ __('Rejected') }}</option>
@@ -136,7 +136,7 @@
 								</div>
 								<div class="form-group col-sm-3">
 									<label class="float-left">{{ __('Assign This Plan?') }}</label>
-									<select class="form-control" name="assign_order">
+									<select class="form-control text-white" name="assign_order">
 										<option value="yes">{{ __('Yes') }}</option>
 										<option value="no" selected="">{{ __('No') }}</option>
 										

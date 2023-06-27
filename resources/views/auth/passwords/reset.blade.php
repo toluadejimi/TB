@@ -72,7 +72,7 @@
 
                             <div class="tp-mail">
                               <label for="mail">{{ __('Confirm Password') }}</label>
-                               <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                               <input id="password-confirm" type="password" class="form-control text-white" name="password_confirmation" required autocomplete="new-password">
                               @error('password')
                               <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>

@@ -168,11 +168,11 @@
             <div class="modal-body">
                <div class="form-group">
                   <label>{{ __('Menu Name') }}</label>
-                  <input type="text" name="name" class="form-control" required="" placeholder="Example">
+                  <input type="text" name="name" class="form-control text-white" required="" placeholder="Example">
                </div>
                <div class="form-group">
                   <label>{{ __('Select Menu Position') }}</label>
-                  <select class="form-control" name="position">
+                  <select class="form-control text-white" name="position">
                   	<option value="main-menu">{{ __('Main Menu') }}</option>
                   	<option value="footer-left" class="none">{{ __('Footer Left') }}</option>
                   	<option value="footer-right" class="none">{{ __('Footer right') }}</option>
@@ -181,7 +181,7 @@
                </div>
                <div class="form-group">
                   <label>{{ __('Select Language') }}</label>
-                  <select class="form-control" name="language">
+                  <select class="form-control text-white" name="language">
                   	@foreach($languages as $languageKey => $language)
                   	<option value="{{ $languageKey }}">{{ $language }}</option>
                   	@endforeach
@@ -189,7 +189,7 @@
                </div>
                <div class="form-group">
                   <label>{{ __('Menu Status') }}</label>
-                  <select class="form-control" name="status">
+                  <select class="form-control text-white" name="status">
                     <option value="1">{{ __('Active') }}</option>
                     <option value="0" selected="">{{ __('Draft') }}</option>
                   </select>
@@ -220,11 +220,11 @@
 				 <div class="modal-body">
                <div class="form-group">
                   <label>{{ __('Menu Name') }}</label>
-                  <input type="text" id="name" name="name" class="form-control" required="" placeholder="Example">
+                  <input type="text" id="name" name="name" class="form-control text-white" required="" placeholder="Example">
                </div>
                <div class="form-group">
                   <label>{{ __('Select Menu Position') }}</label>
-                  <select class="form-control" name="position" id="position">
+                  <select class="form-control text-white" name="position" id="position">
                   	<option value="main-menu">{{ __('Main Menu') }}</option>
                   	<option value="footer-left" class="none">{{ __('Footer Left') }}</option>
                   	<option value="footer-right" class="none">{{ __('Footer right') }}</option>
@@ -233,7 +233,7 @@
                </div>
                <div class="form-group">
                   <label>{{ __('Select Language') }}</label>
-                  <select class="form-control" name="language" id="language">
+                  <select class="form-control text-white" name="language" id="language">
                   	@foreach($languages as $languageKey => $language)
                   	<option value="{{ $languageKey }}">{{ $language }}</option>
                   	@endforeach
@@ -241,7 +241,7 @@
                </div>
                <div class="form-group">
                   <label>{{ __('Menu Status') }}</label>
-                  <select class="form-control" name="status" id="status">
+                  <select class="form-control text-white" name="status" id="status">
                     <option value="1">{{ __('Active') }}</option>
                     <option value="0">{{ __('Draft') }}</option>
                   </select>

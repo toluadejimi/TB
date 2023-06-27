@@ -20,13 +20,13 @@
 				<div class="form-group row mb-4">
 					<label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">{{ __('User Name') }}</label>
 					<div class="col-sm-12 col-md-7">
-						<input type="text" name="name" placeholder="Jhone Doe" maxlength="50" class="form-control">
+						<input type="text" name="name" placeholder="Jhone Doe" maxlength="50" class="form-control text-white">
 					</div>
 				</div>
 				<div class="form-group row mb-4">
 					<label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">{{ __('Whatsapp Number') }}</label>
 					<div class="col-sm-12 col-md-7">
-						<input type="number" name="phone" placeholder="{{ __('Enter Phone Number With Country Code') }}" maxlength="15" class="form-control">
+						<input type="number" name="phone" placeholder="{{ __('Enter Phone Number With Country Code') }}" maxlength="15" class="form-control text-white">
 					</div>
 				</div>								
 				<div class="form-group row mb-4">

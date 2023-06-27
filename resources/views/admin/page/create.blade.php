@@ -26,7 +26,7 @@
 				<div class="card-body">
 					<div class="form-group">
 						<label>{{ __('Page Title') }}</label>
-						<input type="text" name="title" required="" class="form-control">
+						<input type="text" name="title" required="" class="form-control text-white">
 					</div>
 					<div class="form-group">
 						<label>{{ __('Page Description') }}</label>
@@ -36,7 +36,7 @@
 					<div class="from-group row">
 						<label class="col-lg-12">{{ __('SEO Meta Title') }}</label>
 						<div class="col-lg-12">
-							<input type="text" name="meta_title" required="" class="form-control">
+							<input type="text" name="meta_title" required="" class="form-control text-white">
 						</div>
 					</div>     
 					<div class="from-group row mt-2">
@@ -48,7 +48,7 @@
 					<div class="from-group row mt-3">
 						<label class="col-lg-12">{{ __('SEO Meta Tags') }}</label>
 						<div class="col-lg-12">
-							<input type="text" name="meta_tags" required="" class="form-control">
+							<input type="text" name="meta_tags" required="" class="form-control text-white">
 						</div>
 					</div>
 					<div class="d-flex mt-2">

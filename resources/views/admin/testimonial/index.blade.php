@@ -97,19 +97,19 @@
             <div class="modal-body">
                <div class="form-group">
                   <label>{{ __('Reviewer Name') }}</label>
-                  <input type="text" name="reviewer_name" maxlength="150" class="form-control" required="">
+                  <input type="text" name="reviewer_name" maxlength="150" class="form-control text-white" required="">
                </div>
                <div class="form-group">
                   <label>{{ __('Reviewer Position') }}</label>
-                  <input type="text" name="reviewer_position" class="form-control" required="" placeholder="CEO of Google" maxlength="50">
+                  <input type="text" name="reviewer_position" class="form-control text-white" required="" placeholder="CEO of Google" maxlength="50">
                </div>
                <div class="form-group">
                   <label>{{ __('Reviewer Avatar') }}</label>
-                  <input type="file" name="reviewer_avatar" accept="image/*" class="form-control" required="">
+                  <input type="file" name="reviewer_avatar" accept="image/*" class="form-control text-white" required="">
                </div>
                 <div class="form-group">
                   <label>{{ __('Review Star') }}</label>
-                  <select class="form-control" name="star">
+                  <select class="form-control text-white" name="star">
                   	<option value="5">{{ __('5 Star') }}</option>
                   	<option value="4">{{ __('4 Star') }}</option>
                   	<option value="3">{{ __('3 Star') }}</option>
@@ -145,19 +145,19 @@
            <div class="modal-body">
                <div class="form-group">
                   <label>{{ __('Reviewer Name') }}</label>
-                  <input type="text" name="reviewer_name" id="reviewer_name" maxlength="150" class="form-control" required="">
+                  <input type="text" name="reviewer_name" id="reviewer_name" maxlength="150" class="form-control text-white" required="">
                </div>
                <div class="form-group">
                   <label>{{ __('Reviewer Position') }}</label>
-                  <input type="text" name="reviewer_position" id="reviewer_position" class="form-control" required="" placeholder="CEO of Google" maxlength="50">
+                  <input type="text" name="reviewer_position" id="reviewer_position" class="form-control text-white" required="" placeholder="CEO of Google" maxlength="50">
                </div>
                <div class="form-group">
                   <label>{{ __('Reviewer Avatar') }}</label>
-                  <input type="file" name="reviewer_avatar" accept="image/*" class="form-control" >
+                  <input type="file" name="reviewer_avatar" accept="image/*" class="form-control text-white" >
                </div>
                 <div class="form-group">
                   <label>{{ __('Review Star') }}</label>
-                  <select class="form-control" name="star" id="star">
+                  <select class="form-control text-white" name="star" id="star">
                   	<option value="5">{{ __('5 Star') }}</option>
                   	<option value="4">{{ __('4 Star') }}</option>
                   	<option value="3">{{ __('3 Star') }}</option>

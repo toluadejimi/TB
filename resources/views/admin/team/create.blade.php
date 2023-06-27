@@ -28,15 +28,15 @@
 				<div class="card-body">
 					<div class="form-group">
 						<label>{{ __('Member Name') }}</label>
-						<input type="text" name="member_name" required="" class="form-control">
+						<input type="text" name="member_name" required="" class="form-control text-white">
 					</div>
 					<div class="form-group">
 						<label>{{ __('Member Position') }}</label>
-						<input type="text" name="member_position" required="" class="form-control">
+						<input type="text" name="member_position" required="" class="form-control text-white">
 					</div>
 					<div class="form-group">
 						<label>{{ __('Profile Picture') }}</label>
-						<input type="file" accept="image/*" name="profile_picture" required="" class="form-control">
+						<input type="file" accept="image/*" name="profile_picture" required="" class="form-control text-white">
 					</div>
 					
 
@@ -46,19 +46,19 @@
 					</div>
 					<div class="form-group">
 						<label>{{ __('Facebook profile link') }}</label>
-						<input type="url" name="socials[facebook]" class="form-control">
+						<input type="url" name="socials[facebook]" class="form-control text-white">
 					</div>
 					<div class="form-group">
 						<label>{{ __('Twitter profile link') }}</label>
-						<input type="url" name="socials[twitter]" class="form-control">
+						<input type="url" name="socials[twitter]" class="form-control text-white">
 					</div>
 					<div class="form-group">
 						<label>{{ __('Linkedin profile link') }}</label>
-						<input type="url" name="socials[linkedin]" class="form-control">
+						<input type="url" name="socials[linkedin]" class="form-control text-white">
 					</div>
 					<div class="form-group">
 						<label>{{ __('Instagram profile link') }}</label>
-						<input type="url" name="socials[instagram]" class="form-control">
+						<input type="url" name="socials[instagram]" class="form-control text-white">
 					</div>
 					<div class="d-flex">
 						<label class="custom-toggle custom-toggle-primary">

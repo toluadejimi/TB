@@ -58,7 +58,7 @@
                                          <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>{{ __('Template Name') }}</label>
-                                                <input type="text" name="template_name" class="form-control" >
+                                                <input type="text" name="template_name" class="form-control text-white" >
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
@@ -85,13 +85,13 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>{{ __('Template Name:') }}</label>
-                                                <input type="text" name="template_name" required="" placeholder="{{ __('Enter Your Template Name') }}" class="form-control">
+                                                <input type="text" name="template_name" required="" placeholder="{{ __('Enter Your Template Name') }}" class="form-control text-white">
                                             </div>
                                         </div>   
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>{{ __('Select File') }}</label>
-                                                <input id="phone" type="file" class="form-control" name="file" required="" />
+                                                <input id="phone" type="file" class="form-control text-white" name="file" required="" />
                                                <small>{{__(' Supported file type:')}}</small> <small class="text-danger">{{ __('jpg,jpeg,png,webp,pdf,docx,xlsx,csv,txt') }}</small>
                                             </div>
                                         </div>
@@ -100,7 +100,7 @@
                                                 <label class="col-12 text-left">{{ __('Media Caption:') }}</label>
                                             </div>
                                             <div class="form-group">
-                                                <input class="form-control" name="message" required="" maxlength="1000" />
+                                                <input class="form-control text-white" name="message" required="" maxlength="1000" />
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
@@ -116,7 +116,7 @@
                                        <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>{{ __('Template Name:') }}</label>
-                                            <input type="text" name="template_name" required="" placeholder="{{ __('Enter Your Template Name') }}" class="form-control">
+                                            <input type="text" name="template_name" required="" placeholder="{{ __('Enter Your Template Name') }}" class="form-control text-white">
                                         </div>
                                         </div>   
                                         <div class="col-sm-12">
@@ -128,7 +128,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>{{ __('Footer Text') }}</label>
-                                                <input type="text" class="form-control" name="footer_text" required="" autofocus="" maxlength="100" />
+                                                <input type="text" class="form-control text-white" name="footer_text" required="" autofocus="" maxlength="100" />
                                             </div>
                                         </div>
                                         <div class="col-sm-12" id="list-button-appendarea">
@@ -141,7 +141,7 @@
                                                         <a href="javascript:void(0)" id="add-more" class="btn btn-sm btn-primary btn-neutral float-right mb-1"><i class="fa fa-plus"></i>&nbsp{{ __('Add More') }}</a>
                                                     </div>
                                                 </div>
-                                                <input type="text" class="form-control" name="buttons[]" required="" autofocus="" maxlength="50" />
+                                                <input type="text" class="form-control text-white" name="buttons[]" required="" autofocus="" maxlength="50" />
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
@@ -159,7 +159,7 @@
                                        <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>{{ __('Template Name:') }}</label>
-                                            <input type="text" name="template_name" required="" placeholder="{{ __('Enter Your Template Name') }}" class="form-control">
+                                            <input type="text" name="template_name" required="" placeholder="{{ __('Enter Your Template Name') }}" class="form-control text-white">
                                         </div>
                                     </div>   
                                         <div class="col-sm-12">
@@ -176,7 +176,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>{{ __('Footer Text') }}</label>
-                                                <input type="text" class="form-control" name="footer_text" required="" autofocus="" maxlength="100" />
+                                                <input type="text" class="form-control text-white" name="footer_text" required="" autofocus="" maxlength="100" />
                                             </div>
                                         </div>
                                         <div class="col-sm-12" id="list-button-appendarea">
@@ -212,7 +212,7 @@
                                                                     <label>
                                                                         {{ __('Button Display Text') }}
                                                                     </label>
-                                                                    <input type="text" class="form-control" name="buttons[0][displaytext]" required="" autofocus="" maxlength="50" placeholder="{{ __('Button Display Text') }}" />
+                                                                    <input type="text" class="form-control text-white" name="buttons[0][displaytext]" required="" autofocus="" maxlength="50" placeholder="{{ __('Button Display Text') }}" />
                                                                 </div>
                                                                 <div class="form-group col-sm-4 action-area0">
                                                                     <label>
@@ -242,13 +242,13 @@
                                        <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>{{ __('Template Name:') }}</label>
-                                            <input type="text" name="template_name" required="" placeholder="{{ __('Enter Your Template Name') }}" class="form-control">
+                                            <input type="text" name="template_name" required="" placeholder="{{ __('Enter Your Template Name') }}" class="form-control text-white">
                                         </div>
                                     </div>   
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>{{ __('Template Title (Header)') }}</label>
-                                                <input  type="text" class="form-control" name="header_title" placeholder="{{ __('Example: Amazing boldfaced list title') }}" value="" required=""  maxlength="50" />
+                                                <input  type="text" class="form-control text-white" name="header_title" placeholder="{{ __('Example: Amazing boldfaced list title') }}" value="" required=""  maxlength="50" />
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
@@ -265,13 +265,13 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>{{ __('Template Footer Text') }}</label>
-                                                <input  type="text" class="form-control" name="footer_text" placeholder="{{ __('Example: Thank you') }}" value="" required=""  maxlength="50" />
+                                                <input  type="text" class="form-control text-white" name="footer_text" placeholder="{{ __('Example: Thank you') }}" value="" required=""  maxlength="50" />
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>{{ __('Button Text for select option') }}</label>
-                                                <input  type="text" class="form-control" name="button_text" placeholder="{{ __('Example: Required, text on the button to view the list') }}" value="" required=""  maxlength="50" />
+                                                <input  type="text" class="form-control text-white" name="button_text" placeholder="{{ __('Example: Required, text on the button to view the list') }}" value="" required=""  maxlength="50" />
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
@@ -295,7 +295,7 @@
                                                                 <div class="col-sm-12">
                                                                     <div class="form-group">
                                                                         <label>{{ __('List Section Title') }}</label>
-                                                                        <input  type="text" class="form-control" name="section[1][title]" placeholder="{{ __('Example: Select a fruit') }}" value="" required=""  maxlength="50" />
+                                                                        <input  type="text" class="form-control text-white" name="section[1][title]" placeholder="{{ __('Example: Select a fruit') }}" value="" required=""  maxlength="50" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -311,7 +311,7 @@
                                                                     <div class="form-group">
                                                                         <label>{{ __('Enter List Value Description') }}</label>
 
-                                                                        <input  type="text" class="form-control" name="section[1][value][1][description]" placeholder="{{ __('Example: Banana is a healthly food') }}" value=""   maxlength="50" />
+                                                                        <input  type="text" class="form-control text-white" name="section[1][value][1][description]" placeholder="{{ __('Example: Banana is a healthly food') }}" value=""   maxlength="50" />
                                                                     </div>
                                                                 </div>
 
@@ -343,19 +343,19 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>{{ __('Template Name:') }}</label>
-                                                <input type="text" name="template_name" required="" placeholder="{{ __('Enter Your Template Name') }}" class="form-control">
+                                                <input type="text" name="template_name" required="" placeholder="{{ __('Enter Your Template Name') }}" class="form-control text-white">
                                             </div>
                                         </div>   
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>{{ __('Latitude') }}</label>
-                                                <input type="number" step="any" name="degreesLatitude" required="" class="form-control" placeholder="Example: 24.121231">
+                                                <input type="number" step="any" name="degreesLatitude" required="" class="form-control text-white" placeholder="Example: 24.121231">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>{{ __('Longitude') }}</label>
-                                                <input type="number" step="any" name="degreesLongitude" required="" class="form-control" placeholder="Example: 55.1121221">
+                                                <input type="number" step="any" name="degreesLongitude" required="" class="form-control text-white" placeholder="Example: 55.1121221">
                                             </div>
                                         </div>
                                         
@@ -373,7 +373,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>{{ __('Display Name') }}</label>
-                                                <input  type="text" class="form-control" name="display_name" placeholder="{{ __('Enter Display Name') }}" value="" required=""  maxlength="50" />
+                                                <input  type="text" class="form-control text-white" name="display_name" placeholder="{{ __('Enter Display Name') }}" value="" required=""  maxlength="50" />
                                             </div>
                                         </div>
                                         <div class="card card-primary">
@@ -382,25 +382,25 @@
                                                 <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>{{ __('Full Name (VCARD)') }}</label>
-                                                <input  type="text" class="form-control" name="full_name" placeholder="{{ __('Enter Full Name') }}" value="" required=""  maxlength="50" />
+                                                <input  type="text" class="form-control text-white" name="full_name" placeholder="{{ __('Enter Full Name') }}" value="" required=""  maxlength="50" />
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>{{ __('Organization of the contact (VCARD)') }}</label>
-                                                <input  type="text" class="form-control" name="org_name" placeholder="{{ __('Enter Organization Name') }}" value="" required=""  maxlength="50" />
+                                                <input  type="text" class="form-control text-white" name="org_name" placeholder="{{ __('Enter Organization Name') }}" value="" required=""  maxlength="50" />
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>{{ __('User Contact Number (VCARD)') }}</label>
-                                                <input  type="text" class="form-control" name="contact_number" placeholder="{{ __('Enter Contact Full Number') }}" value="" required=""  maxlength="50" />
+                                                <input  type="text" class="form-control text-white" name="contact_number" placeholder="{{ __('Enter Contact Full Number') }}" value="" required=""  maxlength="50" />
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>{{ __('User Whatsapp Number (VCARD)') }}</label>
-                                                <input  type="text" class="form-control" name="wa_number" placeholder="{{ __('Enter Whatsapp Full Number') }}" value="" required=""  maxlength="50" />
+                                                <input  type="text" class="form-control text-white" name="wa_number" placeholder="{{ __('Enter Whatsapp Full Number') }}" value="" required=""  maxlength="50" />
                                             </div>
                                         </div>
                                             </div>

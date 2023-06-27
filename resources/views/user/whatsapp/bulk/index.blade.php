@@ -34,7 +34,7 @@
             <div class="modal-body">
                <div class="form-group">
                   <label>{{ __('Select Template') }}</label>
-                  <select  class="form-control" name="template">
+                  <select  class="form-control text-white" name="template">
                      @foreach($templates as $template)
                      <option value="{{ $template->id }}">{{ $template->title }}</option>
                      @endforeach
@@ -42,7 +42,7 @@
                </div>
                <div class="form-group">
                   <label>{{ __('Select Device') }}</label>
-                  <select  class="form-control" name="device">
+                  <select  class="form-control text-white" name="device">
                      @foreach($devices as $device)
                      <option value="{{ $device->id }}">{{ $device->name }} - {{ $device->phone }}</option>
                      @endforeach

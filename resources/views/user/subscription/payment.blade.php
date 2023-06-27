@@ -114,17 +114,17 @@
          @if($gateway->phone_required == 1)
          <div class="form-group mt-2">
             <label><b>{{ __('Your phone number') }}</b></label>
-            <input type="number" name="phone" class="form-control" required="" value="{{ Auth::user()->phone }}">
+            <input type="number" name="phone" class="form-control text-white" required="" value="{{ Auth::user()->phone }}">
          </div>
          @endif
          @if($gateway->is_auto == 0)
          <div class="form-group mt-2">
             <label><b>{{ __('Submit your payment proof') }}</b></label>
-            <input type="file" name="image" class="form-control" required="" accept="image/*">
+            <input type="file" name="image" class="form-control text-white" required="" accept="image/*">
          </div>
          <div class="form-group">
             <label><b>{{ __('Comment') }}</b></label>
-            <textarea class="form-control" required="" name="comment" maxlength="500"></textarea>
+            <textarea class="form-control text-white" required="" name="comment" maxlength="500"></textarea>
          </div>
          @endif
       </div>

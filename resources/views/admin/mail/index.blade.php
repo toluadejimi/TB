@@ -62,7 +62,7 @@
                      
                         <div class="form-group">
                            <label>Subject</label>
-                           <input type="text" name="subject" class="form-control" id="">
+                           <input type="text" name="subject" class="form-control text-white" id="">
                            </select>
                         </div>
                         
@@ -75,7 +75,7 @@
                      
                         <div class="form-group">
                            <label>Message</label>
-                           <textarea name="message" id="editor" cols="30" rows="10" class="form-control"></textarea>
+                           <textarea name="message" id="editor" cols="30" rows="10" class="form-control text-white"></textarea>
                            <!-- <div id="editor"></div> -->
                            </select>
                         </div>
@@ -88,7 +88,7 @@
 
                         <div class="form-group mb-3">
                            <label>Quantity</label>
-                           <input type="number" name="qty[]" id="qty" value="1" required class="form-control">
+                           <input type="number" name="qty[]" id="qty" value="1" required class="form-control text-white">
                            </select>
                         </div>
 
@@ -216,7 +216,7 @@
                            <div class="form-group mb-3">
 
                               <label>Choose Item</label>
-                              <select id="netp" class="form-control">
+                              <select id="netp" class="form-control text-white">
                                  <option value="">-- Select Item --</option>
                                  @foreach ($netflix_p as $data)
                                  <option value="{{$data->item_id}}">
@@ -228,13 +228,13 @@
 
                            <div class="form-group mb-3">
                               <label>Amount (NGN)</label>
-                              <select id="net-amount" class="form-control">
+                              <select id="net-amount" class="form-control text-white">
                               </select>
                            </div>
 
                            <div class="form-group mb-3">
                               <label>Quantity</label>
-                              <input type="number" name="qty" id="qty" value="1" required class="form-control">
+                              <input type="number" name="qty" id="qty" value="1" required class="form-control text-white">
                               </select>
                            </div>
 

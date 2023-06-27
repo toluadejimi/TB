@@ -20,7 +20,7 @@ $enabled=true;
       <div class="form-group mt-5">
          <label class="text-right">{{ __('Enter your purchase key') }}</label>
          <a href="https://help.market.envato.com/hc/en-us/articles/202822600-Where-Is-My-Purchase-Code-" target="_blank" class="float-right text-primary">{{ __('How to find purchase key ?') }} </a>
-         <input type="text" name="purchase_key" class="form-control" required="" placeholder="16ed9971-0c47-XXXX-XXXX-XXXXXX" maxlength="36" minlength="30">
+         <input type="text" name="purchase_key" class="form-control text-white" required="" placeholder="16ed9971-0c47-XXXX-XXXX-XXXXXX" maxlength="36" minlength="30">
       </div>
       <button class="btn btn-outline-primary mt-1 submit-btn">
       <span class="mb-1">{{ __('Verify & Next') }}</span> 

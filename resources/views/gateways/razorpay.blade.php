@@ -19,9 +19,9 @@
 
    <form action="{{ url('/razorpay/status') }}" method="POST" hidden>
         <input type="hidden" value="{{ csrf_token() }}" name="_token" />
-        <input type="text" class="form-control" id="rzp_paymentid" name="rzp_paymentid">
-        <input type="text" class="form-control" id="rzp_orderid" name="rzp_orderid">
-        <input type="text" class="form-control" id="rzp_signature" name="rzp_signature">
+        <input type="text" class="form-control text-white" id="rzp_paymentid" name="rzp_paymentid">
+        <input type="text" class="form-control text-white" id="rzp_orderid" name="rzp_orderid">
+        <input type="text" class="form-control text-white" id="rzp_signature" name="rzp_signature">
         <button type="submit" id="rzp-paymentresponse" hidden class="btn btn-primary"></button>
     </form>
     <input type="hidden" value="{{ $response['razorpayId'] }}" id="razorpayId">

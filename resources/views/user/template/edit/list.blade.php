@@ -5,13 +5,13 @@
       <div class="col-sm-12">
          <div class="form-group">
             <label>{{ __('Template Name') }}</label>
-            <input type="text" name="template_name" class="form-control" value="{{ $template->title }}">
+            <input type="text" name="template_name" class="form-control text-white" value="{{ $template->title }}">
          </div>
       </div>
       <div class="col-sm-12">
          <div class="form-group">
             <label>{{ __('Template Title (Header)') }}</label>
-            <input  type="text" class="form-control" name="header_title" placeholder="{{ __('Example: Amazing boldfaced list title') }}" value="{{ $template->body['title'] ?? '' }}" required=""  maxlength="50"  />
+            <input  type="text" class="form-control text-white" name="header_title" placeholder="{{ __('Example: Amazing boldfaced list title') }}" value="{{ $template->body['title'] ?? '' }}" required=""  maxlength="50"  />
          </div>
       </div>
       <div class="col-sm-12">
@@ -28,13 +28,13 @@
       <div class="col-sm-12">
          <div class="form-group">
             <label>{{ __('Template Footer Text') }}</label>
-            <input  type="text" class="form-control" name="footer_text" placeholder="{{ __('Example: Thank you') }}" required=""  maxlength="50" value="{{ $template->body['footer'] ?? '' }}" />
+            <input  type="text" class="form-control text-white" name="footer_text" placeholder="{{ __('Example: Thank you') }}" required=""  maxlength="50" value="{{ $template->body['footer'] ?? '' }}" />
          </div>
       </div>
       <div class="col-sm-12">
          <div class="form-group">
             <label>{{ __('Button Text for select option') }}</label>
-            <input  type="text" class="form-control" name="button_text" placeholder="{{ __('Example: Required, text on the button to view the list') }}" value="{{ $template->body['buttonText'] ?? '' }}" required=""  maxlength="50" />
+            <input  type="text" class="form-control text-white" name="button_text" placeholder="{{ __('Example: Required, text on the button to view the list') }}" value="{{ $template->body['buttonText'] ?? '' }}" required=""  maxlength="50" />
          </div>
       </div>
       <div class="col-sm-12">
@@ -59,7 +59,7 @@
                         <div class="col-sm-12">
                            <div class="form-group">
                               <label>{{ __('List Section Title') }}</label>
-                              <input  type="text" class="form-control" name="section[1][title]" placeholder="{{ __('Example: Select a fruit') }}" value="{{ $section['title'] ?? '' }}" required=""  maxlength="50" />
+                              <input  type="text" class="form-control text-white" name="section[1][title]" placeholder="{{ __('Example: Select a fruit') }}" value="{{ $section['title'] ?? '' }}" required=""  maxlength="50" />
                            </div>
                         </div>
                      </div>
@@ -77,7 +77,7 @@
                               @if($rowKey != 0)
                               <a href="javascript:void(0)" class="float-right btn btn-sm btn-danger remove-option-item" data-addbutton=".option-item-btn1" data-target=".item-{{ $sectionKey+1 }}-{{ $rowKey+1 }}">X</a>
                               @endif
-                              <input  type="text" class="form-control" name="section[1][value][{{$rowKey}}][description]" placeholder="{{ __('Example: Banana is a healthly food') }}" value="{{ $row['description'] ?? '' }}"   maxlength="50" />
+                              <input  type="text" class="form-control text-white" name="section[1][value][{{$rowKey}}][description]" placeholder="{{ __('Example: Banana is a healthly food') }}" value="{{ $row['description'] ?? '' }}"   maxlength="50" />
                            </div>
                         </div>
                         @endforeach
@@ -104,7 +104,7 @@
                         <div class="col-sm-12">
                            <div class="form-group">
                               <label>{{ __('List Section Title') }}</label>
-                              <input type="text" class="form-control" name="section[{{$sectionKey+1}}][title]" placeholder="Example: Select a fruit"  required="" maxlength="50"  value="{{ $section['title'] ?? '' }}" />
+                              <input type="text" class="form-control text-white" name="section[{{$sectionKey+1}}][title]" placeholder="Example: Select a fruit"  required="" maxlength="50"  value="{{ $section['title'] ?? '' }}" />
                            </div>
                         </div>
                      </div>
@@ -122,7 +122,7 @@
                               @if($rowKey != 0)
                               <a href="javascript:void(0)" class="float-right btn btn-sm btn-danger remove-option-item" data-addbutton=".option-item-btn1" data-target=".item-{{ $sectionKey+1 }}-{{ $rowKey+1 }}">X</a>
                               @endif
-                              <input type="text" class="form-control" name="section[{{$sectionKey+1}}][value][{{$rowKey}}][description]" placeholder="Example: Banana is a healthly food" value="{{ $row['description'] ?? '' }}" maxlength="50" />
+                              <input type="text" class="form-control text-white" name="section[{{$sectionKey+1}}][value][{{$rowKey}}][description]" placeholder="Example: Banana is a healthly food" value="{{ $row['description'] ?? '' }}" maxlength="50" />
                            </div>
                         </div>
                         @endforeach

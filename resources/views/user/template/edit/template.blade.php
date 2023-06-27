@@ -5,7 +5,7 @@
       <div class="col-sm-12">
          <div class="form-group">
             <label>{{ __('Template Name') }}</label>
-            <input type="text" name="template_name" class="form-control" value="{{ $template->title }}">
+            <input type="text" name="template_name" class="form-control text-white" value="{{ $template->title }}">
          </div>
       </div>
       <div class="col-sm-12">
@@ -22,7 +22,7 @@
       <div class="col-sm-12">
          <div class="form-group">
             <label>{{ __('Footer Text') }}</label>
-            <input type="text" class="form-control" name="footer_text" required="" autofocus="" maxlength="100" value="{{ $template->body['footer'] ?? '' }}" />
+            <input type="text" class="form-control text-white" name="footer_text" required="" autofocus="" maxlength="100" value="{{ $template->body['footer'] ?? '' }}" />
          </div>
       </div>
       <div class="col-sm-12" id="list-button-appendarea">
@@ -77,7 +77,7 @@
                            <label>
                            {{ __('Button Display Text') }}
                            </label>
-                           <input type="text" class="form-control" name="buttons[0][displaytext]" required="" autofocus="" maxlength="50" placeholder="{{ __('Button Display Text') }}" value="{{ $display_text }}" />
+                           <input type="text" class="form-control text-white" name="buttons[0][displaytext]" required="" autofocus="" maxlength="50" placeholder="{{ __('Button Display Text') }}" value="{{ $display_text }}" />
                         </div>
                         <div class="form-group col-sm-4 action-area0 {{ $option_type == 'quickReplyButton' ? 'none' : '' }}">
                            <label>
@@ -114,7 +114,7 @@
                            <label>
                            {{ __('Button Display Text') }}
                            </label>
-                           <input type="text" class="form-control" name="buttons[{{ $key+1 }}][displaytext]" required="" autofocus="" maxlength="50" placeholder="{{ __('Button Display Text') }}" value="{{ $display_text }}">
+                           <input type="text" class="form-control text-white" name="buttons[{{ $key+1 }}][displaytext]" required="" autofocus="" maxlength="50" placeholder="{{ __('Button Display Text') }}" value="{{ $display_text }}">
                         </div>
                         <div class="form-group col-sm-4 action-area{{ $key+1 }} {{ $option_type == 'quickReplyButton' ? 'none' : '' }}">
                            <label>

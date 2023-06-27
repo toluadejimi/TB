@@ -31,7 +31,7 @@
 					
 						<div class="form-group">
 							<label for="email">Email</label>
-							<input type="email" placeholder="Enter Email" name="email" class="form-control" id="email" value="" autocomplete="off">
+							<input type="email" placeholder="Enter Email" name="email" class="form-control text-white" id="email" value="" autocomplete="off">
 							@error('email')
 							
 							<span class='text-danger'>{{$message}}</span>
@@ -42,7 +42,7 @@
 						</div>
 						<div class="form-group">
 							<label for="amount">Amount</label>
-							<input type="text" placeholder="Enter amount" name="amount" class="form-control" id=""  value="" autocomplete="off">
+							<input type="text" placeholder="Enter amount" name="amount" class="form-control text-white" id=""  value="" autocomplete="off">
 							@error('amount')
 							
 							<span class='text-danger'>{{$message}}</span>

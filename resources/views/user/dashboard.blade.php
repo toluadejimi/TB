@@ -7,25 +7,40 @@
 <div class="main-panel">
   <div class="content-wrapper">
 
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
         @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>
         @endforeach
-    </ul>
-</div>
-@endif
-@if (session()->has('message'))
-<div class="alert alert-success">
-    {{ session()->get('message') }}
-</div>
-@endif
-@if (session()->has('error'))
-<div class="alert alert-danger">
-    {{ session()->get('error') }}
-</div>
-@endif
+      </ul>
+    </div>
+    @endif
+    @if (session()->has('message'))
+    <div class="alert alert-success">
+      {{ session()->get('message') }}
+    </div>
+    @endif
+    @if (session()->has('error'))
+    <div class="alert alert-danger">
+      {{ session()->get('error') }}
+    </div>
+    @endif
+
+
+    @if($link->status == 1)
+    <div class="col-12 stretch-card mb-3">
+      <div class="card badge-outline bg-success">
+        <div class="card-body">
+
+          <marquee><h5>{{ $link->data }}</h5></marquee>
+
+        </div>
+      </div>
+    </div>
+    @endif
+
+
 
     <div class="row">
       <div class="col-12 grid-margin stretch-card">
@@ -37,8 +52,9 @@
                   alt="">
               </div>
               <div class="col-5 col-sm-7 col-xl-8 p-0">
-                <h4 class="mb-1 mb-sm-0">Welcome to Digitz</h4>
-                <p class="mb-0 font-weight-normal d-none d-sm-block">Get Google Voice, Text Now, Domain GV and many more...
+                <h4 class="mb-1 mb-sm-0">Welcome {{ Auth::user()->name }}</h4>
+                <p class="mb-0 font-weight-normal d-none d-sm-block">Get Google Voice, Text Now, Domain GV and many
+                  more...
                 </p>
               </div>
               <div class="col-3 col-sm-2 col-xl-2 ps-0 text-center">
@@ -147,24 +163,39 @@
 
                     <div class="row">
                       <div class="col-10 my-2">
-                        <input type="number" name="amount" class="form-control" required autofocus>
+                        <label class="mb-2">Enter amount to fund (NGN)</label>
+                        <input type="number" name="amount" class="form-control text-white" required autofocus>
                       </div>
 
 
                       <div class="col-sm-8 my-2">
-                        <button type="submit" class="btn btn-outline-success my-4 submit-button float-left">{{ __('Deposit Funds') }}</button>
+                        <button type="submit" class="btn btn-inverse-success btn-lg my-4 submit-button float-left">{{
+                          __('Deposit Funds') }}</button>
 
                       </div>
 
                     </div>
                   </div>
-                  <h6 class="text-muted font-weight-normal">We do not refund any successful deposit</h6>
 
-                  
+                  <hr>
+                  <br>
+
+                  <p> You can also fund with crypto we accept only <strong> USDT</strong> 
+                    <br>
+                    <a href="#" class="btn btn-inverse-primary btn-lg my-4 submit-button float-left">{{ __('Fund with USDT') }}</a>
 
 
                 </div>
 
+                <h6 class="text-muted font-weight-normal">We do not refund any successful deposit</h6>
+
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  Launch static backdrop modal
+                </button>
+                
+         
 
 
 
@@ -175,24 +206,138 @@
       </div>
 
 
+      <!-- Modal -->
+
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Fund With USDT | Rate -  {{$rate}}/USD </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="fund-wallet-usdt" method="post">
+                @csrf
+                <div class="row">
+                  <div class="col-12  my-auto">
+                    <div class="d-flex d-sm-block d-md-flex align-items-center">
+  
+                      <div class="row">
+
+
+                        <div class="col- my-2">
+                          <label class="mb-3 text-warning">Send USDT only to this address (BEP20)</label><br>
+                          <p class="mb-3 text-white">scan or copy address</p><br>
+
+
+                          {!! QrCode::size(200)->generate('0x54879ae031850bc7ea21f14b96a3a0bff2373fd7') !!}
+                          <br><br>
+                          <p> {{"USDT ADDRESS"}}<p>
+                          <h4> {{"0x54879ae031850bc7ea21f14b96a3a0bff2373fd7"}}<h4>
+
+                        </div>
+
+                        <hr>
+
+
+                        <div class="col- my-2">
+                          <label class="mb-2">Pay with Binance</label>
+                          <h4> {{"My Pay ID - 135034470"}}<h4>
+                        </div>
+
+
+                        <hr>
+
+
+                        <div class="col-8">
+                          <label class="mb-2">Enter amount sent (USD) | Rate {{ $rate }}</label>
+                          <input type="number" id="input1" onkeyup="sumNumbers()"  name="amount" class="form-control text-white" required autofocus>
+                        </div>
+
+                        <h4 class="mt-3 text-success" id="result">You get NGN 0.00</h4>
+
+  
+                        <div class="col-sm-8">
+                          <button type="submit" class="btn btn-inverse-success btn-lg my-4 submit-button float-left">{{
+                            __('I have Sent the Money') }}</button>
+
+
+                            <script>
+
+
+                              function sumNumbers() {
+                                let input1 = parseInt(document.getElementById('input1').value);
+                                let input2 = {{ $rate }};
+                                let sum = input1 * input2;
+                                
+                                if (!isNaN(sum)) {
+                                  document.getElementById('result').textContent = "You get NGN " + sum;
+                                } else {
+                                  document.getElementById('result').textContent = "";
+                                }
+                              }
+                           
+                              
+                              
+                              
+                              
+                              
+                              </script>
+  
+                        </div>
+  
+                      </div>
+                    </div>
+  
+                </div>
+              </form>
+
+              <hr>
+
+              <div class="col- my-2">
+                <h4 class="text-danger"> {{"Please Read Carefully"}}<h4>
+              </div>
+
+              <p> After payment send a screenshot for payment confirmation
+
+                <a href="#" class="btn btn-inverse-warning my-2">Send screenshot here</a>
+
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+
       <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Other Channles</h4>
 
             <div class="row">
-              <div class="col-6 my-2">
-                <a href="#" class="badge badge-outline-success my-2">Join our whatsapp group></a><br>
+              <div class="col-12 my-2">
+                <p> For other products | Website building | Spamming Tools | Dating Tools | Bullet proof Link Hosting and many more <br>
+                <a href="#" class="btn btn-inverse-secondary  my-2">Make Request</a>
               </div>
 
+              <hr>
 
-              <div class="col-sm-6 my-2">
-                <a href="#" class="badge badge-outline-success my-2">Get Number for verification</a><br>
+              <div class="col-sm-12 my-2">
+                <p> For support | Join our whatsapp channel <br>
+                <a href="#" class="btn btn-inverse-warning my-2">Join our channel</a>
               </div>
 
+              <hr>
 
-              <div class="col-sm-6 my-2">
-                <a href="#" class="badge badge-outline-danger my-2">Rules and Regulations</a><br>
+              <div class="col-sm-12 my-2">
+                <p> Rules & Regulations | Carefuly read our rules and regulations <br>
+                <a href="#" class="btn btn-inverse-danger my-2">Rules and Regulations</a><br>
               </div>
 
             </div>
@@ -254,8 +399,10 @@
                     <td><span class="badge rounded-pill bg-danger text-white ">Decline</span></td>
                     @elseif($trx->status == "1")
                     <td><span class="badge rounded-pill bg-success text-white">Successful</span></td>
+                    @elseif($trx->status == "3")
+                    <td><span class="badge rounded-pill bg-primary text-white">Pending Confirmation</span></td>
                     @else
-                    <td><span class="badge rounded-pill bg-warning text-white">Pending</span></td>
+                    <td><span class="badge rounded-pill bg-danger text-white">Declined</span></td>
                     @endif
 
 

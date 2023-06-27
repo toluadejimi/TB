@@ -133,7 +133,7 @@
             <div class="modal-body">
                <div class="form-group">
                   <label>{{ __('Select Number') }}</label>
-                  <select class="form-control"  name="device" required="">
+                  <select class="form-control text-white"  name="device" required="">
                      @foreach($devices as $device)
                      <option value="{{ $device->id }}">
                         {{ $device->name }} 
@@ -147,11 +147,11 @@
                </div>
                <div class="form-group">
                   <label>{{ __('App Name') }}</label>
-                  <input type="text" name="name" class="form-control" required>
+                  <input type="text" name="name" class="form-control text-white" required>
                </div>
                <div class="form-group">
                   <label>{{ __('Website Link') }}</label>
-                  <input type="url" name="website" class="form-control" required="">
+                  <input type="url" name="website" class="form-control text-white" required="">
                </div>
             </div>
             <div class="modal-footer">

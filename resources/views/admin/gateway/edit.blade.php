@@ -23,18 +23,18 @@
 				<div class="card-body">
 					<div class="form-group mb-4">
 						<label class="col-form-label text-md-right required" for="name">{{ __('Gateway Name') }}</label>
-						<input type="text" class="form-control" name="name" id="name" value="{{ $gateway->name }}" required>
+						<input type="text" class="form-control text-white" name="name" id="name" value="{{ $gateway->name }}" required>
 					</div>
 					<div class="form-group mb-4">
 						<label class="col-form-label text-md-right required" for="logo">{{ __('Logo') }}</label>
-						<input type="file" id="logo" class="form-control" name="logo">
+						<input type="file" id="logo" class="form-control text-white" name="logo">
 						@if ($gateway->logo != '')
 						<img src="{{ asset($gateway->logo) }}" height="30" alt="" class="image-thumbnail mt-2">
 						@endif
 					</div>
 					<div class="form-group mb-4">
 						<label class="col-form-label text-md-right required" for="currency">{{ __('Currency') }}</label>
-						<input type="text" class="form-control" name="currency" id="currency" value="{{ $gateway->currency }}" required>
+						<input type="text" class="form-control text-white" name="currency" id="currency" value="{{ $gateway->currency }}" required>
 					</div>
 					@if($gateway->is_auto == 1)
 					<div class="form-group mb-4">
@@ -47,19 +47,19 @@
 					@endif
 					<div class="form-group mb-4">
 						<label class="col-form-label text-md-right required" for="min_amount">{{ __('Minimum Amount') }}</label>
-						<input type="number" name="min_amount" id="min_amount" step="any" value="{{ $gateway->min_amount }}" class="form-control" placeholder="{{ __("Minimum transaction amount") }}" required>
+						<input type="number" name="min_amount" id="min_amount" step="any" value="{{ $gateway->min_amount }}" class="form-control text-white" placeholder="{{ __("Minimum transaction amount") }}" required>
 					</div>
 					<div class="form-group mb-4">
 						<label class="col-form-label text-md-right required" for="max_amount">{{ __('Maximum Amount') }}</label>
-						<input type="number" name="max_amount" id="max_amount" step="any" value="{{ $gateway->max_amount }}" class="form-control" placeholder="{{ __("Maximum transaction amount") }}" required>
+						<input type="number" name="max_amount" id="max_amount" step="any" value="{{ $gateway->max_amount }}" class="form-control text-white" placeholder="{{ __("Maximum transaction amount") }}" required>
 					</div>
 					<div class="form-group mb-4">
 						<label class="col-form-label text-md-right required" for="charge">{{ __('Charge') }}</label>
-						<input type="text" class="form-control" name="charge" id="charge" value="{{ $gateway->charge ?? 0 }}" required>
+						<input type="text" class="form-control text-white" name="charge" id="charge" value="{{ $gateway->charge ?? 0 }}" required>
 					</div>
 					<div class="form-group mb-4">
 						<label class="col-form-label text-md-right required" for="multiply">{{ __('Multiply from base currency') }}</label>
-						<input type="number" step="any" class="form-control" name="multiply" id="multiply"  value="{{ $gateway->multiply ?? 0 }}"  required value="0">
+						<input type="number" step="any" class="form-control text-white" name="multiply" id="multiply"  value="{{ $gateway->multiply ?? 0 }}"  required value="0">
 					</div>
 					@if($gateway->is_auto == 1)
 					@php 
@@ -68,14 +68,14 @@
 					 @foreach ($data ?? [] as $key => $value)
 					<div class="form-group mb-4">
 						<label class="col-form-label text-md-right required" for="status">{{ ucwords(str_replace("_", " ", $key)) }}</label>
-						<input type="text" class="form-control" name="data[{{ $key }}]" value="{{ $value }}">
+						<input type="text" class="form-control text-white" name="data[{{ $key }}]" value="{{ $value }}">
 					</div>
 					 @endforeach
 					@endif
 
 					<div class="form-group mb-4">
 						<label class="col-form-label text-md-right required" for="status">{{ __('Payment Instruction') }}</label>
-						<textarea class="form-control" maxlength="1000" name="comment">{{ $gateway->comment }}</textarea>
+						<textarea class="form-control text-white" maxlength="1000" name="comment">{{ $gateway->comment }}</textarea>
 					</div>
 					<div class="form-group mb-4">
 						<label class="col-form-label text-md-right required" for="status">{{ __('Status') }}</label>

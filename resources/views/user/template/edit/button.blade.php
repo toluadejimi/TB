@@ -5,7 +5,7 @@
        <div class="col-sm-12">
         <div class="form-group">
             <label>{{ __('Template Name:') }}</label>
-            <input type="text" name="template_name" required="" class="form-control" value="{{ $template->title }}">
+            <input type="text" name="template_name" required="" class="form-control text-white" value="{{ $template->title }}">
         </div>
     </div>   
     <div class="col-sm-12">
@@ -17,7 +17,7 @@
     <div class="col-sm-12">
         <div class="form-group">
             <label>{{ __('Footer Text') }}</label>
-            <input type="text" class="form-control" name="footer_text" required="" autofocus="" maxlength="100" value="{{ $template->body['footer'] ?? '' }}" />
+            <input type="text" class="form-control text-white" name="footer_text" required="" autofocus="" maxlength="100" value="{{ $template->body['footer'] ?? '' }}" />
         </div>
     </div>
     <div class="col-sm-12" id="list-button-appendarea">
@@ -35,7 +35,7 @@
                     <a href="javascript:void(0)" id="add-more" class="btn btn-sm btn-primary btn-neutral float-right mb-1 {{ $buttons == 3 ? 'none' : '' }}"><i class="fa fa-plus"></i>&nbsp{{ __('Add More') }}</a>
                 </div>
             </div>
-            <input type="text" class="form-control" name="buttons[]" required="" autofocus="" maxlength="50"  value="{{ $button['buttonText']['displayText'] ?? '' }}"/>
+            <input type="text" class="form-control text-white" name="buttons[]" required="" autofocus="" maxlength="50"  value="{{ $button['buttonText']['displayText'] ?? '' }}"/>
         </div>
 
         @else
@@ -49,7 +49,7 @@
                         <a href="javascript:void(0)" data-target=".exist_button{{ $key+1 }}" class="btn btn-sm btn-danger float-right mb-1 remove-button"><i class="fa fa-trash"></i></a>
                     </div>
                 </div>
-                <input type="text" class="form-control" name="buttons[]" required="" autofocus="" maxlength="50" value="{{ $button['buttonText']['displayText'] ?? '' }}">
+                <input type="text" class="form-control text-white" name="buttons[]" required="" autofocus="" maxlength="50" value="{{ $button['buttonText']['displayText'] ?? '' }}">
             </div>
         </div>
         @endif

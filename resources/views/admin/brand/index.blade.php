@@ -174,22 +174,22 @@
             <div class="modal-body">
                <div class="form-group">
                   <label>{{ __('Brand Url') }}</label>
-                  <input type="text" name="url" class="form-control" >
+                  <input type="text" name="url" class="form-control text-white" >
                </div>
                <div class="form-group">
                   <label>{{ __('Brand image') }}</label>
-                  <input type="file" accept="image/*" name="image" required="" class="form-control" >
+                  <input type="file" accept="image/*" name="image" required="" class="form-control text-white" >
                </div>
                <div class="form-group">
                   <label>{{ __('Type') }}</label>
-                  <select class="form-control" name="type">
+                  <select class="form-control text-white" name="type">
                   	<option value="partner">{{ __('Partner / Brand') }}</option>
                   	<option value="integration">{{ __('Integration Partner') }}</option>
                   </select>
                </div>
                <div class="form-group">
                   <label>{{ __('Status') }}</label>
-                  <select class="form-control" name="status">
+                  <select class="form-control text-white" name="status">
                   	<option value="1">{{ __('Active') }}</option>
                   	<option value="0">{{ __('InActive') }}</option>
                   </select>
@@ -217,18 +217,18 @@
             <div class="modal-body">
                 <div class="form-group">
                   <label>{{ __('Brand Url') }}</label>
-                  <input type="text" name="url" class="form-control"  id="url">
+                  <input type="text" name="url" class="form-control text-white"  id="url">
                </div>
                 <div class="form-group">
                   <label>{{ __('Type') }}</label>
-                  <select class="form-control" name="type" id="type" required="">
+                  <select class="form-control text-white" name="type" id="type" required="">
                   	<option value="partner">{{ __('Partner / Brand') }}</option>
                   	<option value="integration">{{ __('Integration Partner') }}</option>
                   </select>
                </div>
                <div class="form-group">
                   <label>{{ __('Status') }}</label>
-                  <select class="form-control" name="status" id="status">
+                  <select class="form-control text-white" name="status" id="status">
                   	<option value="1">{{ __('Active') }}</option>
                   	<option value="0">{{ __('InActive') }}</option>
                   </select>

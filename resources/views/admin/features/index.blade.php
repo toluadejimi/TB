@@ -84,11 +84,11 @@
             <div class="modal-body">
                <div class="form-group">
                   <label>{{ __('title') }}</label>
-                  <input type="text" name="title" maxlength="150" class="form-control" required="">
+                  <input type="text" name="title" maxlength="150" class="form-control text-white" required="">
                </div>
                <div class="form-group">
                   <label>{{ __('preview image') }}</label>
-                  <input type="file" name="preview_image" accept="image/*" class="form-control" required="">
+                  <input type="file" name="preview_image" accept="image/*" class="form-control text-white" required="">
                </div>
                <div class="form-group">
                   <label>{{ __('description') }}</label>
@@ -96,7 +96,7 @@
                </div>
                <div class="form-group">
                   <label>{{ __('Select Language') }}</label>
-                 <select class="form-control" name="language" required="">
+                 <select class="form-control text-white" name="language" required="">
                  	@foreach($languages as $languageKey => $language)
                  	<option value="{{ $languageKey }}">{{ $language }}</option>
                  	@endforeach
@@ -125,7 +125,7 @@
             <div class="modal-body">
                <div class="form-group">
                   <label>{{ __('title') }}</label>
-                  <input type="text" name="title" maxlength="150" class="form-control" id="title" required="">
+                  <input type="text" name="title" maxlength="150" class="form-control text-white" id="title" required="">
                </div>
                <div class="form-group">
                   <label>{{ __('description') }}</label>
@@ -133,11 +133,11 @@
                </div>
                <div class="form-group">
                   <label>{{ __('preview image') }}</label>
-                  <input type="file" name="preview_image" accept="image/*" class="form-control" required="">
+                  <input type="file" name="preview_image" accept="image/*" class="form-control text-white" required="">
                </div>
                <div class="form-group">
                   <label>{{ __('Select Language') }}</label>
-                 <select class="form-control" name="language" id="language" required="">
+                 <select class="form-control text-white" name="language" id="language" required="">
                  	@foreach($languages as $languageKey => $language)
                  	<option value="{{ $languageKey }}">{{ $language }}</option>
                  	@endforeach

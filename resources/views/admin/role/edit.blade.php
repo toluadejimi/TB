@@ -25,7 +25,7 @@
             <div class="pt-20">
                <div class="form-group">
                   <label>{{ __('Role Name') }}</label>
-                  <input type="text" class="form-control" required="" value="{{ $role->name }}"  name="name" placeholder="sub admin">
+                  <input type="text" class="form-control text-white" required="" value="{{ $role->name }}"  name="name" placeholder="sub admin">
                </div>
                <div class="row">
                   <div class="col-sm-12">

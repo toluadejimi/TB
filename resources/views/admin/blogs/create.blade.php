@@ -26,14 +26,14 @@
 					<div class="from-group row">
 						<label  class="col-lg-12">{{ __('Blog Title') }}</label>
 						<div class="col-lg-12">
-							<input type="text" name="title" required="" class="form-control">
+							<input type="text" name="title" required="" class="form-control text-white">
 						</div>
 					</div>
 					
 					<div class="from-group row  mt-2">
 						<label  class="col-lg-12">{{ __('Blog Image (Preview)') }}</label>
 						<div class="col-lg-12">
-							<input type="file" class="form-control" required="" name="preview" accept="image/*">
+							<input type="file" class="form-control text-white" required="" name="preview" accept="image/*">
 						</div>
 					</div>
 					<div class="from-group row mt-2">
@@ -71,7 +71,7 @@
 					<div class="from-group row  mt-2">
 						<label  class="col-lg-12">{{ __('Select Langauge') }}</label>
 						<div class="col-lg-12">
-							<select name="language" class="form-control" >
+							<select name="language" class="form-control text-white" >
 								@foreach ($languages ?? [] as $languagesKey => $language)
 								<option value="{{ $languagesKey }}"> {{ $language }} </option>
 								@endforeach
@@ -84,13 +84,13 @@
 					<div class="from-group row mt-3">
 						<label  class="col-lg-12">{{ __('SEO Meta Title') }}</label>
 						<div class="col-lg-12">
-							<input type="text" name="meta_title" required="" class="form-control">
+							<input type="text" name="meta_title" required="" class="form-control text-white">
 						</div>
 					</div>     
 					<div class="from-group row  mt-2">
 						<label  class="col-lg-12">{{ __('SEO Meta Image') }}</label>
 						<div class="col-lg-12">
-							<input type="file" class="form-control" name="meta_image" required="" accept="image/*">
+							<input type="file" class="form-control text-white" name="meta_image" required="" accept="image/*">
 						</div>
 					</div>
 					<div class="from-group row mt-2">
@@ -102,7 +102,7 @@
 					<div class="from-group row mt-2">
 						<label  class="col-lg-12">{{ __('SEO Meta Tags') }}</label>
 						<div class="col-lg-12">
-							<input type="text" name="meta_tags" required="" class="form-control">
+							<input type="text" name="meta_tags" required="" class="form-control text-white">
 						</div>
 					</div>
 

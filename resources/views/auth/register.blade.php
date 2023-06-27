@@ -53,20 +53,20 @@
                   @csrf
                   <div class="form-group">
                     <label>Full Name</label>
-                    <input type="text" name="name" required autofocus class="form-control p_input">
+                    <input type="text" name="name" required autofocus class="form-control text-white p_input">
                   </div>
                   <div class="form-group">
                     <label>Email</label>
-                    <input type="email" name="email" required class="form-control p_input">
+                    <input type="email" name="email" required class="form-control text-white p_input">
                   </div>
                   <div class="form-group">
                     <label>Password</label>
-                    <input type="password" name="password"  required class="form-control p_input">
+                    <input type="password" name="password"  required class="form-control text-white p_input">
                   </div>
 
                   <div class="form-group">
                     <label>Confirm Password</label>
-                    <input type="password" name="password_confirmation"  required class="form-control p_input">
+                    <input type="password" name="password_confirmation"  required class="form-control text-white p_input">
                   </div>
                   
 

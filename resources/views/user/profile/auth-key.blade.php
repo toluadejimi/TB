@@ -25,7 +25,7 @@
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Auth API Key') }}</label>
                     <div class="col-lg-12">
-                        <input type="text" name="authket" required="" class="form-control" value="{{ Auth::user()->authkey }}" disabled="">
+                        <input type="text" name="authket" required="" class="form-control text-white" value="{{ Auth::user()->authkey }}" disabled="">
                     </div>
                 </div>
                  <div class="from-group row mt-3">

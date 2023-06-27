@@ -141,11 +141,11 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label>{{ __('User Name') }}</label>
-						<input type="text" name="name" id="user_name" placeholder="Jhone Doe" maxlength="50" class="form-control" required="">
+						<input type="text" name="name" id="user_name" placeholder="Jhone Doe" maxlength="50" class="form-control text-white" required="">
 					</div>
 					<div class="form-group">
 						<label>{{ __('Whatsapp Number') }}</label>
-						<input type="number" name="phone" id="user_phone" placeholder="{{ __('Enter Phone Number With Country Code') }}" maxlength="15" class="form-control">
+						<input type="number" name="phone" id="user_phone" placeholder="{{ __('Enter Phone Number With Country Code') }}" maxlength="15" class="form-control text-white">
 					</div>
 
 				</div>
@@ -177,7 +177,7 @@
 					
 					<div class="form-group">
 						<label>{{ __('Select Template') }}</label>
-						<select  class="form-control" name="template">
+						<select  class="form-control text-white" name="template">
 							@foreach($templates as $template)
 								<option value="{{ $template->id }}">{{ $template->title }}</option>
 							@endforeach
@@ -185,7 +185,7 @@
 					</div>
 					<div class="form-group">
 						<label>{{ __('Select Device') }}</label>
-						<select  class="form-control" name="device">
+						<select  class="form-control text-white" name="device">
 							@foreach($devices as $device)
 								<option value="{{ $device->id }}">{{ $device->name }} - {{ $device->phone }}</option>
 							@endforeach

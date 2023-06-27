@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Mail\AdminMail;
 use App\Models\ItemLog;
 use App\Models\Order;
+use App\Models\PendingFund;
 use App\Models\Product;
 use App\Models\Sold;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail as FacadesMail;
 use Illuminate\Support\Facades\Redirect;
 use Mail;
@@ -248,4 +250,56 @@ class ProductController extends Controller
     }
 
     // }
+
+
+
+    public function fund_wallet_usdt(Request $request)
+    {
+
+       $amount = $request->amount;
+
+       $trx_ref = "TRX - " . random_int(1000000, 9999999);
+
+
+       $response = Http::get('https://api.binance.com/api/v3/avgPrice?symbol=USDTNGN')->json();
+       $rate = (int)$response['price'] + 30;
+       $camt = $amount * $rate;
+       $ammt = number_format($camt);
+
+
+
+       $trx = new PendingFund();
+       $trx->user_id = Auth::id();
+       $trx->amount = $amount;
+       $trx->ngnamount = $camt;
+       $trx->trx_ref = $trx_ref;
+       $trx->save();
+
+       $trx = new Transaction();
+       $trx->trx_ref = $trx_ref;
+       $trx->user_id = Auth::id();
+       $trx->amount = $camt;
+       $trx->type = 2;
+       $trx->status = 3;
+       $trx->save();
+
+
+
+       return back()->with('message', "After confirmation your wallet will be credited | NGN $ammt");
+
+
+
+    }
+
+    
+
+
+
+
+
+
+
+
+
+
 }

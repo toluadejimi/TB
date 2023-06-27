@@ -62,7 +62,7 @@
             <div class="modal-body">
                <div class="form-group">
                   <label>{{ __('Language Name') }}</label>
-                  <input type="text" name="name" class="form-control" required="" placeholder="English">
+                  <input type="text" name="name" class="form-control text-white" required="" placeholder="English">
                </div>
                <div class="form-group">
                   <label>{{ __('Select Language') }}</label>

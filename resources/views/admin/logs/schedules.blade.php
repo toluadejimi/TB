@@ -81,8 +81,8 @@
 				<h3 class="mb-0">{{ __('Schedules') }}</h3>
 				<form action="" class="card-header-form">
 					<div class="input-group">
-						<input type="text" name="search" value="{{ $request->search ?? '' }}" class="form-control" placeholder="Search......">
-						<select class="form-control" name="type">
+						<input type="text" name="search" value="{{ $request->search ?? '' }}" class="form-control text-white" placeholder="Search......">
+						<select class="form-control text-white" name="type">
 							<option value="email" @if($type == 'email') selected="" @endif>{{ __('User Email') }}</option>
 							<option value="title" @if($type == 'title') selected="" @endif>{{ __('Schedule Name') }}</option>
 														

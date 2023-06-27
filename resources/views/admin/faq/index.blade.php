@@ -92,7 +92,7 @@
             <div class="modal-body">
                <div class="form-group">
                   <label>{{ __('Question') }}</label>
-                  <input type="text" name="question" maxlength="150" class="form-control" required="">
+                  <input type="text" name="question" maxlength="150" class="form-control text-white" required="">
                </div>
                <div class="form-group">
                   <label>{{ __('Answer') }}</label>
@@ -101,14 +101,14 @@
                
                <div class="form-group">
                   <label>{{ __('Select position') }}</label>
-                 <select class="form-control" name="position"  required="">                 	
+                 <select class="form-control text-white" name="position"  required="">                 	
                  	<option value="top">{{ __('For App Question') }}</option>
                  	<option value="bottom" selected="">{{ __('Regular') }}</option>                 
                  </select>
                </div>
                <div class="form-group">
                   <label>{{ __('Select Language') }}</label>
-                 <select class="form-control" name="language" required="">
+                 <select class="form-control text-white" name="language" required="">
                  	@foreach($languages as $languageKey => $language)
                  	<option value="{{ $languageKey }}">{{ $language }}</option>
                  	@endforeach
@@ -136,7 +136,7 @@
             <div class="modal-body">
                <div class="form-group">
                   <label>{{ __('Question') }}</label>
-                  <input type="text" name="question" maxlength="150" class="form-control" id="question" required="">
+                  <input type="text" name="question" maxlength="150" class="form-control text-white" id="question" required="">
                </div>
                <div class="form-group">
                   <label>{{ __('Answer') }}</label>
@@ -145,14 +145,14 @@
                
                 <div class="form-group">
                   <label>{{ __('Select position') }}</label>
-                 <select class="form-control" name="position" id="position" required=""> 
+                 <select class="form-control text-white" name="position" id="position" required=""> 
                  	<option value="top">{{ __('For App Question') }}</option>
                  	<option value="bottom">{{ __('Bottom') }}</option>                
                  </select>
                </div>
                <div class="form-group">
                   <label>{{ __('Select Language') }}</label>
-                 <select class="form-control" name="language" id="language" required="">
+                 <select class="form-control text-white" name="language" id="language" required="">
                  	@foreach($languages as $languageKey => $language)
                  	<option value="{{ $languageKey }}">{{ $language }}</option>
                  	@endforeach

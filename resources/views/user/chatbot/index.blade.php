@@ -178,11 +178,11 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label>{{ __('Keyword') }}</label>
-						<input type="text" name="keyword" class="form-control" name="keyword" maxlength="50">
+						<input type="text" name="keyword" class="form-control text-white" name="keyword" maxlength="50">
 					</div>
 					<div class="form-group">
 						<label>{{ __('Select Device') }}</label>
-						<select  class="form-control" name="device">
+						<select  class="form-control text-white" name="device">
 							@foreach($devices as $device)
 							<option value="{{  $device->id }}">{{ $device->name . ' - '. $device->phone }}</option>
 							@endforeach
@@ -197,18 +197,18 @@
 					</div>
 					<div class="form-group">
 						<label>{{ __('Keyword Match Type') }}</label>
-						<select  class="form-control" name="match_type">
+						<select  class="form-control text-white" name="match_type">
 							<option value="equal">{{ __('Whole Words') }}</option>
 							
 						</select>
 					</div>
 					<div class="form-group text-area">
 						<label>{{ __('Reply') }}</label>
-						<textarea class="form-control" name="reply" maxlength="1000"></textarea>
+						<textarea class="form-control text-white" name="reply" maxlength="1000"></textarea>
 					</div>			
 					<div class="form-group templates none">
 						<label>{{ __('Select Template') }}</label>
-						<select  class="form-control" name="template">
+						<select  class="form-control text-white" name="template">
 							@foreach($templates ?? [] as $template)
 							<option value="{{ $template->id }}">{{ $template->title }}</option>
 							@endforeach
@@ -238,11 +238,11 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label>{{ __('Keyword') }}</label>
-						<input type="text" name="keyword" class="form-control" id="keyword" required="" maxlength="50" name="keyword">
+						<input type="text" name="keyword" class="form-control text-white" id="keyword" required="" maxlength="50" name="keyword">
 					</div>
 					<div class="form-group">
 						<label>{{ __('Select Device') }}</label>
-						<select  class="form-control" name="device" id="device">
+						<select  class="form-control text-white" name="device" id="device">
 							@foreach($devices as $device)
 							<option value="{{  $device->id }}">{{ $device->name . ' - '. $device->phone }}</option>
 							@endforeach
@@ -258,18 +258,18 @@
 					</div>
 					<div class="form-group">
 						<label>{{ __('Keyword Match Type') }}</label>
-						<select  class="form-control" name="match_type" id="matchtype">
+						<select  class="form-control text-white" name="match_type" id="matchtype">
 							<option value="equal">{{ __('Whole Words') }}</option>
 							
 						</select>
 					</div>
 					<div class="form-group text-area" id="reply-area">
 						<label>{{ __('Reply') }}</label>
-						<textarea class="form-control" name="reply" maxlength="1000" id="reply"></textarea>
+						<textarea class="form-control text-white" name="reply" maxlength="1000" id="reply"></textarea>
 					</div>			
 					<div class="form-group templates none" id="templates-area">
 						<label>{{ __('Select Template') }}</label>
-						<select  class="form-control" name="template" id="templateid">
+						<select  class="form-control text-white" name="template" id="templateid">
 							@foreach($templates ?? [] as $template)
 							<option value="{{ $template->id }}">{{ $template->title }}</option>
 							@endforeach

@@ -24,7 +24,7 @@
                 <div class="from-group row">
                     <label class="col-lg-12">{{ __('Storage Upload Mode') }}</label>
                     <div class="col-lg-12">
-                       <select class="form-control" name="FILESYSTEM_DISK" id="disk-method">
+                       <select class="form-control text-white" name="FILESYSTEM_DISK" id="disk-method">
                            <option value="public" {{ env('FILESYSTEM_DISK') == 'public' ? 'selected' : '' }}>{{ __('Own server (Uploads folder)') }}</option>
                            <option value="wasabi" {{ env('FILESYSTEM_DISK') == 'wasabi' ? 'selected' : '' }}>{{ __('Wasabi') }}</option>
                        </select>
@@ -35,31 +35,31 @@
                     <div class="from-group row mt-2">
                         <label class="col-lg-12">{{ __('Wasabi Access Key Id') }}</label>
                         <div class="col-lg-12">
-                           <input type="text" name="WAS_ACCESS_KEY_ID" class="form-control" value="{{ env('WAS_ACCESS_KEY_ID') }}">
+                           <input type="text" name="WAS_ACCESS_KEY_ID" class="form-control text-white" value="{{ env('WAS_ACCESS_KEY_ID') }}">
                         </div>
                     </div> 
                     <div class="from-group row mt-2">
                         <label class="col-lg-12">{{ __('Wasabi Secret Access Key') }}</label>
                         <div class="col-lg-12">
-                           <input type="text" name="SECRET_ACCESS_KEY" class="form-control" value="{{ env('SECRET_ACCESS_KEY') }}">
+                           <input type="text" name="SECRET_ACCESS_KEY" class="form-control text-white" value="{{ env('SECRET_ACCESS_KEY') }}">
                         </div>
                     </div> 
                     <div class="from-group row mt-2">
                         <label class="col-lg-12">{{ __('Wasabi Default Region') }}</label>
                         <div class="col-lg-12">
-                           <input type="text" name="WAS_DEFAULT_REGION" class="form-control" value="{{ env('WAS_DEFAULT_REGION') }}">
+                           <input type="text" name="WAS_DEFAULT_REGION" class="form-control text-white" value="{{ env('WAS_DEFAULT_REGION') }}">
                         </div>
                     </div> 
                     <div class="from-group row mt-2">
                         <label class="col-lg-12">{{ __('Wasabi Bucket Name') }}</label>
                         <div class="col-lg-12">
-                           <input type="text" name="WAS_BUCKET" class="form-control" value="{{ env('WAS_BUCKET') }}">
+                           <input type="text" name="WAS_BUCKET" class="form-control text-white" value="{{ env('WAS_BUCKET') }}">
                         </div>
                     </div> 
                     <div class="from-group row mt-2">
                         <label class="col-lg-12">{{ __('Wasabi Endpoint') }}</label>
                         <div class="col-lg-12">
-                           <input type="text" name="WAS_ENDPOINT" class="form-control" value="{{ env('WAS_ENDPOINT') }}">
+                           <input type="text" name="WAS_ENDPOINT" class="form-control text-white" value="{{ env('WAS_ENDPOINT') }}">
                         </div>
                     </div> 
                 </div>                  

@@ -24,31 +24,31 @@
                 <div class="from-group row">
                     <label class="col-lg-12">{{ __('Name') }}</label>
                     <div class="col-lg-12">
-                        <input type="text" name="name" required="" class="form-control" value="{{ Auth::user()->name }}">
+                        <input type="text" name="name" required="" class="form-control text-white" value="{{ Auth::user()->name }}">
                     </div>
                 </div>     
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Email') }}</label>
                     <div class="col-lg-12">
-                       <input type="email" name="email" required="" class="form-control" value="{{ Auth::user()->email }}">
+                       <input type="email" name="email" required="" class="form-control text-white" value="{{ Auth::user()->email }}">
                     </div>
                 </div>
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Phone') }}</label>
                     <div class="col-lg-12">
-                        <input type="text" name="phone" required="" class="form-control" value="{{ Auth::user()->phone }}">
+                        <input type="text" name="phone" required="" class="form-control text-white" value="{{ Auth::user()->phone }}">
                     </div>
                 </div>
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Address (will used for invoice)') }}</label>
                     <div class="col-lg-12">
-                        <input type="text" name="address" required="" class="form-control" value="{{ Auth::user()->address }}">
+                        <input type="text" name="address" required="" class="form-control text-white" value="{{ Auth::user()->address }}">
                     </div>
                 </div>
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Avatar') }}</label>
                     <div class="col-lg-12">
-                        <input type="file" name="avatar"  class="form-control" accept="image/*">
+                        <input type="file" name="avatar"  class="form-control text-white" accept="image/*">
                     </div>
                 </div>
                  <div class="from-group row mt-3">
@@ -75,19 +75,19 @@
                 <div class="from-group row">
                     <label class="col-lg-12">{{ __('Old Password') }}</label>
                     <div class="col-lg-12">
-                        <input type="password" name="oldpassword" required="" class="form-control">
+                        <input type="password" name="oldpassword" required="" class="form-control text-white">
                     </div>
                 </div>     
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('New Password') }}</label>
                     <div class="col-lg-12">
-                       <input type="password" name="password" required="" class="form-control">
+                       <input type="password" name="password" required="" class="form-control text-white">
                     </div>
                 </div>
                 <div class="from-group row mt-2">
                     <label class="col-lg-12">{{ __('Confirm Password') }}</label>
                     <div class="col-lg-12">
-                        <input type="password" name="password_confirmation" required="" class="form-control">
+                        <input type="password" name="password_confirmation" required="" class="form-control text-white">
                     </div>
                 </div>
                  <div class="from-group row mt-3">

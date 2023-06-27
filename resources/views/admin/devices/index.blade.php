@@ -82,8 +82,8 @@
 				<h3 class="mb-0">{{ __('Devices') }}</h3>
 				<form action="" class="card-header-form">
 					<div class="input-group">
-						<input type="text" name="search" value="{{ $request->search ?? '' }}" class="form-control" placeholder="Search......">
-						<select class="form-control" name="type">
+						<input type="text" name="search" value="{{ $request->search ?? '' }}" class="form-control text-white" placeholder="Search......">
+						<select class="form-control text-white" name="type">
 							<option value="email" @if($type == 'email') selected="" @endif>{{ __('User Email') }}</option>
 							<option value="name" @if($type == 'name') selected="" @endif>{{ __('Device Name') }}</option>
 							<option value="uuid" @if($type == 'uuid') selected="" @endif>{{ __('Device Id') }}</option>

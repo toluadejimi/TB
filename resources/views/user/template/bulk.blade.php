@@ -114,14 +114,14 @@
                               <input type="hidden" name="contact" value="{{ $contact->id }}">
                               <td>{{ $contact->name.' - '.$contact->phone }}</td>
                               <td>
-                                 <select class="form-control" name="device">
+                                 <select class="form-control text-white" name="device">
                                  @foreach($devices as $row)
                                  <option value="{{ $row->id }}" {{ $row->id ==  $device->id ? 'selected' : ''}}>{{ $row->name. ' - '. $row->phone }}</option>
                                  @endforeach
                                  </select>
                               </td>
                               <td>
-                                 <select class="form-control" name="template">
+                                 <select class="form-control text-white" name="template">
                                  @foreach($templates as $template_row)
                                  <option value="{{ $template_row->id }}" {{ $template_row->id ==  $template->id ? 'selected' : ''}}>{{ $template_row->title }}</option>
                                  @endforeach

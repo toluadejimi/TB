@@ -26,19 +26,19 @@
 					<div class="pt-20">
 						<div class="form-group">
 							<label for="name">{{ __('Name') }}</label>
-							<input type="text" placeholder="Enter Name" name="name" class="form-control" id="name" required="" value="{{ $user->name }}" autocomplete="off">
+							<input type="text" placeholder="Enter Name" name="name" class="form-control text-white" id="name" required="" value="{{ $user->name }}" autocomplete="off">
 						</div>
 						<div class="form-group">
 							<label for="email">{{ __('Email') }}</label>
-							<input type="email" placeholder="Enter Email" name="email" class="form-control" id="email" required="" value="{{ $user->email }}" autocomplete="off">
+							<input type="email" placeholder="Enter Email" name="email" class="form-control text-white" id="email" required="" value="{{ $user->email }}" autocomplete="off">
 						</div>
 						<div class="form-group">
 							<label for="password">{{ __('Password') }}</label>
-							<input type="password" placeholder="Enter password" name="password" class="form-control" id="password"  autocomplete="off">
+							<input type="password" placeholder="Enter password" name="password" class="form-control text-white" id="password"  autocomplete="off">
 						</div>
 						<div class="form-group">
 							<label for="password_confirmation">{{ __('Password') }}</label>
-							<input type="password" placeholder="Confirm Password" name="password_confirmation" class="form-control" id="password_confirmation" value="" autocomplete="off">
+							<input type="password" placeholder="Confirm Password" name="password_confirmation" class="form-control text-white" id="password_confirmation" value="" autocomplete="off">
 						</div>
 
 						<div class="form-group">
@@ -51,7 +51,7 @@
                             </div>
                         <div class="form-group">
                         <label>{{ __('Status') }}</label>
-                        <select name="status" class="form-control">
+                        <select name="status" class="form-control text-white">
                             <option value="1" @if($user->status==1) selected @endif> {{ __('Active') }}</option>
                             <option value="0"  @if($user->status==0) selected @endif> {{ __('Deactive') }}</option>
 

@@ -14,6 +14,8 @@ use App\Models\Link;
 use Carbon\Carbon;
 use Auth;
 use Session;
+use Illuminate\Support\Facades\Http;
+
 
 class DashboardController extends Controller
 {
@@ -33,9 +35,18 @@ class DashboardController extends Controller
         $amount = Transaction::where('user_id', Auth::id())->where('type', 1)->sum('amount');
 
 
+        $link = Link::where('id', 2)->first();
+
+        $response = Http::get('https://api.binance.com/api/v3/avgPrice?symbol=USDTNGN')->json();
+        $rate = (int)$response['price'] + 30;
+
+
+
+        
+
         $whatapplink = Link::where('name', 'whatsapp')->first()->data ?? null; 
        
-        return view('user.dashboard', compact('transactions', 'amount', 'whatapplink', 'wallet', 'c_logs', 'tc_log', 'request'));
+        return view('user.dashboard', compact('transactions', 'link', 'rate', 'amount', 'whatapplink', 'wallet', 'c_logs', 'tc_log', 'request'));
     }
 
     public function dashboardData()
