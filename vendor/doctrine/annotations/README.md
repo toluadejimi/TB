@@ -16,9 +16,9 @@ Docblock Annotations Parser library (extracted from [Doctrine Common](https://gi
 
 ## Documentation
 
-See the [doctrine-project website](https://www.doctrine-project.org/projects/doctrine-annotations/en/latest/index.html).
+See the [doctrine-project website](https://www.doctrine-project.org/projects/doctrine-annotations/en/latest/dashboard).
 
 ## Contributing
 
 When making a pull request, make sure your changes follow the
-[Coding Standard Guidelines](https://www.doctrine-project.org/projects/doctrine-coding-standard/en/current/reference/index.html#introduction).
+[Coding Standard Guidelines](https://www.doctrine-project.org/projects/doctrine-coding-standard/en/current/reference/dashboard#introduction).

@@ -58,7 +58,7 @@
       <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
         <a class="sidebar-brand brand-logo" href="dashboard"><img src="{{url('')}}/assets/images/logo.png"
             alt="logo" /></a>
-        <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="{{url('')}}/assets/images/logo-mini.png"
+        <a class="sidebar-brand brand-logo-mini" href="dashboard"><img src="{{url('')}}/assets/images/logo-mini.png"
             alt="logo" /></a>
       </div>
       <ul class="nav">
@@ -197,7 +197,7 @@
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar p-0 fixed-top d-flex flex-row">
         <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{url('')}}/assets/images/logo-mini.png"
+          <a class="navbar-brand brand-logo-mini" href="dashboard"><img src="{{url('')}}/assets/images/logo-mini.png"
               alt="logo" /></a>
         </div>
         <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
