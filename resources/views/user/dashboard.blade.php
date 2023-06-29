@@ -33,7 +33,9 @@
       <div class="card badge-outline bg-success">
         <div class="card-body">
 
-          <marquee><h5>{{ $link->data }}</h5></marquee>
+          <marquee>
+            <h5>{{ $link->data }}</h5>
+          </marquee>
 
         </div>
       </div>
@@ -144,6 +146,43 @@
     </div>
 
 
+    <div class="row">
+
+
+      <div class="col-sm-12 grid-margin stretch-card">
+
+        <div class="card my-2">
+          <div class="card-body">
+            <h5>Quick Links</h5>
+
+
+            <div class="col-12 my-auto">
+              <a href="device" class="btn btn-inverse-primary text-white my-2 btn-lg submit-button">{{
+                __('Buy Numbers') }}</a>
+
+              {{-- <a href="rent" class="btn btn-inverse-danger text-white my-2 btn-lg submit-button">{{
+                __('Rent Number') }}</a> --}}
+
+              {{-- <a href="vpn" class="btn btn-inverse-success text-white my-2 btn-lg submit-button">{{
+                __('Buy VPN/Netflix') }}</a> --}}
+
+
+              {{-- <a href="debitcard" class="btn btn-inverse-warning text-white my-2 btn-lg submit-button">{{
+                __('Buy Credit/Debit Card') }}</a> --}}
+
+              <a href="host" class="btn btn-inverse-danger text-white my-2 btn-lg submit-button">{{
+                __('Buy Bullet Proof Hosting') }}</a>
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
 
 
 
@@ -180,10 +219,12 @@
                   <hr>
                   <br>
 
-                  <p> You can also fund with crypto we accept only <strong> USDT</strong> 
+                  <p> You can also fund with crypto we accept only <strong> USDT</strong>
                     <br>
-                 
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  class="btn btn-inverse-primary btn-lg my-4 submit-button float-left">{{ __('Fund with USDT') }}</button>
+
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                      class="btn btn-inverse-primary btn-lg my-4 submit-button float-left">{{ __('Fund with USDT')
+                      }}</button>
 
 
                 </div>
@@ -192,9 +233,9 @@
 
 
                 <!-- Button trigger modal -->
-             
-                
-         
+
+
+
 
 
 
@@ -204,29 +245,81 @@
         </div>
       </div>
 
+
+
       <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Other Channles</h4>
+            <h4 class="card-title">Instant SMS for Verification</h4>
+            <p> Receive instant sms to verify any authentication process <br>
+
+              <a href="device" class="btn btn-inverse-success btn-lg my-4 submit-button float-left">{{
+                __('Get Number') }}</a>
 
             <div class="row">
-              <div class="col-12 my-2">
-                <p> For other products | Website building | Spamming Tools | Dating Tools | Bullet proof Link Hosting and many more <br>
-                <a href="#" class="btn btn-inverse-secondary  my-2">Make Request</a>
-              </div>
+
+              {{--
+              <div class="col-6 my-2">
+                <p> Choose Country <br>
+                  <select name="department" id="department" class="form-control text-white">
+                    <option value=""> -- Select One --</option>
+                    @foreach ($getcountry as $val)
+                    <option value="{{ $val['code'] }}">{{ $val['title'] }}</option>
+                    @endforeach
+                  </select>
+              </div> --}}
+
+
+
+
 
               <hr>
 
               <div class="col-sm-12 my-2">
                 <p> For support | Join our whatsapp channel <br>
-                <a href="#" class="btn btn-inverse-warning my-2">Join our channel</a>
+                  <a href="#" class="btn btn-inverse-warning my-2">Join our channel</a>
               </div>
 
               <hr>
 
               <div class="col-sm-12 my-2">
                 <p> Rules & Regulations | Carefuly read our rules and regulations <br>
-                <a href="#" class="btn btn-inverse-danger my-2">Rules and Regulations</a><br>
+                  <a href="#" class="btn btn-inverse-danger my-2">Rules and Regulations</a><br>
+              </div>
+
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Other Channles</h4>
+
+            <div class="row">
+              <div class="col-12 my-2">
+                <p> For other products | Website building | Spamming Tools | Dating Tools | Bullet proof Link Hosting
+                  and many more <br>
+                  <a href="#" class="btn btn-inverse-secondary  my-2">Make Request</a>
+              </div>
+
+              <hr>
+
+              <div class="col-sm-12 my-2">
+                <p> For support | Join our whatsapp channel <br>
+                  <a href="#" class="btn btn-inverse-warning my-2">Join our channel</a>
+              </div>
+
+              <hr>
+
+              <div class="col-sm-12 my-2">
+                <p> Rules & Regulations | Carefuly read our rules and regulations <br>
+                  <a href="#" class="btn btn-inverse-danger my-2">Rules and Regulations</a><br>
               </div>
 
             </div>
@@ -240,11 +333,12 @@
 
       <!-- Modal -->
 
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Fund With USDT | Rate -  {{$rate}}/USD </h5>
+              <h5 class="modal-title" id="staticBackdropLabel">Fund With USDT | Rate - {{$rate}}/USD </h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -253,7 +347,7 @@
                 <div class="row">
                   <div class="col-12  my-auto">
                     <div class="d-flex d-sm-block d-md-flex align-items-center">
-  
+
                       <div class="row">
 
 
@@ -262,9 +356,12 @@
                           <p class="mb-3 text-white">scan or copy address</p><br>
 
 
-                          {!! SimpleSoftwareIO\QrCode\Facades\QrCode::size(200)->generate('0x54879ae031850bc7ea21f14b96a3a0bff2373fd7') !!}
+                          {!!
+                          SimpleSoftwareIO\QrCode\Facades\QrCode::size(200)->generate('0x54879ae031850bc7ea21f14b96a3a0bff2373fd7')
+                          !!}
                           <br><br>
-                          <p> {{"USDT ADDRESS"}}<p>
+                          <p> {{"USDT ADDRESS"}}
+                          <p>
                           <h4> {{"0x54879ae031850bc7ea21f14b96a3a0bff2373fd7"}}<h4>
 
                         </div>
@@ -283,21 +380,20 @@
 
                         <div class="col-8">
                           <label class="mb-2">Enter amount sent (USD) | Rate {{ $rate }}</label>
-                          <input type="number" id="input1" onkeyup="sumNumbers()"  name="amount" class="form-control text-white" required autofocus>
+                          <input type="number" id="input1" onkeyup="sumNumbers()" name="amount"
+                            class="form-control text-white" required autofocus>
                         </div>
 
                         <h4 class="mt-3 text-success" id="result">You get NGN 0.00</h4>
 
-  
+
                         <div class="col-sm-8">
                           <button type="submit" class="btn btn-inverse-success btn-lg my-4 submit-button float-left">{{
                             __('I have Sent the Money') }}</button>
 
 
-                            <script>
-
-
-                              function sumNumbers() {
+                          <script>
+                            function sumNumbers() {
                                 let input1 = parseInt(document.getElementById('input1').value);
                                 let input2 = {{ $rate }};
                                 let sum = input1 * input2;
@@ -314,14 +410,14 @@
                               
                               
                               
-                              </script>
-  
+                          </script>
+
                         </div>
-  
+
                       </div>
                     </div>
-  
-                </div>
+
+                  </div>
               </form>
 
               <hr>
@@ -346,10 +442,13 @@
 
       <!-- Modal -->
 
-     
+
 
 
     </div>
+
+
+
 
 
 
@@ -434,6 +533,23 @@
 
 
 
+    <script src="{{url('')}}/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="{{url('')}}/assets/vendors/select2/select2.min.js"></script>
+    <script src="{{url('')}}/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{{url('')}}/assets/js/off-canvas.js"></script>
+    <script src="{{url('')}}/assets/js/hoverable-collapse.js"></script>
+    <script src="{{url('')}}/assets/js/misc.js"></script>
+    <script src="{{url('')}}/assets/js/settings.js"></script>
+    <script src="{{url('')}}/assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="{{url('')}}/assets/js/file-upload.js"></script>
+    <script src="{{url('')}}/assets/js/typeahead.js"></script>
+    <script src="{{url('')}}/assets/js/select2.js"></script>
 
 
 

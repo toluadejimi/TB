@@ -6,18 +6,21 @@ use App\Http\Controllers\Controller;
 use App\Models\NetflixProduct;
 use App\Models\NetLog;
 use App\Models\Product;
+use App\Models\Sold;
 use Illuminate\Http\Request;
 use App\Models\Device;
+use App\Models\Hosting;
 use App\Models\Reply;
 use App\Models\Smstransaction;
 use App\Models\Template;
 use App\Models\User;
 use DB;
 use Auth;
-use Http;
 use Session;
 use Carbon\Carbon;
 use App\Traits\Whatsapp;
+use Illuminate\Support\Facades\Http;
+
 class DeviceController extends Controller
 {
     use Whatsapp;
@@ -40,6 +43,27 @@ class DeviceController extends Controller
         
 
         return view('user.device.index',compact('devices', 'products', 'wallet', 'netflix_p'));
+    }
+
+
+
+    public function rentview(){
+
+        $wallet = Auth::user()->wallet;
+        $token = env('TOKEN');
+        $country = Http::get("http://api.sms-man.com/control/countries?token=$token")->json();
+        return view('user.rent.rent', compact('country', 'wallet'));
+    }
+
+
+    public function hostingview(){
+
+        $products=Hosting::all();
+        $wallet = Auth::user()->wallet;
+        $soldhost = Sold::where('type',2)->get();
+
+
+        return view('user.host.index', compact('products', 'soldhost', 'wallet'));
     }
 
 

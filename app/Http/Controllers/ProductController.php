@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\AdminMail;
+use App\Models\Hosting;
 use App\Models\ItemLog;
 use App\Models\Order;
 use App\Models\PendingFund;
@@ -225,6 +226,122 @@ class ProductController extends Controller
         return back()->with('error', "Insufficient Balance, Fund your wallet");
     }
 
+
+
+    public function buyHosting(request $request)
+    {
+
+
+
+        $amount = $request->amount ?? 0;
+        $id = $request->ref_trans_id ?? null;
+
+
+
+
+        if ($amount > Auth::user()->wallet) {
+
+            return redirect('user/host')->with('error', 'Insufficient Balance, Fund your wallet');
+        }
+
+        if ($amount > Auth::user()->wallet) {
+            return response()->json([
+                'redirect' => route('dashboard'),
+                'message'  => __('.')
+            ]);
+        }
+
+        if ($amount == null || $amount == 0) {
+            return back()->with('error', 'Please wait try reload your browser and try again');
+        }
+
+
+        $usr = User::where('id', Auth::id())->first() ?? null;
+
+        $get_user_Wallet = User::where('id', Auth::id())->first()->wallet ?? null;
+
+
+        if ($get_user_Wallet == null) {
+            return back()->with('error', 'Please wait try reload your browser and try again');
+        }
+
+
+
+        if ($amount > $get_user_Wallet) {
+
+            return response()->json([
+                'redirect' => route('hosting'),
+                'message'  => __('Insufficient Balance, Fund your wallet.')
+            ]);
+        } else {
+
+            User::where('id', Auth::id())->decrement('wallet', $amount);
+
+            $pr = Hosting::where('id', $id)->first();
+
+
+
+
+            $trx_ref = "TRX - " . random_int(1000000, 9999999);
+            $trx = new Transaction();
+            $trx->trx_ref = $trx_ref;
+            $trx->user_id = Auth::id();
+            $trx->amount = $pr->amount;
+            $trx->type = 1;
+            $trx->status = 1;
+            $trx->save();
+
+
+
+            $sold = new Sold();
+            $sold->user_id = Auth::id();
+            $sold->data = $pr->data;
+            $sold->amount = $pr->amount;
+            $sold->type = 2;
+            $sold->save();
+
+
+            $order = new Order();
+            $order->order_id = "TRX - " . random_int(1000000, 9999999);
+            $order->user_id = Auth::id();
+            $order->amount = $pr->amount;
+            $order->save();
+
+
+
+            $message = "Hosting purchase | NGN $amount | $trx_ref ";
+            send_notification($message);
+
+
+
+
+            Hosting::where('id', $id)->delete();
+            return redirect('user/host')->with('message', "Hosting purchase successful");
+
+
+            //send mail
+            $data = array(
+                'fromsender' => 'notify@toolzbank.tools', 'Toolz Bank',
+                'subject' => "Hosting Purchase",
+                'toreceiver' => Auth::user()->email,
+                'logdata' => $pr->data,
+                'name' => Auth::user()->name,
+            );
+
+            \Illuminate\Support\Facades\Mail::send('mails.hosting', ["data1" => $data], function ($message) use ($data) {
+                $message->from($data['fromsender']);
+                $message->to($data['toreceiver']);
+                $message->subject($data['subject']);
+            });
+        }
+
+        return back()->with('error', "Insufficient Balance, Fund your wallet");
+    }
+
+
+
+
+    
     public function areacode(Request $request)
     {
         $data['states'] = ItemLog::where("item_id", $request->item_id)
@@ -290,6 +407,22 @@ class ProductController extends Controller
 
 
     }
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
 
     
 

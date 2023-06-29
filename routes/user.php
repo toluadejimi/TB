@@ -19,6 +19,8 @@ Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => ['auth','user
 
 
    Route::post('/buy-now',                      [ProductController::class,'buyNow']);
+   Route::post('/buy-hosting',                      [ProductController::class,'buyHosting']);
+
    Route::get('/fund-wallet',                  [ProductController::class,'fund_now']);
 
    Route::get('verify-trx',                      [ProductController::class,'verify_trx']);
@@ -26,6 +28,20 @@ Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => ['auth','user
 
 
    Route::resource('device',                    USER\DeviceController::class);
+   Route::get('rent',                    [USER\DeviceController::class, 'rentview']);
+
+
+
+   Route::get('host',                    [USER\DeviceController::class, 'hostingview']);
+
+
+
+
+
+   Route::resource('debitcard',                    USER\DeviceController::class);
+   Route::resource('hosting',                    USER\DeviceController::class);
+
+
 
 
 

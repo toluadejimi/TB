@@ -40,7 +40,7 @@
 
     <div class="row">
 
-      <div class="col-sm-8 grid-margin stretch-card">
+      <div class="col-sm-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body mb-3">
             <h5 class="mb-4">Buy log, Google Voice, Domain GV, Textnow and many more</h5>
@@ -55,9 +55,9 @@
                            <label>Choose Item</label>
                            <select id="country-dropdown"  required name="product" class="form-control text-white">
                               <option value="">-- Select Item --</option>
-                              @foreach ($products as $data)
-                              <option value="{{$data->item_id}}">
-                                 {{$data->item_name}}
+                              @foreach ($country as $data)
+                              <option value="{{$data['code']}}">
+                                 {{$data['title']}}
                               </option>
                               @endforeach
                            </select>
@@ -108,7 +108,7 @@
                         </div> --}}
 
                         <div>
-                           <button type="submit" class="btn btn-inverse-success my-4  btn-lg submit-button float-left">{{ __('Buy Now') }}</button>
+                           <button type="submit" class="btn btn-outline-success my-4 submit-button float-left">{{ __('Buy Now') }}</button>
                         </div>
                      </div>
 

@@ -29,6 +29,7 @@ class DashboardController extends Controller
         $wallet = Auth::user()->wallet;
 
 
+        $token = env('TOKEN');
         $tc_log = Sold::where('user_id', Auth::id())->count();
         $c_logs = Sold::where('user_id', Auth::id())->count();
 
@@ -37,13 +38,13 @@ class DashboardController extends Controller
 
         $link = Link::where('id', 2)->first();
 
-        $response = Http::get('https://api.binance.com/api/v3/avgPrice?symbol=USDTNGN')->json();
-        $rate = (int)$response['price'] + 30;
+        // $getrate = Http::get('https://api.binance.com/api/v3/avgPrice?symbol=USDTNGN')->json() ?? null;
 
+        // if($getrate == null){
+            $rate = 780;
+        // } $rate = (int)$getrate['price'] + 30;
 
-
-        
-
+       
         $whatapplink = Link::where('name', 'whatsapp')->first()->data ?? null; 
        
         return view('user.dashboard', compact('transactions', 'link', 'rate', 'amount', 'whatapplink', 'wallet', 'c_logs', 'tc_log', 'request'));
