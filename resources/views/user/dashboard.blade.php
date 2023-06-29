@@ -160,6 +160,8 @@
               <a href="device" class="btn btn-inverse-primary text-white my-2 btn-lg submit-button">{{
                 __('Buy Numbers') }}</a>
 
+               
+
               {{-- <a href="rent" class="btn btn-inverse-danger text-white my-2 btn-lg submit-button">{{
                 __('Rent Number') }}</a> --}}
 
@@ -172,6 +174,9 @@
 
               <a href="host" class="btn btn-inverse-danger text-white my-2 btn-lg submit-button">{{
                 __('Buy Bullet Proof Hosting') }}</a>
+
+                <a href="logs" class="btn btn-inverse-danger text-white my-2 btn-lg submit-button">{{
+                  __('View Purchased Number') }}</a>
 
 
             </div>

@@ -309,33 +309,55 @@
 
 
 
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="{{url('')}}/assets/vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <script src="{{url('')}}/assets/vendors/chart.js/Chart.min.js"></script>
-  <script src="{{url('')}}/assets/vendors/progressbar.js/progressbar.min.js"></script>
-  <script src="{{url('')}}/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
-  <script src="{{url('')}}/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-  <script src="{{url('')}}/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
-  <script src="{{url('')}}/assets/js/jquery.cookie.js" type="text/javascript"></script>
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="{{url('')}}/assets/js/off-canvas.js"></script>
-  <script src="{{url('')}}/assets/js/hoverable-collapse.js"></script>
-  <script src="{{url('')}}/assets/js/misc.js"></script>
-  <script src="{{url('')}}/assets/js/settings.js"></script>
-  <script src="{{url('')}}/assets/js/todolist.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page -->
-  <script src="{{url('')}}/assets/js/dashboard.js"></script>
-  <!-- End custom js for this page -->
+  <script type="text/javascript">
+    (function () {
+        var options = {
+           
+            whatsapp: "+2348105317336", // WhatsApp number
+            call_to_action: "Message us", // Call to action
+            button_color: "#129BF4", // Color of button
+            position: "right", // Position may be 'right' or 'left'
+            order: "facebook,whatsapp", // Order of buttons
+        };
+        var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+        s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    })();
+</script>
+
+
+
+
 
   
 
 
 
 </body>
+
+
+<!-- container-scroller -->
+<!-- plugins:js -->
+<script src="{{url('')}}/assets/vendors/js/vendor.bundle.base.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<script src="{{url('')}}/assets/vendors/chart.js/Chart.min.js"></script>
+<script src="{{url('')}}/assets/vendors/progressbar.js/progressbar.min.js"></script>
+<script src="{{url('')}}/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+<script src="{{url('')}}/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<script src="{{url('')}}/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+<script src="{{url('')}}/assets/js/jquery.cookie.js" type="text/javascript"></script>
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="{{url('')}}/assets/js/off-canvas.js"></script>
+<script src="{{url('')}}/assets/js/hoverable-collapse.js"></script>
+<script src="{{url('')}}/assets/js/misc.js"></script>
+<script src="{{url('')}}/assets/js/settings.js"></script>
+<script src="{{url('')}}/assets/js/todolist.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page -->
+<script src="{{url('')}}/assets/js/dashboard.js"></script>
+<!-- End custom js for this page -->
 
 </html>
