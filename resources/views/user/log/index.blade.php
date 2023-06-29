@@ -152,7 +152,7 @@
 								@foreach($solds ?? [] as $trx)
 								<tr>
 									
-									<td class="">
+									<td class="text-white">
 										{{ $trx->data }}
 									</td>
 									<td class="">
@@ -170,9 +170,7 @@
 									@else
 									<td><span class="badge rounded-pill bg-warning">Pending</span></td>
 									@endif
-					  
-					  
-					  
+		
 					  
 									<td class="">
 									  {{ $trx->created_at->format('d F y H i s') }}
@@ -181,6 +179,8 @@
 								@endforeach
 							</tbody>
 						</table>
+
+            <p class="text-muted"> Swipe/Move right to get more info
 						<div class="d-flex justify-content-center">{{ $solds->links('vendor.pagination.bootstrap-4') }}</div>
 					</div>
 				</div>
