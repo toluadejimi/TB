@@ -65,7 +65,7 @@ function getOpenCollectiveSponsors(): string
         $src = $member['image'] ?? (strtr($member['profile'], ['https://opencollective.com/' => 'https://images.opencollective.com/']).'/avatar/256.png');
         [$x, $y] = @getimagesize($src) ?: [0, 0];
         $validImage = ($x && $y);
-        $src = $validImage ? htmlspecialchars($src) : 'https://opencollective.com/static/images/default-guest-logo.svg';
+        $src = $validImage ? htmlspecialchars($src) : 'https://opencollective.com/static/images/default-guest-logo.png';
         $height = 64;
         $width = $validImage ? round($x * $height / $y) : $height;
         $href .= (strpos($href, '?') === false ? '?' : '&amp;').'utm_source=opencollective&amp;utm_medium=github&amp;utm_campaign=Carbon';
