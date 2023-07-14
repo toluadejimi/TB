@@ -23,6 +23,11 @@
   <!-- End layout styles -->
   <link rel="shortcut icon" href="{{url('')}}/assets/images/favicon.png" />
 
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"
+  />
+
   <meta name="anymoney-site-verification" content="6Z6LHi2MDYAn_5K9zujm_PkVPijaeV9II9uIjQxjbaoE9kWUjMWsa1ae7ahqxs617R8H">
 
 

@@ -229,6 +229,199 @@
             </div>
          </div>
 
+
+         <div class="col-xl-6 col-md-6">
+
+         
+<div class="card card-stats">
+   <!-- Card body -->
+   <div class="card-body">
+
+      <h4 class=" mb-5 my-3">Verify</h4>
+
+
+      <form action="buy-now" method="post">
+         @csrf 
+
+         <div class="row">
+
+         <div class="col-xl-6 col-md-6">
+            <div class="form-group mb-3">
+               <label>Choose Item</label>
+               <select id="country-dropdown"  required name="product" class="form-control text-white">
+                  <option value="">-- Select Item --</option>
+                  @foreach ($products as $data)
+                  <option value="{{$data->item_id}}">
+                     {{$data->item_name}}
+                  </option>
+                  @endforeach
+               </select>
+            </div>
+         </div>
+
+         <div class="col-xl-6 col-md-6">
+
+
+            <div class="form-group mb-3">
+               <label>Choose Area Code</label>
+               <select id="state-dropdown" rwquired name="area_code" class="form-control text-white">
+               </select>
+
+
+
+            </div>
+
+         </div>
+         <div class="col-xl-6 col-md-6">
+
+
+         
+            <div class="form-group">
+               <label>Amount (NGN)</label>
+               <select id="city-dropdown" required name="amount" class="form-control text-white">
+               </select>
+            </div>
+            
+
+         </div>
+
+         {{-- <div class="col-xl-6 col-md-6">
+
+
+            <div class="form-group mb-3">
+               <label>Quantity</label>
+               <input type="number" name="qty[]" id="qty" value="1" required class="form-control text-white">
+               </select>
+            </div>
+
+         </div> --}}
+
+         <div class="col-xl-6 col-md-6">
+
+           {{-- <div class="my-1">
+               <p >Total Price: <strong id="totalPrice">NGN 0</strong></p>
+            </div> --}}
+
+            <div>
+               <button type="submit" class="btn btn-outline-primary my-4 submit-button float-left">{{ __('Buy Now') }}</button>
+            </div>
+         </div>
+
+
+      </div>
+
+      </form>
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>
+         $(document).ready(function () {
+         
+                   /*------------------------------------------
+                   --------------------------------------------
+                   Country Dropdown Change Event
+                   --------------------------------------------
+                   --------------------------------------------*/
+                   $('#country-dropdown').on('change', function () {
+                       var item_id = this.value;
+                       $("#state-dropdown").html('');
+                       $.ajax({
+                           url: "{{url('api/fetch-code')}}",
+                           type: "POST",
+                           data: {
+                                item_id: item_id,
+                               _token: '{{csrf_token()}}'
+                           },
+                           dataType: 'json',
+                           success: function (result) {
+                              console.log(result)
+                               $('#state-dropdown').html('<option value="">-- Select Area Code --</option>');
+                               $.each(result.states, function (key, value) {
+                                   $("#state-dropdown").append('<option value="' + value
+                                       .id + '">' + value.area_code + '</option>');
+                               });
+                               $('#city-dropdown').html('<option value="">-- Amount --</option>');
+                           }
+                       });
+                   });
+         
+                   /*------------------------------------------
+                   --------------------------------------------
+                   State Dropdown Change Event
+                   --------------------------------------------
+                   --------------------------------------------*/
+                   $('#state-dropdown').on('change', function () {
+                       var id = this.value;
+                       $("#city-dropdown").html('');
+                       $.ajax({
+                           url: "{{url('api/fetch-amount')}}",
+                           type: "POST",
+                           data: {
+                               id: id,
+                               _token: '{{csrf_token()}}'
+                           },
+                           dataType: 'json',
+                           success: function (res) {
+                              console.log(res)
+                               $('#city-dropdown').html(res.price);
+                               $.each(res.cities, function (key, value) {
+                                   $("#city-dropdown").append('<option value="' + value.price + '">' + value.price + '</option>');
+                               });
+                           }
+                       });
+                   });
+         
+               });
+      </script>
+
+
+      <script>
+         var quantityInput = document.getElementById("qty");
+         var totalPriceElement = document.getElementById("totalPrice");
+         var amount = document.getElementById("city-dropdown");
+
+     
+         quantityInput.addEventListener("change", updateTotalPrice);
+     
+         function updateTotalPrice() {
+           var quantity = parseInt(quantityInput.value);
+           var price = parseInt(amount.value); // Example price per item
+           var totalPrice = quantity * price;
+           console.log(totalPrice);
+           console.log(price);
+           console.log(amount);
+
+           totalPriceElement.textContent = "NGN " + totalPrice;
+         }
+      </script>
+
+
+
+   </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          {{-- <div class="col-xl-6 col-md-6">
 
 

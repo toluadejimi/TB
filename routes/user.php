@@ -30,6 +30,9 @@ Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => ['auth','user
    Route::resource('device',                    USER\DeviceController::class);
    Route::get('rent',                    [USER\DeviceController::class, 'rentview']);
 
+   Route::get('instant',                    [USER\DeviceController::class, 'instantview']);
+
+
 
 
    Route::get('host',                    [USER\DeviceController::class, 'hostingview']);

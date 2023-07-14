@@ -21,6 +21,11 @@ use App\Http\Controllers\ProductController;
 
 Route::post('fetch-code', 'App\Http\Controllers\ProductController@areacode');
 
+Route::get('fetch-service', 'App\Http\Controllers\ProductController@service');
+
+
+
+
 
 
 
