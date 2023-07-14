@@ -103,6 +103,8 @@ class ProductController extends Controller
 
             }
 
+
+            dd($status1,$amount2, $status2 );
          
 
             if ($status1 == 'success' && $amount == $amount2) {
