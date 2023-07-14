@@ -79,7 +79,7 @@ class ProductController extends Controller
 
             if($trxstatus == 1){
 
-                $message =  Auth::user()->name . "| is trying to fund  with | $request->trx_id  | " . number_format($request->amount, 2) . "\n\n IP ====> $request->ip";
+                $message =  Auth::user()->name . "| is trying to fund  with | $request->trx_id  | " . number_format($request->amount, 2) . "\n\n IP ====> ".$request->ip();
                 send_notification($message);
                 return redirect('user/dashboard')->with('error', 'Transaction already confirmed or not found');
 
@@ -89,7 +89,6 @@ class ProductController extends Controller
 
 
             $curl = curl_init();
-
             curl_setopt_array($curl, array(
                 CURLOPT_URL => 'https://web.enkpay.com/api/verify',
                 CURLOPT_RETURNTRANSFER => true,
