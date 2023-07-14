@@ -96,7 +96,6 @@ class ProductController extends Controller
             $status2 = $var->status ?? null;
 
 
-            dd($status1,$amount2, $status2 );
 
             if($status2 == 'false'){
 
@@ -107,11 +106,10 @@ class ProductController extends Controller
             }
 
 
-           
-         
+            if ($status1 == 'success') {
 
-            if ($status1 == 'success' && $amount == $amount2) {
 
+                dd('hello');
                 Transaction::where('trx_ref', $trx_id)->where('status', 0)->update(['status' => 1]);
                 User::where('id', Auth::id())->increment('wallet', $amount);
 
