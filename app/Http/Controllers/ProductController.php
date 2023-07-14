@@ -409,7 +409,6 @@ class ProductController extends Controller
     }
 
 
-    v1/guest/prices?country=$country&product=$product
 
 
 
@@ -417,7 +416,7 @@ class ProductController extends Controller
     /**
      * Write code on Method
      *
-     * @return response()
+     * @return response();
      */
     public function amount(Request $request)
     {
