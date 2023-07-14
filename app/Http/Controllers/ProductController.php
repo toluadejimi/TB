@@ -99,9 +99,9 @@ class ProductController extends Controller
             if ($status1 == 'success') {
 
 
-                dd('hello');
                 Transaction::where('trx_ref', $trx_id)->where('status', 0)->update(['status' => 1]);
-                User::where('id', Auth::id())->increment('wallet', $amount);
+                User::where('id', Auth::id())->increment('wallet', $amount2);
+
 
                 $message =  Auth::user()->name . "| funding successful |" . number_format($amount, 2) . "\n\n IP ====> $ip";
                 send_notification($message);
