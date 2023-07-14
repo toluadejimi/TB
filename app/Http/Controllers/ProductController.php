@@ -95,6 +95,9 @@ class ProductController extends Controller
             $amount2 = $var->price ?? null;
             $status2 = $var->status ?? null;
 
+
+            dd($status1,$amount2, $status2 );
+
             if($status2 == 'false'){
 
                 return redirect('user/dashboard')->with('error', 'Transaction already confirmed or not found');
@@ -104,7 +107,7 @@ class ProductController extends Controller
             }
 
 
-            dd($status1,$amount2, $status2 );
+           
          
 
             if ($status1 == 'success' && $amount == $amount2) {
