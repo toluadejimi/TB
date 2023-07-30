@@ -23,6 +23,9 @@
   <!-- End layout styles -->
   <link rel="shortcut icon" href="{{url('')}}/assets/images/favicon.png" />
 
+
+  
+
   <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"
@@ -310,6 +313,15 @@
 
   </script>
 
+
+  <script>
+
+
+    $(function () {
+      $('select').selectpicker();
+  });
+    
+  </script>
 
 
 

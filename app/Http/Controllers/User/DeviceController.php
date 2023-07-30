@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Flag;
 use App\Models\NetflixProduct;
 use App\Models\NetLog;
 use App\Models\Product;
+use App\Models\Rate;
+use App\Models\Service;
 use App\Models\Sold;
 use Illuminate\Http\Request;
 use App\Models\Device;
@@ -20,6 +23,7 @@ use Auth;
 use Session;
 use Carbon\Carbon;
 use App\Traits\Whatsapp;
+use Aws\Api\Service as ApiService;
 use Illuminate\Support\Facades\Http;
 
 class DeviceController extends Controller
@@ -61,37 +65,26 @@ class DeviceController extends Controller
     public function instantview()
     {
 
+        
+
         $wallet = Auth::user()->wallet;
-        $token = env('TOKEN');
 
+        $countries = Flag::all();
+        $services = Service::all();
 
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://5sim.net/v1/guest/countries',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'GET',
-            CURLOPT_HTTPHEADER => array(
-                'Cookie: __cf_bm=94EzUtcdtigoYQ3lNlQnJu_Ys5IpTWO7cO8IWgOUcdQ-1688615238-0-AVmAZGBdiSU8o4QiFzDL854VOlQ/uTX6z/AeFBb1jIEe7CPgM8ZoAEaIp/G72ZQQPN4WYxZHvDldTNmdXLKDLRU='
-            ),
-        ));
-
-        $var = curl_exec($curl);
-        curl_close($curl);
-
-        $country = json_decode($var);
-
-        $product = Plan::select('product')->get();
+        $country = null;
+        $amount = null;
+        $count = null;
+        $service = null;
+        $number_view = null;
 
 
 
 
-        return view('user.instant.index', compact('country', 'wallet', 'product'));
+
+
+
+        return view('user.instant.index', compact('wallet', 'number_view', 'service', 'amount', 'count', 'country', 'countries', 'services'));
     }
 
 
@@ -437,4 +430,322 @@ class DeviceController extends Controller
             'redirect' => route('user.device.index')
         ]);
     }
+
+	public function get_number(request $request)
+	{
+		
+
+        $get_country = $request->country;
+        $get_service = $request->service;
+        $api_key = env('POKEY');
+
+
+        $country = Flag::where('country', $get_country)->first()->code;
+        $service = Service::where('service', $get_service)->first()->code;
+
+
+
+        $wallet = Auth::user()->wallet;
+
+        $countries = Flag::all();
+        $services = Service::all();
+
+
+      
+
+        $get_rate = Rate::where('pair', 'usd')->first()->amount;
+        $getrate = Rate::where('pair', 'ngn')->first()->amount;
+
+
+      
+
+        if($getrate == null){
+            $rate = 780;
+        } $ngn_rate = (int)$getrate;
+        $get_service_price = Http::get("https://simsms.org/priemnik.php?metod=get_service_price&country=$country&service=$service&apikey=$api_key")->json();
+        $get_count= Http::get("https://simsms.org/priemnik.php?metod=get_count_new&service=$service&apikey=$api_key&country=$country")->json();
+        $service_price = $get_service_price['price'] ?? null;
+
+        $get_amount = round( $service_price * $get_rate * $ngn_rate);
+
+        if($get_amount <= 500){
+            $amount = 1000;
+        }elseif($get_amount <= 1000){
+
+            $amount = 1800;
+
+        }elseif($get_amount <= 1800){
+
+            $amount = 2800;
+
+        }elseif($get_amount <= 1800){
+
+            $amount = 3800;
+
+        }elseif($get_amount <= 3800){
+
+            $amount = 4800;
+
+        }elseif($get_amount <= 4800){
+
+            $amount = 5800;
+
+        }else{
+
+            $amount = 7800;
+        }
+
+        $flag =  Flag::where('code', $country)->first()->flag ?? null;
+        $country =  Flag::where('code', $country)->first()->country ?? null;
+
+        $service =  Service::where('code', $service)->first()->service ?? null;
+
+        $count =  $get_count['total'] ?? null;
+
+        $number_view = 2;
+
+
+
+
+        if($service_price == null || $count == null ){
+            return back()->with('error', 'Number not available, check server 2');
+        }
+
+        return view('user.instant.index', compact('amount', 'number_view', 'count', 'country', 'flag', 'service','wallet', 'countries', 'services'))->with('message', "Number is availave for use");
+       
+
+
+        
+
+
+
+
+
+
+	}
+
+
+    public function ban_number(request $request)
+	{
+
+        $country = $request->country;
+        $service = $request->service;
+        $id = $request->id;
+        $api_key = env('POKEY');
+
+
+        $wallet = Auth::user()->wallet;
+
+        $countries = Flag::all();
+        $services = Service::all();
+        $number_view = null;
+
+
+        $ban_sms = Http::get("https://simsms.org/priemnik.php?metod=ban&service=$service&id=$id&apikey=$api_key")->json();
+
+
+        $response = $ban_sms['response'] ?? null;
+
+
+
+
+        if($response == 1){
+
+
+        $country = null;
+        $amount = null;
+        $count = null;
+        $service = null;
+        $number_view = null;
+
+        return view('user.instant.index', compact('wallet', 'number_view', 'service', 'amount', 'count', 'country', 'countries', 'services'));
+
+        }
+
+
+        if($response == 2){
+
+            $country = null;
+            $amount = null;
+            $count = null;
+            $service = null;
+            $number_view = null;
+    
+            return view('user.instant.index', compact('wallet', 'number_view', 'service', 'amount', 'count', 'country', 'countries', 'services'));
+    
+
+
+
+        }
+
+
+        if($response == 3){
+            $country = null;
+            $amount = null;
+            $count = null;
+            $service = null;
+            $number_view = null;
+    
+            return view('user.instant.index', compact('wallet', 'number_view', 'service', 'amount', 'count', 'country', 'countries', 'services'));
+    
+
+        }
+      
+
+       
+
+        
+
+
+
+
+
+
+	}
+
+
+
+
+    public function buy_instant(request $request){
+
+
+        $country = $request->country;
+        $service = $request->service;
+        $amount = $request->amount;
+    
+        $api_key = env('POKEY');
+
+        $get_country_code =  Flag::where('country', $country)->first()->code ?? null;
+        $get_service_code =  Service::where('service', $service)->first()->code ?? null;
+        
+        $wallet = Auth::user()->wallet;
+
+        $countries = Flag::all();
+        $services = Service::all();
+
+        if($amount > $wallet){
+            return back()->with('error', 'Insufficient Balance, Please Fund your wallet');
+        }
+
+    
+
+
+       $get_number = Http::get("https://simsms.org/priemnik.php?metod=get_number&country=$get_country_code&service=$get_service_code&apikey=$api_key")->json();
+        $response = $get_number['response'] ?? null;
+       
+        if($response == 1){
+
+            $number = $get_number['number'] ?? null;
+            $country_code = $get_number['CountryCode'] ?? null;
+            $id = $get_number['id'] ?? null;
+            $country = $get_number['country'] ?? null;
+            $number_view = 1;
+
+
+            $country_cc = $get_country_code;
+            $service_cc = $get_service_code;
+
+
+
+            $get_rate = Rate::where('pair', 'usd')->first()->amount;
+            $getrate = Rate::where('pair', 'ngn')->first()->amount;
+
+
+
+            if($getrate == null){
+                $rate = 780;
+            } $ngn_rate = (int)$getrate;
+            $get_service_price = Http::get("https://simsms.org/priemnik.php?metod=get_service_price&country=$country&service=$service&apikey=$api_key")->json() ?? null;
+            $get_count= Http::get("https://simsms.org/priemnik.php?metod=get_count_new&service=$service&apikey=$api_key&country=$country")->json() ?? null;
+
+
+            $service_price = $get_service_price['price'] ?? null;
+
+
+    
+            $get_amount = round( $service_price * $get_rate * $ngn_rate);
+    
+            if($get_amount <= 500){
+                $amount = 1000;
+            }elseif($get_amount <= 1000){
+    
+                $amount = 1800;
+    
+            }elseif($get_amount <= 1800){
+    
+                $amount = 2800;
+    
+            }elseif($get_amount <= 1800){
+    
+                $amount = 3800;
+    
+            }elseif($get_amount <= 3800){
+    
+                $amount = 4800;
+    
+            }elseif($get_amount <= 4800){
+    
+                $amount = 5800;
+    
+            }else{
+    
+                $amount = 7800;
+            }
+    
+    
+    
+            $flag =  Flag::where('code', $country)->first()->flag ?? null;
+            $country_name =  Flag::where('code', $country)->first()->country ?? null;
+
+            $country =  Flag::where('code', $country)->first()->country ?? null;
+
+
+    
+            $service =  Service::where('code', $service)->first()->service ?? null;
+    
+            $count =  $get_count['total'] ?? null;
+    
+
+
+
+            return view('user.instant.index', compact('amount', 'service_cc', 'country_cc','id', 'number', 'country_name', 'country_code', 'number_view', 'count', 'country', 'flag', 'service','wallet', 'countries', 'services'))->with('message', "Number is availave for use");
+        }else {
+
+            return back()->with('error', 'Service not available, Try server 2');
+
+
+
+        }
+
+
+    
+
+        
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
 }

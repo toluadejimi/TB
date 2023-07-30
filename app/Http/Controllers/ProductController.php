@@ -120,9 +120,6 @@ class ProductController extends Controller
                 Transaction::where('trx_ref', $trx_id)->where('status', 0)->update(['status' => 1]);
                 User::where('id', Auth::id())->increment('wallet', $amount2);
 
-
-                
-
                 $message =  Auth::user()->name . "| funding successful |" . number_format($amount, 2) . "\n\n IP ====> $ip";
                 send_notification($message);
 
@@ -153,6 +150,7 @@ class ProductController extends Controller
             return redirect('user/dashboard')->with('error', 'Transaction already confirmed or not found');
         }
     }
+
 
 
 
@@ -392,6 +390,101 @@ class ProductController extends Controller
 
         return response()->json($data);
     }
+
+
+
+    public function get_sms(Request $request)
+    {
+        
+        $country = $request->country;
+        $service = $request->service;
+        $id = $request->id;
+        $api_key = env('POKEY');
+
+
+        $get_sms = Http::get("https://simsms.org/priemnik.php?metod=get_sms&country=$country&service=$service&id=$id&apikey=$api_key")->json();
+
+        $response = $get_sms['response'] ?? null;
+        $number = $get_sms['number'] ?? null;
+        $sms = $get_sms['sms'] ?? null;
+
+
+        if($response == 2){
+            
+            return response()->json([
+                'status' => 'pending',
+                'number' => $number,
+                'sms' => $sms
+            ]);
+        
+          
+        }
+
+        if($response == 1){
+            return response()->json([
+                'status' => 'success',
+                'number' => $number,
+                'sms' => $sms
+            ]);
+        }
+
+
+    }
+
+
+    public function process(Request $request)
+    {
+        
+        $amount = $request->amount;
+        $user_id = $request->user_id;
+
+
+        User::where('id', $user_id)->first()->decrement('wallet', $amount);
+
+        return response()->json([
+            'status' => 'successful',
+        ]);
+     
+
+
+    }
+
+
+    public function ban(Request $request)
+    {
+        
+        $service = $request->service;
+        $id = $request->id;
+        $api_key = env('POKEY');
+
+
+        $ban_sms = Http::get("https://simsms.org/priemnik.php?metod=ban&service=$service&id=$id&apikey=$api_key")->json();
+
+        $response = $ban_sms['response'] ?? null;
+
+
+        if($response == 1){
+            return response()->json([
+                'status' => 'successfully ban',
+            ]);
+        }
+
+
+        if($response == 2){
+            return response()->json([
+                'status' => 'error occur',
+            ]);
+        }
+
+    
+     
+
+
+    }
+
+
+
+
 
 
 

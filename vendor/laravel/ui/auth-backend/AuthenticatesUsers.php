@@ -40,13 +40,9 @@ trait AuthenticatesUsers
         $email = User::where('email', $request->email)->first()->email ?? null;
 
         if($status == 0 && $request->email == $email){
-
             return view('auth.verify', compact('email'))->with('error', "Kindly verify your email");
         }
 
-
-
-     
 
 
         $request->validate([

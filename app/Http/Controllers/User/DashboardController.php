@@ -38,11 +38,11 @@ class DashboardController extends Controller
 
         $link = Link::where('id', 2)->first();
 
-        // $getrate = Http::get('https://api.binance.com/api/v3/avgPrice?symbol=USDTNGN')->json() ?? null;
+        $getrate = Http::get('https://api.binance.com/api/v3/avgPrice?symbol=USDTNGN')->json() ?? null;
 
-        // if($getrate == null){
+        if($getrate == null){
             $rate = 780;
-        // } $rate = (int)$getrate['price'] + 30;
+        } $rate = (int)$getrate['price'] + 30;
 
        
         $whatapplink = Link::where('name', 'whatsapp')->first()->data ?? null; 

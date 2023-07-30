@@ -32,6 +32,18 @@ Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => ['auth','user
 
    Route::get('instant',                    [USER\DeviceController::class, 'instantview']);
 
+   Route::get('buyinstant-number',                    [USER\DeviceController::class, 'buy_instant']);
+
+
+
+   Route::get('get-number',                    [USER\DeviceController::class, 'get_number']);
+
+   Route::get('ban-number',                    [USER\DeviceController::class, 'ban_number']);
+
+
+
+
+
 
 
 

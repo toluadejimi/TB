@@ -8,7 +8,6 @@ use App\Http\Controllers\Frontend as FRONTEND;
 
 Auth::routes();
 Route::get('/',  			        [FRONTEND\HomeController::class,'index']);
-Route::get('/',  			        [FRONTEND\HomeController::class,'index']);
 
 
 

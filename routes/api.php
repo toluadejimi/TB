@@ -17,6 +17,16 @@ use App\Http\Controllers\ProductController;
 */
 
 
+Route::get('fetch-sms', 'App\Http\Controllers\ProductController@get_sms');
+
+Route::post('process', 'App\Http\Controllers\ProductController@process');
+
+Route::post('ban', 'App\Http\Controllers\ProductController@ban');
+
+
+
+
+
 
 
 Route::post('fetch-code', 'App\Http\Controllers\ProductController@areacode');
