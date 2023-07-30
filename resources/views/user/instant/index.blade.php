@@ -1,261 +1,3 @@
-{{--
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css"
-    rel="stylesheet" />
-
-
-
-
-  <title>Document</title>
-</head>
-
-<body>
-
-
-
-
-  <div class="container">
-
-    <div class="col-12 col-md-12">
-
-      <div class="jumbotron">
-        <h4 class="display-4"> Welcome {{ Auth::user()->name }} <br><br> Balance NGN {{
-          number_format(Auth::user()->wallet, 2) }}</h4>
-        <a class="btn btn-primary btn-sm" href="dashboard" role="button">Fund Wallet</a>
-
-
-      </div>
-
-    </div>
-
-
-
-
-
-    <form action="get-number" method="get">
-      @csrf
-
-      <div class="row">
-
-        <h4 class="my-4">Choose Country and Service </h4>
-
-
-        <div class="col-6 col-md-6">
-          <div class="form-group">
-            <label>Choose Country</label>
-            <select required name="country" data-live-search="true" class="form-control selectpicker text-white">
-              <option value="">-- Select Item --</option>
-              @foreach ($countries as $data)
-
-              <option value="{{$data->code}}">{{$data->country}} <img src="{{$data->flag}}" width="50" height="15">
-              </option>
-              @endforeach
-            </select>
-
-
-          </div>
-        </div>
-
-        <div class="col-6 col-md-6">
-          <div class="form-group">
-            <label>Choose Service</label>
-
-            <select required name="service" data-live-search="true" class="form-control selectpicker text-black">
-              <option value="">-- Select Item --</option>
-              @foreach ($services as $data)
-              <option value="{{$data->code}}">{{$data->service}} <img src="{{$data->logo}}" width="50" height="15">
-              </option>
-              @endforeach
-            </select>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-6">
-          <button type="submit" class="btn btn-primary btn-lg" role="button">Check Number Availability</button>
-        </div>
-
-      </div>
-
-    </form>
-
-
-
-    @if ($errors->any())
-    <div class="alert alert-danger">
-      <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-      </ul>
-    </div>
-    @endif
-    @if (session()->has('message'))
-    <div class="alert alert-success">
-      {{ session()->get('message') }}
-    </div>
-    @endif
-    @if (session()->has('error'))
-    <div class="alert alert-danger">
-      {{ session()->get('error') }}
-    </div>
-    @endif
-
-
-    <div class="col-12 col-md-12">
-
-      <hr>
-
-      @if($number_view != null )
-
-      <div class="row card">
-
-        <input type="country" value="{{ $country_cc }}" id="country_cc" hidden>
-        <input type="country" value="{{ $service_cc }}" id="service_cc" hidden>
-        <input type="country" value="{{ $id }}" id="sid" hidden>
-
-
-        <input type="country" value="{{ $amount }}" id="amount" hidden>
-        <input type="country" value="{{ Auth::user()->id }}" id="user_id" hidden>
-
-
-        <h4>Waiting for SMS </h4>
-        <h4 style="color:red;" id="timer"> <span id="countdown"></span></h4>
-
-        <div class="col-3 col-md-3">
-          <h5>Country </h5>
-          <p>{{$country_name ?? " "}} </p>
-
-        </div>
-
-        <div class="col-3 col-md-3">
-          <h5>Phone Number</h5>
-          <p>{{$country_code ?? " "}}{{$number ?? " "}}</p>
-
-        </div>
-
-        <div class="col-3 col-md-3">
-
-          <textarea id="displaySms"> </textarea>
-
-        </div>
-      </div>
-
-      <div class="row mt-5">
-
-        <div class="col-3 col-md-3 mt-4">
-
-          <a href="/user/ban-number?country={{$country_cc ?? " "}}&service={{$service_cc  ?? " " }}&id={{$id  ?? " " }}"
-            class="btn btn-warning btn-sm" role="button">Cancle Order</a>
-
-        </div>
-
-
-        <div class="col-3 col-md-3 mt-4">
-          <a href="#" id="requestButtonp" class="btn btn-success btn-sm" role="button">Get Sms</a>
-        </div>
-
-      </div>
-
-
-      @else
-
-
-      <div class="col-12 col-md-12">
-
-        <div class="row card">
-
-          <div class="col-3 col-md-3">
-            @if($country != null )
-            <h5>County </h5> <img src="{{$flag ?? " "}}" alt="">
-            <p>{{$country ?? " "}} </p>
-            @endif
-          </div>
-
-          <div class="col-3 col-md-3">
-            @if($service != null )
-            <h5>Service</h5>
-            <p>{{$service ?? " "}}</p>
-            @endif
-          </div>
-
-
-          <div class="col-3 col-md-3">
-            @if($amount != null )
-            <h5>Amount</h5>
-            <p>NGN {{number_format($amount, 2)}}</p>
-            @endif
-          </div>
-
-        </div>
-
-        <div class="row">
-
-          <div class="col-3 col-md-3">
-            @if($count != null )
-            <h5>Count</h5>
-            <p>{{number_format($count)}} Available</p>
-            @endif
-          </div>
-
-
-          <div class="col-3 col-md-3 mt-4">
-            @if($count ?? null != 0)
-            <a href="/user/buyinstant-number?service={{$service ?? " "}}&country={{$country  ?? " " }}&amount={{$amount  ?? " " }}"
-              id="requestButtonp" class="btn btn-success btn-sm" role="button">Buy Number</a>
-            @endif
-          </div>
-
-
-
-        </div>
-
-
-      </div>
-
-      @endif
-
-
-    </div>
-
-
-
-
-
-  </div>
-
-  </div>
-
-
-
-
-
-
-
-
-
-
-  <script>
-    $(function() {
-      $('.selectpicker').selectpicker();
-    });
-  </script>
-
-</body>
-
-</html> --}}
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -309,13 +51,14 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">Toolz Bank</a></h1>
+      <h1 class="logo me-auto"><a href="/user/dashboard">Toolz Bank</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="{{url('')}}/assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="/user/dashboard">Dashboard</a></li>
+          <li><a class="nav-link scrollto active" href="/user/instant">Instant Number</a></li>
           <li><a class="getstarted scrollto" href="#about">NGN {{ number_format(Auth::user()->wallet, 2) }}</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -331,10 +74,10 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
           data-aos="fade-up" data-aos-delay="200">
-          <h2>Welome {{ Auth::user()->name }}</h2>
+          <p class="text-white">Welome {{ Auth::user()->name }}</p>
           <h1>Better Solutions For Your Verification</h1>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started scrollto">Fund Wallet - NGN {{ number_format(Auth::user()->wallet,
+            <a href="/user/dashboard" class="btn-get-started scrollto">Fund Wallet - NGN {{ number_format(Auth::user()->wallet,
               2) }}</a>
           </div>
         </div>
@@ -496,19 +239,21 @@
                     </div>
                   </div>
 
-                  <div class="row mt-5">
-
-                    <div class="col-6 col-md-6 my-4">
-
-                      <a href="/user/ban-number?country={{$country_cc ?? " "}}&service={{$service_cc  ?? " " }}&id={{$id  ?? " " }}"
-                        class="btn btn-warning btn-sm" role="button">Cancle Order</a>
-
-                    </div>
+                  <div class="row mt-3">
 
 
                     <div class="col-6 col-md-6 mt-4">
-                      <a href="#" id="requestButtonp" class="btn btn-success btn-sm" role="button">Get Sms</a>
+                      <a href="#" id="requestButtonp" class="btn btn-success btn-lg" role="button">Get Sms</a>
                     </div>
+
+
+                    <div class="col-6 col-md-6 my-4">
+                      <a href="/user/ban-number?country={{$country_cc ?? " "}}&service={{$service_cc  ?? " " }}&id={{$id  ?? " " }}"
+                        class="btn btn-danger btn-lg" role="button">Cancle Order</a>
+                    </div>
+
+
+                  
 
                   </div>
 

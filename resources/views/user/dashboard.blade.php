@@ -18,7 +18,7 @@
     @endif
     @if (session()->has('message'))
     <div class="alert alert-success">
-      {{ session()->get('message') }}
+      {{ session()->get('message') }}x
     </div>
     @endif
     @if (session()->has('error'))
@@ -160,6 +160,9 @@
               <a href="device" class="btn btn-inverse-primary text-white my-2 btn-lg submit-button">{{
                 __('Buy Numbers') }}</a>
 
+                <a href="instant" class="btn btn-inverse-danger text-white my-2 btn-lg submit-button">{{
+                  __('Instant Verification') }}</a>
+
                
 
               {{-- <a href="rent" class="btn btn-inverse-danger text-white my-2 btn-lg submit-button">{{
@@ -172,7 +175,7 @@
               {{-- <a href="debitcard" class="btn btn-inverse-warning text-white my-2 btn-lg submit-button">{{
                 __('Buy Credit/Debit Card') }}</a> --}}
 
-              <a href="host" class="btn btn-inverse-danger text-white my-2 btn-lg submit-button">{{
+              <a href="host" class="btn btn-inverse-warning text-white my-2 btn-lg submit-button">{{
                 __('Buy Bullet Proof Hosting') }}</a>
 
                 <a href="logs" class="btn btn-inverse-danger text-white my-2 btn-lg submit-button">{{
