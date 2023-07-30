@@ -304,39 +304,7 @@
       </div>
 
 
-      <div class="col-md-12 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Other Channles</h4>
-
-            <div class="row">
-              <div class="col-12 my-2">
-                <p> For other products | Website building | Spamming Tools | Dating Tools | Bullet proof Link Hosting
-                  and many more <br>
-                  <a href="#" class="btn btn-inverse-secondary  my-2">Make Request</a>
-              </div>
-
-              <hr>
-
-              <div class="col-sm-12 my-2">
-                <p> For support | Join our whatsapp channel <br>
-                  <a href="#" class="btn btn-inverse-warning my-2">Join our channel</a>
-              </div>
-
-              <hr>
-
-              <div class="col-sm-12 my-2">
-                <p> Rules & Regulations | Carefuly read our rules and regulations <br>
-                  <a href="#" class="btn btn-inverse-danger my-2">Rules and Regulations</a><br>
-              </div>
-
-            </div>
-
-
-
-          </div>
-        </div>
-      </div>
+   
 
 
       <!-- Modal -->
