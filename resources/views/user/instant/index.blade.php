@@ -67,10 +67,12 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
           data-aos="fade-up" data-aos-delay="200">
-          <p class="text-white">Welome {{ Auth::user()->name }}</p>
+
+          <p class="text-white">Hi {{ Auth::user()->name }}</p>
           <h1>Better Solutions For Your Verification</h1>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="/user/dashboard" class="btn-get-started scrollto">Fund Wallet - NGN {{ number_format(Auth::user()->wallet,
+            <a href="/user/dashboard" class="btn-get-started scrollto">Fund Wallet - NGN {{
+              number_format(Auth::user()->wallet,
               2) }}</a>
           </div>
         </div>
@@ -126,16 +128,29 @@
                 <datalist id="datalistOption">
                   <option value="">-- Select Item --</option>
                   @foreach ($services as $data)
-                  <option value="{{$data->service}}">{{$data->service}} <img src="{{$data->logo}}" width="50" height="15">
+                  <option value="{{$data->service}}">{{$data->service}} <img src="{{$data->logo}}" width="50"
+                      height="15">
                   </option>
                   @endforeach
                 </datalist>
               </div>
             </div>
 
-            <div class="col-12 col-md-12 mt-5 mb-5">
-              <button type="submit" class="btn btn-primary btn-lg mb-5" role="button">Purchase Number</button>
+            <div class="row">
+
+
+              <div class="col-6 col-md-6 mt-5 mb-5">
+                <button type="submit" class="btn btn-primary btn-lg mb-5" role="button">Purchase Number</button>
+              </div>
+  
+              <div class="col-6 col-md-6 mt-5 mb-5">
+                <a href="/user/server2" class="btn btn-warning btn-lg mb-5" role="button">Switch to Server 2</a>
+              </div>
+
+
             </div>
+
+           
 
         </div>
 
@@ -246,7 +261,7 @@
                     </div>
 
 
-                  
+
 
                   </div>
 
@@ -279,9 +294,9 @@
                       @endif
                     </div>
 
-           
 
-             
+
+
 
                     <div class="col-6 col-md-6">
                       @if($count != null )
@@ -310,7 +325,7 @@
 
                   <div class="row">
 
-           
+
                     <h6>Select Country and Service to get a number for verification</h6>
 
 
@@ -329,8 +344,21 @@
 
 
 
+
+
                 </div>
               </div>
+
+            </div>
+
+
+
+          </div>
+
+          <div class="col-xl-12 col-md-12 my-5 d-flex justify-content-center">
+
+            <div class="alert alert-danger rounded-pill col-lg-6 text-center" role="alert">
+              YOU ARE SHOPPING FROM SERVER 1
             </div>
 
           </div>

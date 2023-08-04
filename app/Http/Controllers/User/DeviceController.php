@@ -8,12 +8,16 @@ use App\Models\NetflixProduct;
 use App\Models\NetLog;
 use App\Models\Product;
 use App\Models\Rate;
+use App\Models\Server2Services;
 use App\Models\Service;
 use App\Models\Sold;
 use Illuminate\Http\Request;
 use App\Models\Device;
 use App\Models\Hosting;
 use App\Models\Reply;
+use App\Models\Tempsale;
+
+
 use App\Models\Smstransaction;
 use App\Models\Template;
 use App\Models\Plan;
@@ -25,6 +29,8 @@ use Carbon\Carbon;
 use App\Traits\Whatsapp;
 use Aws\Api\Service as ApiService;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Crypt;
+
 
 class DeviceController extends Controller
 {
@@ -65,7 +71,7 @@ class DeviceController extends Controller
     public function instantview()
     {
 
-        
+
 
         $wallet = Auth::user()->wallet;
 
@@ -88,7 +94,257 @@ class DeviceController extends Controller
     }
 
 
-    
+
+    public function server2()
+    {
+
+        $api_key = env('P2KEY');
+
+        //$get_prices = Http::get("https://daisysms.com/stubs/handler_api.php?api_key=$api_key&action=getPricesVerification")->json() ?? null;
+
+        $get_lists = Http::get("https://daisysms.com/stubs/handler_api.php?api_key=$api_key&action=getPrices")->json() ?? null;
+
+        $getrate = Rate::where('pair', 'ngn')->first()->amount;
+
+
+        $get2 = $get_lists['187'];
+
+        $get_prices = [];
+        foreach ($get2 as $key => $value) {
+            $get_prices[] = array(
+                "code" => $key,
+                "name" => $value['name'],
+                "count" => $value['count'],
+                "cost" => $value['cost'] * $getrate,
+                "cost2" => Crypt::encrypt($value['cost'] * $getrate),
+            );
+
+
+
+            // DB::table('server2_services')->insert($get_prices);
+
+
+
+
+        }
+
+
+
+        $wallet = Auth::user()->wallet;
+
+        $countries = Flag::all();
+        $services = Service::all();
+
+        $country = null;
+        $amount = null;
+        $count = null;
+        $service = null;
+        $number_view = null;
+
+        return view('user.instant.server2', compact('wallet', 'get_prices', 'number_view', 'service', 'amount', 'count', 'country', 'countries', 'services'));
+    }
+
+
+    public function ban_server2(Request $request)
+    {
+
+        $api_key = env('P2KEY');
+
+        $service = $request->service;
+        $code = $request->code;
+
+        $cost = Crypt::decrypt($code);
+
+        if (Auth::user()->wallet < $cost) {
+            return back()->with('bad', 'Insufficient Funds, Please fund your wallet');
+        }
+
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://daisysms.com/stubs/handler_api.php?api_key=$api_key&action=getNumber&service=$service",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Accept: application/json',
+                'Content-Type: application/json',
+            ),
+        ));
+        $var = curl_exec($curl);
+        $number = list($status, $id, $phone) = explode(':', $var) ?? null;
+
+
+        if ($var != null) {
+
+
+            $get_lists = Http::get("https://daisysms.com/stubs/handler_api.php?api_key=$api_key&action=getPrices")->json() ?? null;
+
+            $getrate = Rate::where('pair', 'ngn')->first()->amount;
+
+
+            $get2 = $get_lists['187'];
+
+            $get_prices = [];
+            foreach ($get2 as $key => $value) {
+                $get_prices[] = array(
+                    "code" => $key,
+                    "name" => $value['name'],
+                    "count" => $value['count'],
+                    "cost" => $value['cost'] * $getrate,
+                    "cost2" => Crypt::encrypt($value['cost'] * $getrate),
+                );
+            }
+
+            $wallet = Auth::user()->wallet;
+            $countries = Flag::all();
+            $services = Service::all();
+
+            $country = null;
+            $amount = null;
+            $count = null;
+            $service = null;
+            $number_view = 1;
+            $country_name = "USA";
+            $country_code = "+1";
+            $number = $number['2'];
+            $nid = $number['3'];
+            $cost = $cost;
+
+
+
+        
+        $id = $request->nid;
+        $api_key = env('P2KEY');
+
+        $ban_sms = Http::get("https://daisysms.com/stubs/handler_api.php?api_key=$api_key&action=setStatus&id=$id&status=8")->json();
+
+        dd($ban_sms);
+
+
+        $response = $ban_sms['response'] ?? null;
+        if($response == 1){
+            return response()->json([
+                'status' => 'successfully ban',
+            ]);
+        }
+
+
+
+        if($response == 2){
+            return response()->json([
+                'status' => 'error occur',
+            ]);
+        }
+
+
+        return view('user.instant.server2', compact('wallet', 'cost', 'get_prices', 'country_name', 'nid', 'country_code',  'number', 'number_view', 'service', 'amount', 'count', 'country', 'countries', 'services'));
+
+
+
+    }
+
+
+
+
+
+
+
+    public function buy_server2(request $request)
+    {
+
+
+
+        $api_key = env('P2KEY');
+
+        $service = $request->service;
+        $code = $request->code;
+
+        $cost = Crypt::decrypt($code);
+
+        if (Auth::user()->wallet < $cost) {
+            return back()->with('bad', 'Insufficient Funds, Please fund your wallet');
+        }
+
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://daisysms.com/stubs/handler_api.php?api_key=$api_key&action=getNumber&service=$service",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Accept: application/json',
+                'Content-Type: application/json',
+            ),
+        ));
+        $var = curl_exec($curl);
+        $number = list($status, $id, $phone) = explode(':', $var) ?? null;
+
+
+        if ($var != null) {
+
+
+            $get_lists = Http::get("https://daisysms.com/stubs/handler_api.php?api_key=$api_key&action=getPrices")->json() ?? null;
+
+            $getrate = Rate::where('pair', 'ngn')->first()->amount;
+
+
+            $get2 = $get_lists['187'];
+
+            $get_prices = [];
+            foreach ($get2 as $key => $value) {
+                $get_prices[] = array(
+                    "code" => $key,
+                    "name" => $value['name'],
+                    "count" => $value['count'],
+                    "cost" => $value['cost'] * $getrate,
+                    "cost2" => Crypt::encrypt($value['cost'] * $getrate),
+                );
+            }
+
+            $wallet = Auth::user()->wallet;
+            $countries = Flag::all();
+            $services = Service::all();
+
+            $country = null;
+            $amount = null;
+            $count = null;
+            $service = null;
+            $number_view = 1;
+            $country_name = "USA";
+            $country_code = "+1";
+            $number = $number['2'];
+            $nid = $number['3'];
+            $cost = $cost;
+
+
+
+            return view('user.instant.server2', compact('wallet', 'cost', 'get_prices', 'country_name', 'nid', 'country_code',  'number', 'number_view', 'service', 'amount', 'count', 'country', 'countries', 'services'));
+        }
+
+
+
+
+
+
+
+    }
+
+
+
+
+
 
 
     public function hostingview()
@@ -431,9 +687,9 @@ class DeviceController extends Controller
         ]);
     }
 
-	public function get_number(request $request)
-	{
-		
+    public function get_number(request $request)
+    {
+
 
         $get_country = $request->country;
         $get_service = $request->service;
@@ -451,46 +707,42 @@ class DeviceController extends Controller
         $services = Service::all();
 
 
-      
+
 
         $get_rate = Rate::where('pair', 'usd')->first()->amount;
         $getrate = Rate::where('pair', 'ngn')->first()->amount;
 
 
-      
 
-        if($getrate == null){
+
+        if ($getrate == null) {
             $rate = 780;
-        } $ngn_rate = (int)$getrate;
+        }
+        $ngn_rate = (int)$getrate;
         $get_service_price = Http::get("https://simsms.org/priemnik.php?metod=get_service_price&country=$country&service=$service&apikey=$api_key")->json();
-        $get_count= Http::get("https://simsms.org/priemnik.php?metod=get_count_new&service=$service&apikey=$api_key&country=$country")->json();
+        $get_count = Http::get("https://simsms.org/priemnik.php?metod=get_count_new&service=$service&apikey=$api_key&country=$country")->json();
         $service_price = $get_service_price['price'] ?? null;
 
-        $get_amount = round( $service_price * $get_rate * $ngn_rate);
+        $get_amount = round($service_price * $get_rate * $ngn_rate);
 
-        if($get_amount <= 500){
+        if ($get_amount <= 500) {
             $amount = 1000;
-        }elseif($get_amount <= 1000){
+        } elseif ($get_amount <= 1000) {
 
             $amount = 1800;
-
-        }elseif($get_amount <= 1800){
+        } elseif ($get_amount <= 1800) {
 
             $amount = 2800;
-
-        }elseif($get_amount <= 1800){
+        } elseif ($get_amount <= 1800) {
 
             $amount = 3800;
-
-        }elseif($get_amount <= 3800){
+        } elseif ($get_amount <= 3800) {
 
             $amount = 4800;
-
-        }elseif($get_amount <= 4800){
+        } elseif ($get_amount <= 4800) {
 
             $amount = 5800;
-
-        }else{
+        } else {
 
             $amount = 7800;
         }
@@ -507,26 +759,16 @@ class DeviceController extends Controller
 
 
 
-        if($service_price == null || $count == null ){
+        if ($service_price == null || $count == null) {
             return back()->with('error', 'Number not available, check server 2');
         }
 
-        return view('user.instant.index', compact('amount', 'number_view', 'count', 'country', 'flag', 'service','wallet', 'countries', 'services'))->with('message', "Number is availave for use");
-       
-
-
-        
-
-
-
-
-
-
-	}
+        return view('user.instant.index', compact('amount', 'number_view', 'count', 'country', 'flag', 'service', 'wallet', 'countries', 'services'))->with('message', "Number is availave for use");
+    }
 
 
     public function ban_number(request $request)
-	{
+    {
 
         $country = $request->country;
         $service = $request->service;
@@ -549,91 +791,74 @@ class DeviceController extends Controller
 
 
 
-        if($response == 1){
+        if ($response == 1) {
 
-
-        $country = null;
-        $amount = null;
-        $count = null;
-        $service = null;
-        $number_view = null;
-
-        return view('user.instant.index', compact('wallet', 'number_view', 'service', 'amount', 'count', 'country', 'countries', 'services'));
-
-        }
-
-
-        if($response == 2){
 
             $country = null;
             $amount = null;
             $count = null;
             $service = null;
             $number_view = null;
-    
+
             return view('user.instant.index', compact('wallet', 'number_view', 'service', 'amount', 'count', 'country', 'countries', 'services'));
-    
-
-
-
         }
 
 
-        if($response == 3){
+        if ($response == 2) {
+
             $country = null;
             $amount = null;
             $count = null;
             $service = null;
             $number_view = null;
-    
+
             return view('user.instant.index', compact('wallet', 'number_view', 'service', 'amount', 'count', 'country', 'countries', 'services'));
-    
-
         }
-      
-
-       
-
-        
 
 
+        if ($response == 3) {
+            $country = null;
+            $amount = null;
+            $count = null;
+            $service = null;
+            $number_view = null;
+
+            return view('user.instant.index', compact('wallet', 'number_view', 'service', 'amount', 'count', 'country', 'countries', 'services'));
+        }
+    }
 
 
 
 
-	}
-
-
-
-
-    public function buy_instant(request $request){
+    public function buy_instant(request $request)
+    {
 
 
         $country = $request->country;
         $service = $request->service;
         $amount = $request->amount;
-    
+
         $api_key = env('POKEY');
 
         $get_country_code =  Flag::where('country', $country)->first()->code ?? null;
         $get_service_code =  Service::where('service', $service)->first()->code ?? null;
-        
+
         $wallet = Auth::user()->wallet;
 
         $countries = Flag::all();
         $services = Service::all();
 
-        if($amount > $wallet){
+        if ($amount > $wallet) {
             return back()->with('error', 'Insufficient Balance, Please Fund your wallet');
         }
 
-    
 
 
-       $get_number = Http::get("https://simsms.org/priemnik.php?metod=get_number&country=$get_country_code&service=$get_service_code&apikey=$api_key")->json();
+
+        $get_number = Http::get("https://simsms.org/priemnik.php?metod=get_number&country=$get_country_code&service=$get_service_code&apikey=$api_key")->json();
         $response = $get_number['response'] ?? null;
-       
-        if($response == 1){
+
+        if ($response == 1) {
 
             $number = $get_number['number'] ?? null;
             $country_code = $get_number['CountryCode'] ?? null;
@@ -652,100 +877,62 @@ class DeviceController extends Controller
 
 
 
-            if($getrate == null){
+            if ($getrate == null) {
                 $rate = 780;
-            } $ngn_rate = (int)$getrate;
+            }
+            $ngn_rate = (int)$getrate;
             $get_service_price = Http::get("https://simsms.org/priemnik.php?metod=get_service_price&country=$country&service=$service&apikey=$api_key")->json() ?? null;
-            $get_count= Http::get("https://simsms.org/priemnik.php?metod=get_count_new&service=$service&apikey=$api_key&country=$country")->json() ?? null;
+            $get_count = Http::get("https://simsms.org/priemnik.php?metod=get_count_new&service=$service&apikey=$api_key&country=$country")->json() ?? null;
 
 
             $service_price = $get_service_price['price'] ?? null;
 
 
-    
-            $get_amount = round( $service_price * $get_rate * $ngn_rate);
-    
-            if($get_amount <= 500){
+
+            $get_amount = round($service_price * $get_rate * $ngn_rate);
+
+            if ($get_amount <= 500) {
                 $amount = 1000;
-            }elseif($get_amount <= 1000){
-    
+            } elseif ($get_amount <= 1000) {
+
                 $amount = 1800;
-    
-            }elseif($get_amount <= 1800){
-    
+            } elseif ($get_amount <= 1800) {
+
                 $amount = 2800;
-    
-            }elseif($get_amount <= 1800){
-    
+            } elseif ($get_amount <= 1800) {
+
                 $amount = 3800;
-    
-            }elseif($get_amount <= 3800){
-    
+            } elseif ($get_amount <= 3800) {
+
                 $amount = 4800;
-    
-            }elseif($get_amount <= 4800){
-    
+            } elseif ($get_amount <= 4800) {
+
                 $amount = 5800;
-    
-            }else{
-    
+            } else {
+
                 $amount = 7800;
             }
-    
-    
-    
+
+
+
             $flag =  Flag::where('code', $country)->first()->flag ?? null;
             $country_name =  Flag::where('code', $country)->first()->country ?? null;
 
             $country =  Flag::where('code', $country)->first()->country ?? null;
 
 
-    
+
             $service =  Service::where('code', $service)->first()->service ?? null;
-    
+
             $count =  $get_count['total'] ?? null;
-    
 
 
 
-            return view('user.instant.index', compact('amount', 'service_cc', 'country_cc','id', 'number', 'country_name', 'country_code', 'number_view', 'count', 'country', 'flag', 'service','wallet', 'countries', 'services'))->with('message', "Number is availave for use");
-        }else {
+
+            return view('user.instant.index', compact('amount', 'service_cc', 'country_cc', 'id', 'number', 'country_name', 'country_code', 'number_view', 'count', 'country', 'flag', 'service', 'wallet', 'countries', 'services'))->with('message', "Number is availave for use");
+        } else {
 
             return back()->with('error', 'Service not available, Try server 2');
-
-
-
         }
-
-
-    
-
-        
-
-
-
-
-
-
-
-
-
-
-   
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
 }

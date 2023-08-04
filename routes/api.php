@@ -17,11 +17,21 @@ use App\Http\Controllers\ProductController;
 */
 
 
+
+Route::post('v1/webhook/', 'App\Http\Controllers\ProductController@webhook');
+
+
+
 Route::get('fetch-sms', 'App\Http\Controllers\ProductController@get_sms');
 
 Route::post('process', 'App\Http\Controllers\ProductController@process');
 
 Route::post('ban', 'App\Http\Controllers\ProductController@ban');
+
+Route::post('ban-server2-number', 'App\Http\Controllers\ProductController@ban_server2');
+
+
+
 
 
 

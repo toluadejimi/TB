@@ -6,6 +6,8 @@ use App\Http\Controllers\ProductController;
 
 
 
+
+
 Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => ['auth','user',]], function (){
    
    //all dashboard routes
@@ -27,10 +29,19 @@ Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => ['auth','user
 
 
 
+
+
    Route::resource('device',                    USER\DeviceController::class);
    Route::get('rent',                    [USER\DeviceController::class, 'rentview']);
 
    Route::get('instant',                    [USER\DeviceController::class, 'instantview']);
+
+
+   
+
+  
+
+
 
    Route::get('buyinstant-number',                    [USER\DeviceController::class, 'buy_instant']);
 
@@ -39,6 +50,19 @@ Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => ['auth','user
    Route::get('get-number',                    [USER\DeviceController::class, 'get_number']);
 
    Route::get('ban-number',                    [USER\DeviceController::class, 'ban_number']);
+
+   
+   Route::get('server2',                    [USER\DeviceController::class, 'server2']);
+
+   Route::get('buy-sever2',                    [USER\DeviceController::class, 'buy_server2']);
+
+   Route::get('ban-server2-number',                    [USER\DeviceController::class, 'buy_server2']);
+
+
+
+
+  
+
 
 
 

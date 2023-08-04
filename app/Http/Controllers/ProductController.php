@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Redirect;
 use Mail;
 use MercadoPago\Item;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use \Psr\Http\Message\ResponseInterface as Response;
+use Slim\Factory\AppFactory;
+use Vonage\SMS\Webhook\Factory;
 
 class ProductController extends Controller
 {
@@ -432,6 +435,28 @@ class ProductController extends Controller
     }
 
 
+
+
+    public function webhook(Request $request){
+
+
+
+        $parametersJson = json_encode($request->all());
+        $headers = json_encode($request->headers->all());
+        $ip = $request->ip();
+
+        $result = " Header========> " . $headers . "\n\n Body========> " . $parametersJson . "\n\nIP========> " . $ip;
+        send_notification($result);
+
+
+
+       
+
+
+    }
+    
+
+
     public function process(Request $request)
     {
         
@@ -482,11 +507,8 @@ class ProductController extends Controller
 
     }
 
-
-
-
-
-
+   
+    
 
     public function product(Request $request)
     {
@@ -569,6 +591,39 @@ class ProductController extends Controller
 
     }
 
+
+
+
+
+    public function inbound_sms(Request $request)
+    {
+
+        $basic  = new \Vonage\Client\Credentials\Basic("28716d33", "Tolulope2580@");
+        $client = new \Vonage\Client($basic);
+
+
+        // //search
+        // $numbers = $client->numbers()->searchAvailable('US');
+
+        try {
+            $inbound = \Vonage\SMS\Webhook\Factory::createFromGlobals();
+            error_log($inbound->getText());
+        } catch (\InvalidArgumentException $e) {
+            error_log('invalid message');
+        }
+
+        //$response = $client->account()->getBalance();
+
+
+     
+
+
+        dd($response);
+
+     
+
+
+    }
 
 
     
