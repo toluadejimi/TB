@@ -148,77 +148,77 @@ class DeviceController extends Controller
     public function ban_server2(Request $request)
     {
 
-        $api_key = env('P2KEY');
+    $api_key = env('P2KEY');
 
-        $service = $request->service;
-        $code = $request->code;
+    $service = $request->service;
+    $code = $request->code;
 
-        $cost = Crypt::decrypt($code);
+    $cost = Crypt::decrypt($code);
 
-        if (Auth::user()->wallet < $cost) {
-            return back()->with('bad', 'Insufficient Funds, Please fund your wallet');
+    if (Auth::user()->wallet < $cost) {
+        return back()->with('bad', 'Insufficient Funds, Please fund your wallet');
+    }
+
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://daisysms.com/stubs/handler_api.php?api_key=$api_key&action=getNumber&service=$service",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'GET',
+        CURLOPT_HTTPHEADER => array(
+            'Accept: application/json',
+            'Content-Type: application/json',
+        ),
+    ));
+    $var = curl_exec($curl);
+    $number = list($status, $id, $phone) = explode(':', $var) ?? null;
+
+
+    if ($var != null) {
+
+
+        $get_lists = Http::get("https://daisysms.com/stubs/handler_api.php?api_key=$api_key&action=getPrices")->json() ?? null;
+
+        $getrate = Rate::where('pair', 'ngn')->first()->amount;
+
+
+        $get2 = $get_lists['187'];
+
+        $get_prices = [];
+        foreach ($get2 as $key => $value) {
+            $get_prices[] = array(
+                "code" => $key,
+                "name" => $value['name'],
+                "count" => $value['count'],
+                "cost" => $value['cost'] * $getrate,
+                "cost2" => Crypt::encrypt($value['cost'] * $getrate),
+            );
         }
 
+        $wallet = Auth::user()->wallet;
+        $countries = Flag::all();
+        $services = Service::all();
 
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://daisysms.com/stubs/handler_api.php?api_key=$api_key&action=getNumber&service=$service",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'GET',
-            CURLOPT_HTTPHEADER => array(
-                'Accept: application/json',
-                'Content-Type: application/json',
-            ),
-        ));
-        $var = curl_exec($curl);
-        $number = list($status, $id, $phone) = explode(':', $var) ?? null;
-
-
-        if ($var != null) {
-
-
-            $get_lists = Http::get("https://daisysms.com/stubs/handler_api.php?api_key=$api_key&action=getPrices")->json() ?? null;
-
-            $getrate = Rate::where('pair', 'ngn')->first()->amount;
-
-
-            $get2 = $get_lists['187'];
-
-            $get_prices = [];
-            foreach ($get2 as $key => $value) {
-                $get_prices[] = array(
-                    "code" => $key,
-                    "name" => $value['name'],
-                    "count" => $value['count'],
-                    "cost" => $value['cost'] * $getrate,
-                    "cost2" => Crypt::encrypt($value['cost'] * $getrate),
-                );
-            }
-
-            $wallet = Auth::user()->wallet;
-            $countries = Flag::all();
-            $services = Service::all();
-
-            $country = null;
-            $amount = null;
-            $count = null;
-            $service = null;
-            $number_view = 1;
-            $country_name = "USA";
-            $country_code = "+1";
-            $number = $number['2'];
-            $nid = $number['3'];
-            $cost = $cost;
+        $country = null;
+        $amount = null;
+        $count = null;
+        $service = null;
+        $number_view = 1;
+        $country_name = "USA";
+        $country_code = "+1";
+        $number = $number['2'];
+        $nid = $number['3'];
+        $cost = $cost;
 
 
 
-        
+
         $id = $request->nid;
         $api_key = env('P2KEY');
 
@@ -228,7 +228,7 @@ class DeviceController extends Controller
 
 
         $response = $ban_sms['response'] ?? null;
-        if($response == 1){
+        if($response == 1) {
             return response()->json([
                 'status' => 'successfully ban',
             ]);
@@ -236,21 +236,21 @@ class DeviceController extends Controller
 
 
 
-        if($response == 2){
+        if($response == 2) {
             return response()->json([
                 'status' => 'error occur',
             ]);
         }
 
 
-        return view('user.instant.server2', compact('wallet', 'cost', 'get_prices', 'country_name', 'nid', 'country_code',  'number', 'number_view', 'service', 'amount', 'count', 'country', 'countries', 'services'));
+        return view('user.instant.server2', compact('wallet', 'cost', 'get_prices', 'country_name', 'nid', 'country_code', 'number', 'number_view', 'service', 'amount', 'count', 'country', 'countries', 'services'));
 
 
 
     }
 
 
-
+}
 
 
 
